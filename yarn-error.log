@@ -1,0 +1,36 @@
+Arguments: 
+  /usr/local/Cellar/node/16.9.0/bin/node /usr/local/Cellar/yarn/1.22.11/libexec/bin/yarn.js global remove create-react-app
+
+PATH: 
+  /Users/jasondavis/.rvm/gems/ruby-2.6.1/bin:/Users/jasondavis/.rvm/gems/ruby-2.6.1@global/bin:/Users/jasondavis/.rvm/rubies/ruby-2.6.1/bin:/usr/local/opt/icu4c/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:/usr/local:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/jasondavis/.rvm/bin
+
+Yarn version: 
+  1.22.11
+
+Node version: 
+  16.9.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/jasondavis/Flatiron/code/TextStory_FrontEnd/package.json: Unexpected token , in JSON at position 12
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.22.11/libexec/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.22.11/libexec/lib/cli.js:310:30)
+      at /usr/local/Cellar/yarn/1.22.11/libexec/lib/cli.js:321:13
+
+npm manifest: 
+  {
+      
+      },
+  
+      }
+    }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
