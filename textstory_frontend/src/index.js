@@ -8,6 +8,7 @@ import App from './App';
 import userReducer from './action/User/UserReducer';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
+const base_url = "http://localhost:3000/api/v1/users"
 
 const store = createStore(userReducer, applyMiddleware(thunk));
 

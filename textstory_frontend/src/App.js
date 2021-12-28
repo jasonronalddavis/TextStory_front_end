@@ -1,7 +1,7 @@
 import './App.css';
 import React, { Component } from 'react';
 import Form from "./components/Formz";
-import  {fetchUser}  from './action/User/fetchUser'
+import  { fetchUsers }  from './action/User/fetchUsers'
 import  {connect}  from 'react-redux';
 
 
@@ -10,7 +10,7 @@ class App extends Component  {
 
 componentDidMount() {
     // console.log(this.props)
-    this.props.fetchUser()
+    this.props.fetchUsers()
   }
 
 
@@ -29,14 +29,14 @@ render() {
 
 const mapStateToProps = state => {
   return {
-    user: state.user,
+    users: state.users,
     loading: state.loading
   }
 }
  
 const mapDispatchToProps = dispatch => {
   return {
-    fetchUser: () => dispatch(fetchUser())
+    fetchUsers: () => dispatch(fetchUsers())
   }
 }
 
