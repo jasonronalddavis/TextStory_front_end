@@ -1,24 +1,26 @@
-import './App.css';
+import '../App.css';
 import React, { Component } from 'react';
-import Form from "./components/Formz";
-import  { fetchUsers }  from './action/User/fetchUsers'
+import Form from "../components/Form/Formz";
+import  { fetchUsers }  from '../action/User/fetchUsers'
 import  {connect}  from 'react-redux';
+import StoryTextContainer from '../containers/StoryTextContainer';
+import UsersContainer from '../containers/UsersContainer';
+
 
 
 class App extends Component  {
 
 
-componentDidMount() {
-    // console.log(this.props)
-    this.props.fetchUsers()
-  }
 
 
 render() {
+  
   return (
 
     <div className= "App">
    <Form/>
+   <StoryTextContainer />
+    <UsersContainer/>
     </div>
   )
 }

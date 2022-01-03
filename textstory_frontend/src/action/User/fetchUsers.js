@@ -1,11 +1,17 @@
+export const fetchUsers = () =>  {
 
-export const fetchUsers = () => {
-    return (dispatch) => {
-      fetch("http://localhost:3000/api/v1/users")
-      .then(response => response.json())
-      .then(users => console.log('fetchUsers',users))      
-      
+return (dispatch) => {
+
+fetch("http://localhost:3001/api/v1/users", {
+  headers : { 
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
       }
-    }
+})
+.then(response => response.json())
+.then(users => dispatch({type: 'FETCH_USERS', payload: users}))   
+}
 
+
+}
 

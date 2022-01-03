@@ -1,16 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
 import './index.css';
-import App from './App';
-import userReducer from './action/User/UserReducer';
+import App from './components/App';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import store from "./store"; 
 
-const base_url = "http://localhost:3000/api/v1/users"
 
-const store = createStore(userReducer, applyMiddleware(thunk));
+
 
 
 ReactDOM.render(
