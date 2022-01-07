@@ -17,8 +17,7 @@ return dispatch => {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
         },
-    body: JSON.stringify()
-    
+    body: JSON.stringify(credentials)
  })
 }
 }

@@ -2,33 +2,38 @@ import React from 'react'
 import {connect} from 'react-redux'
 import   {updateLoginForm }  from '../../action/loginForm';
 import {login} from '../../action/User/user';
-
+import {useDispatch} from 'react-redux';
 
 
 const Form = ({loginData, updateLoginForm, login}) => {
 
 
-
+const dispatch = useDispatch()
 
     const  handleChange = event => {
+     
+      event.preventDefault();
         const {name, value} = event.target
        const  updatedFormInfo = {
         ...loginData,
         [name]: value
        }
+      
       updateLoginForm(updatedFormInfo)
       }
     
 
       const handleSubmit = event => {
     event.preventDefault()
+    
     login(loginData)
    }
     
 
 
     return (  
-        <form onSubmit={login}>
+      
+        <form onSubmit={handleSubmit}>
           <label>Name</label>
           <input
           placeholder="Create a Username"
@@ -50,7 +55,12 @@ const Form = ({loginData, updateLoginForm, login}) => {
 
   }
   
-
+const mapDispatchToProps = dispatch => {
+  return {
+updateLoginForm: (e) => dispatch(updateLoginForm()),
+login: (e, credentials) => dispatch(login(e, credentials)),
+  }
+}
 
 
 
@@ -63,7 +73,7 @@ const mapStateToProps = state => {
 
 
 
-export default connect(mapStateToProps,{updateLoginForm, login})(Form)
+export default connect(mapStateToProps,{ updateLoginForm, login})(Form)
 
 //we can connect functions to thunk login^^
 
