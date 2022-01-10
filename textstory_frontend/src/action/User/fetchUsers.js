@@ -1,15 +1,15 @@
-export const fetchUsers = () =>  {
-
-return (dispatch) => {
-
+export const fetchUsers = credentials =>  {
+return () => {
 fetch("http://localhost:3001/api/v1/users", {
-  headers : { 
+credentials: "include",
+headers : { 
     'Content-Type': 'application/json',
     'Accept': 'application/json'
-      }
+      },
+      body: JSON.stringify(credentials)
 })
 .then(response => response.json())
-.then(users => dispatch({type: 'FETCH_USERS', payload: users}))   
+.then(users => ({type: 'FETCH_USERS', payload: users}))   
 }
 
 

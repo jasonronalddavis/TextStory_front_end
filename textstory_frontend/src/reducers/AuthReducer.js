@@ -1,4 +1,4 @@
-export const authReducer = (state = [], action) => {
+export const authReducer = (state = null, action) => {
 switch(action.type){
 case 'FETCH_USERS':
 return action.payload
