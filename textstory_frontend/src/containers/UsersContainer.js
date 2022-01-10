@@ -1,7 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import  {fetchUsers}  from '../action/User/fetchUsers';
-import ListUsers from '../components/User/users';
+import ListUsers from "../components/User/users";
+
+
+
 
 class UsersContainer extends React.Component  {
 
@@ -11,20 +14,27 @@ this.props.fetchUsers()
 }
 
 
-
     render() {
       return (
         <div>   
-     {this.props.users.map( user => <ul><li key={user.id}>  {user.name} </li></ul>)}
+  UsersContainer
+  <ListUsers/>
+
         </div>
       );
     }
   }
   
-  const mapStateToProps = state => {
-    return {users: state.users }
+
     
-    }
+
+// const mapDispatchToProps = dispatch => ({
+//     fetchUsers: text => dispatch(fetchUsers)  
+//   })
+
+
+
     
   
-  export default connect(mapStateToProps,{fetchUsers})(UsersContainer);
+  export default connect(null, {fetchUsers})(UsersContainer);
+

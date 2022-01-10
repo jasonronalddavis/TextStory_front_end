@@ -7,17 +7,34 @@ import  {fetchUsers}  from '../../action/User/fetchUsers';
 
 
 
+
+
+
+
+
       const ListUsers = ({users}) => {
 
-    
-            {"barnes"}
-
-
- 
+    return(
+<div>
+ {console.log(users)}
+</div>
+    );
   };
 
 
+  const mapStateToProps = state => {
+    return {users: state.users }
+    
+    }
+
+
+  const mapDispatchToProps = dispatch => {
+        return {
+   users: dispatch(fetchUsers())
+        }
+    }
 
 
 
-export default connect(null,{fetchUsers})(ListUsers);
+export default connect(mapStateToProps,mapDispatchToProps)(ListUsers);
+
