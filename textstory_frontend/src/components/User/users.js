@@ -3,20 +3,14 @@ import React from 'react';
 import  {connect}  from 'react-redux';
 import  {fetchUsers}  from '../../action/User/fetchUsers';
 
-
-
-
-
-
-
-
-
+//MOUNTED ON USERSCONTAINER
 
       const ListUsers = ({users}) => {
-
+//map over user instances and display name 
     return(
 <div>
- {console.log(users)}
+
+ {users.map(user => <ul>  {user.name} </ul>)}
 </div>
     );
   };
@@ -33,7 +27,6 @@ import  {fetchUsers}  from '../../action/User/fetchUsers';
    users: dispatch(fetchUsers())
         }
     }
-
 
 
 export default connect(mapStateToProps,mapDispatchToProps)(ListUsers);
