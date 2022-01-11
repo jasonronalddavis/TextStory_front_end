@@ -5,11 +5,21 @@ import  {fetchUsers}  from '../../action/User/fetchUsers';
 
 //MOUNTED ON USERSCONTAINER
 
-      const ListUsers = ({users}) => {
+
+
+
+
+const ListUsers = ({users, props}) => {
 //map over user instances and display name 
+
+const componentDidMount = () => {
+    // console.log(this.props)
+    this.fetchUsers();
+  }
+
+
     return(
 <div>
-
  {users.map(user => <ul>  {user.name} </ul>)}
 </div>
     );
@@ -22,12 +32,18 @@ import  {fetchUsers}  from '../../action/User/fetchUsers';
     }
 
 
+
+
+
+
+
+
   const mapDispatchToProps = dispatch => {
         return {
-   users: dispatch(fetchUsers())
+   fetchUsers: () => dispatch(fetchUsers())
         }
     }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(ListUsers);
+export default connect(null, mapStateToProps,mapDispatchToProps)(ListUsers);
 

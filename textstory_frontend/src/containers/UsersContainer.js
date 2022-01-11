@@ -11,6 +11,7 @@ class UsersContainer extends React.Component  {
 
 componentDidMount(){
 this.props.fetchUsers()
+
 }
 
 
@@ -19,14 +20,11 @@ this.props.fetchUsers()
         <div>   
   UsersContainer
   <ListUsers/>
-
         </div>
       );
     }
   }
   
-
-    
 
 // const mapDispatchToProps = dispatch => ({
 //     fetchUsers: text => dispatch(fetchUsers)  

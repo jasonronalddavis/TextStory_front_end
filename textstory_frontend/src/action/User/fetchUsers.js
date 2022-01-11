@@ -22,8 +22,7 @@ headers : {
       body: JSON.stringify()
 })
 .then(r => r.json())
-.then( users => dispatch(setUsers(users)))
-
+.then( resp => dispatch(setUsers(resp)))
 }
 }
 
