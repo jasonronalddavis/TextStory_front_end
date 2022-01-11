@@ -9,7 +9,7 @@ import {useSelector} from 'react-redux';
 
 
 
-      const ListUsers = () => {
+      const ListUsers = (props) => {
 //map over user instances and display name 
 const users= useSelector((state) => state.users.data);
 console.log(users)
@@ -24,7 +24,7 @@ const componentDidMount = () => {
     return(
 <div>
 list
- {users}
+ {console.log(props)}
 </div>
     );
   };
