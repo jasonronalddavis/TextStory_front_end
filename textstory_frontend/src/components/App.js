@@ -1,7 +1,7 @@
 import '../App.css';
 import React from 'react';
 import Form from "../components/Form/Formz";
-import  { fetchUsers }  from '../action/User/fetchUsers'
+//import  { fetchUsers }  from '../action/User/fetchUsers'
 import  {connect}  from 'react-redux';
 import StoryTextContainer from '../containers/StoryTextContainer';
 import UsersContainer from '../containers/UsersContainer';
@@ -14,6 +14,7 @@ class App extends React.Component  {
 
 componentDidMount(){
 this.props.getCurrentUser()
+
 }
 
 
@@ -46,7 +47,7 @@ render() {
  
  const mapDispatchToProps = dispatch => {
    return {
-     fetchUsers: () => dispatch(fetchUsers()),
+    // fetchUsers: () => dispatch(fetchUsers()),
      getCurrentUser: () => dispatch(getCurrentUser())
    }
  }
