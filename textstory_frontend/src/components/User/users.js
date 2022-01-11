@@ -2,15 +2,18 @@
 import React from 'react';
 import  {connect}  from 'react-redux';
 import  {fetchUsers}  from '../../action/User/fetchUsers';
-
+import {useSelector} from 'react-redux';
 //MOUNTED ON USERSCONTAINER
 
 
 
 
 
-const ListUsers = ({users, props}) => {
+      const ListUsers = () => {
 //map over user instances and display name 
+const users= useSelector((state) => state.users.data);
+console.log(users)
+
 
 const componentDidMount = () => {
     // console.log(this.props)
@@ -20,7 +23,8 @@ const componentDidMount = () => {
 
     return(
 <div>
- {users.map(user => <ul>  {user.name} </ul>)}
+list
+ {users}
 </div>
     );
   };
@@ -45,5 +49,5 @@ const componentDidMount = () => {
     }
 
 
-export default connect(null, mapStateToProps,mapDispatchToProps)(ListUsers);
+export default connect(mapStateToProps,mapDispatchToProps)(ListUsers);
 
