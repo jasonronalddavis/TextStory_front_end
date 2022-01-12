@@ -20,7 +20,6 @@ this.props.fetchUsers()
         <div>   
   UsersContainer
   <ListUsers/>
-  {this.props.users && this.props.users.map(user => <ul> {user}</ul>)}
         </div>
       );
     }

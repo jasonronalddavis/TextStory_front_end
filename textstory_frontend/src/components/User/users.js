@@ -3,40 +3,38 @@ import React from 'react';
 import  {connect}  from 'react-redux';
 import {useSelector} from 'react-redux';
 //MOUNTED ON USERSCONTAINER
+import  {fetchUsers}  from '../../action/User/fetchUsers';
 
 
 
 
-
-      const ListUsers = ({users}, props) => {
-//map over user instances and display name 
-
-
-
-console.log(users)
-
-
-    return(
-<div>
-list
- {props.users && props.users.map(user => <ul> {user}</ul>)}
-</div>
-    );
-  };
-
-
-  const mapStateToProps = state => {
-    return {users: state.users }
+class ListUsers  extends React.Component  {
+  // const ListUsers = ({users, props}) => {
+  //map over user instances and display name 
+  
+  componentDidMount(){
+      // console.log(this.props)
+      this.props.fetchUsers();
     }
-
-const mapDipsatchToProps = dispatch => {
-return {
-  fetchUsers: users => dispatch({type: ' FETCH_USERS', users})
-}
-
-}
-
-
-
-export default connect(mapStateToProps, mapDipsatchToProps)(ListUsers);
-
+  
+    render() {
+      return(
+  <div>
+   {this.props.users.map(user => <ul>  {user.name} </ul>)}
+  </div>
+      );
+    };
+  }
+  
+    const mapStateToProps = state => {
+      return {users: state.users }
+      
+      }
+  
+    const mapDispatchToProps = dispatch => {
+          return {
+     fetchUsers: () => dispatch(fetchUsers())
+          }
+      }
+  
+  export default connect(mapStateToProps,mapDispatchToProps)(ListUsers);
