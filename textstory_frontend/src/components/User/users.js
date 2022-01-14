@@ -1,7 +1,6 @@
 
 import React from 'react';
 import  {connect}  from 'react-redux';
-import {useSelector} from 'react-redux';
 //MOUNTED ON USERSCONTAINER
 import  {fetchUsers}  from '../../action/User/fetchUsers';
 
@@ -18,16 +17,18 @@ class ListUsers  extends React.Component  {
     }
   
     render() {
-      return(
+     
+      return(   
   <div>
-   {this.props.users.map(user => <ul>  {user.name} </ul>)}
+  <h1 id="usersHeader">Users</h1>
+  {this.props.users.map(user => <ul>{user.attributes.name} </ul>)}
   </div>
       );
     };
   }
   
     const mapStateToProps = state => {
-      return {users: state.users }
+      return {users: state.users}
       
       }
   
@@ -36,5 +37,5 @@ class ListUsers  extends React.Component  {
      fetchUsers: () => dispatch(fetchUsers())
           }
       }
-  
+
   export default connect(mapStateToProps,mapDispatchToProps)(ListUsers);

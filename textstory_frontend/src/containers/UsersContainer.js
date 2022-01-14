@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux'
 import  {fetchUsers}  from '../action/User/fetchUsers';
 import ListUsers from "../components/User/users";
-
+import  "./users.css";
 
 
 
@@ -17,8 +17,7 @@ this.props.fetchUsers()
 
     render() {
       return (
-        <div>   
-  UsersContainer
+        <div className="UsersContainer">   
   <ListUsers/>
         </div>
       );

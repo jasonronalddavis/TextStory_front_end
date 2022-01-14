@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import   {updateLoginForm }  from '../../action/loginForm';
 import {login} from '../../action/User/user';
-
+import '../Form/css/login.css'
 
 const Form = ({loginData, updateLoginForm, login}) => {
 
@@ -29,7 +29,7 @@ const Form = ({loginData, updateLoginForm, login}) => {
 
 
     return (  
-      
+      <div className="login"> 
         <form onSubmit={handleSubmit}>
           <label>Name</label>
           <input
@@ -47,7 +47,8 @@ const Form = ({loginData, updateLoginForm, login}) => {
             value={loginData.password} onChange={handleChange}
           /><label>Password</label><br/>
 <input type="submit" value="Login"/>
-        </form>   
+        </form> 
+        </div>  
     );
 
   }

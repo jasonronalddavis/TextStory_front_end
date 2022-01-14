@@ -8,6 +8,11 @@ import UsersContainer from '../containers/UsersContainer';
 import {getCurrentUser} from '../action/User/user';
 import Logout from "./Form/logout";
 import Router from "./Router";
+import Stylesheet from "./Stylesheet";
+import User from "../components/User/user";
+
+
+
 
 class App extends React.Component  {
 
@@ -19,40 +24,30 @@ this.props.getCurrentUser()
 
 
 
-render() {
-  
+render(){
   return (
+    <div className="App">
+      <Stylesheet/>
+      <UsersContainer/>
+  {this.props.user ? <Logout/> : <Form/> }
+ {this.props.user ? <User/> : null}
 
-    <div className= "App">
-   <Form/>
-   <StoryTextContainer />
-   <UsersContainer/>
-   <Router/>
-    {<Logout/>}
     </div>
-  )
+ 
+ 
+  );
+}
 }
 
 
-}
-
-
- const mapStateToProps = state => {
+ const mapStateToProps = ({user}) => {
    return {
-     users: state.users,
-     loading: state.loading,
-     user: state.user
+    user
   }
  }
  
- const mapDispatchToProps = dispatch => {
-   return {
-    // fetchUsers: () => dispatch(fetchUsers()),
-     getCurrentUser: () => dispatch(getCurrentUser())
-   }
- }
 
 
 
 
-export default connect(null, {mapStateToProps,mapDispatchToProps,getCurrentUser})(App);
+export default connect(mapStateToProps, {getCurrentUser})(App);

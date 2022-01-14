@@ -4,18 +4,17 @@ import {logout} from '../../action/User/user.js';
 import { withRouter } from 'react-router-dom'
 
 
-const Logout = () => {
+const Logout = ({logout}) => {
     return(
-<form
-onSubmit={ (event) => {
-event.preventDefault()
-logout()
-}
-}>
+
+        <div className="logout">
+<form onSubmit={logout}> 
     <input type="submit" value="Logout"/>
 </form>
+</div>
     )    
 }
 
 
-export default withRouter(connect(null, { logout } )(Logout))
+
+export default connect(null,{logout} )(Logout)
