@@ -9,11 +9,7 @@ const Router = () => {
 return (
 
 <Switch>
-
 <Route exact path ='/users' component={ListUsers}/>
-
-
-
 </Switch>
 
 );

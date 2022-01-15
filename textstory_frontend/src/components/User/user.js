@@ -13,7 +13,6 @@ class User extends React.Component  {
 
 
         render(){
-            console.log(this.props.user.name)
             return ( 
                 <div className="User"> 
                 <h1> {this.props.user.name} </h1>

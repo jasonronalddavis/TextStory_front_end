@@ -10,6 +10,7 @@ import Logout from "./Form/logout";
 import Router from "./Router";
 import Stylesheet from "./Stylesheet";
 import User from "../components/User/user";
+import Signup from "../components/Form/Signup";
 
 
 
@@ -29,9 +30,10 @@ render(){
     <div className="App">
       <Stylesheet/>
       <UsersContainer/>
+    
   {this.props.user ? <Logout/> : <Form/> }
  {this.props.user ? <User/> : null}
-
+ {this.props.user ? null : <Signup/>}
     </div>
  
  

@@ -16,7 +16,6 @@ const Form = ({loginData, updateLoginForm, login}) => {
         ...loginData,
         [name]: value
        }
-      
       updateLoginForm(updatedFormInfo)
       }
     
@@ -30,6 +29,7 @@ const Form = ({loginData, updateLoginForm, login}) => {
 
     return (  
       <div className="login"> 
+      <h3> LOGIN</h3>
         <form onSubmit={handleSubmit}>
           <label>Name</label>
           <input
