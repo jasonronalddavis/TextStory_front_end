@@ -1,0 +1,25 @@
+#ScriptHeader {
+
+    position:absolute; top: 180px;  left: 250px;
+    color: teal
+
+}
+
+
+.StoryTextList {
+    position:relative; top: 290px;  left: 170px;
+    color: teal;
+    -webkit-box-reflect: below 120px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+    overflow-x: scroll; height: 120px; width: 200px;
+    overflow-x: hidden;
+    
+}
+
+.createStoryText {
+
+    position:relative; top: 350px;  left: 190px; z-index: 90;
+    color: teal;
+    -webkit-box-reflect: below 160px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+    overflow-y: scroll; height: 120px; width: 220px;
+    
+}

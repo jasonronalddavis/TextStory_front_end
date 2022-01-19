@@ -5,13 +5,14 @@ import Form from "../components/Form/Formz";
 import  {connect}  from 'react-redux';
 import StoryTextContainer from '../containers/StoryTextContainer';
 import UsersContainer from '../containers/UsersContainer';
+import CategoriesContainer from '../containers/categoriesContainer';
+
 import {getCurrentUser} from '../action/User/user';
 import Logout from "./Form/logout";
 import Router from "./Router";
 import Stylesheet from "./Stylesheet";
 import User from "../components/User/user";
 import Signup from "../components/Form/Signup";
-
 
 
 
@@ -28,15 +29,14 @@ this.props.getCurrentUser()
 render(){
   return (
     <div className="App">
-      <Stylesheet/>
-      <UsersContainer/>
-    
+      <Router/>
+      <Stylesheet/>   
+     {this.props.user ? <CategoriesContainer/> : null }
   {this.props.user ? <Logout/> : <Form/> }
  {this.props.user ? <User/> : null}
  {this.props.user ? null : <Signup/>}
+
     </div>
- 
- 
   );
 }
 }

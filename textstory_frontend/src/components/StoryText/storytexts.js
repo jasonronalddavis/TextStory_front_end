@@ -1,17 +1,48 @@
-
+import  {connect}  from 'react-redux';
 import React, { Component } from 'react';
-import StoryText from '../StoryText/StoryText'
+import  {fetchStoryTexts}  from '../../action/StoryTexts/FetchStoryTexts';
 
-class StoryTexts extends Component {
+
+
+
+class ListStoryTexts extends Component {
+
+
+componentDidMount(){
+      // console.log(this.props)
+      this.props.fetchStoryTexts();
+    }
+
+
+
+
   render() {
     return(
+      <div className="StoryTextList">
       <ul>
-        {this.props.StoryText.map(storytext => {
-          return <StoryText key={storytext.id} storytext={storytext} deleteStoryText={this.props.deleteStoryText} />
-        })}
+        {this.props.storytexts.map(storytext => <ul key={storytext.attributes.id}> {storytext.attributes.name} </ul>)}
       </ul>
+      </div>
     );
   }
 };
 
-export default StoryTexts;
+
+const mapStateToProps = state => {
+      return {storytexts: state.storytexts}
+      
+      }
+  
+    const mapDispatchToProps = dispatch => {
+          return {
+     fetchStoryTexts: () => dispatch(fetchStoryTexts())
+          }
+      }
+
+
+
+
+
+
+
+  export default connect(mapStateToProps,mapDispatchToProps)(ListStoryTexts);

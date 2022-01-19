@@ -2,22 +2,22 @@ import React from 'react';
 import {connect} from 'react-redux'
 import  {fetchUsers}  from '../action/User/fetchUsers';
 import ListUsers from "../components/User/users";
-import  "./users.css";
-
+import { NavLink } from 'react-router-dom'
+import '../components/Home.css'
 
 
 class UsersContainer extends React.Component  {
 
 
-componentDidMount(){
-this.props.fetchUsers()
 
-}
 
 
     render() {
       return (
-        <div className="UsersContainer">   
+        <div className="UsersContainer">  
+         <h1 id="usersHeader">Users</h1>
+        <NavLink exact activeClassName="active" to="/" className="homeLink">Home</NavLink>
+ 
   <ListUsers/>
         </div>
       );

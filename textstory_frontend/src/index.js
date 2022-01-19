@@ -5,7 +5,8 @@ import './index.css';
 import App from './components/App';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import store from "./store"; 
-
+import BckGrnd from "./public/BckGrnd.png";
+import './BckGrnd.css'
 
 
 
@@ -14,7 +15,9 @@ ReactDOM.render(
   <Provider store={store}>
   <Router>  
     <div>
-      <Route exact path="/" component={App} />  
+  {<img className="BckGrnd" style={{ alignSelf: 'center' }} src={require('./public/BckGrnd.png') }
+/>}
+    <App/>
     </div>
   </Router>
   </Provider>,

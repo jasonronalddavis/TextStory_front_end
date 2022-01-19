@@ -3,6 +3,7 @@ import React from 'react';
 import  {connect}  from 'react-redux';
 //MOUNTED ON USERSCONTAINER
 import  {fetchUsers}  from '../../action/User/fetchUsers';
+import  "../../containers/users.css";
 
 
 
@@ -19,9 +20,9 @@ class ListUsers  extends React.Component  {
     render() {
      
       return(   
-  <div>
-  <h1 id="usersHeader">Users</h1>
-  {this.props.users.map(user => <ul>{user.attributes.name} </ul>)}
+  <div className="listUsers">
+ 
+  {this.props.users.map(user => <ul key={user.id}> {user.attributes.name} </ul>)}
   </div>
       );
     };
