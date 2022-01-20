@@ -3,11 +3,12 @@
 const initialState = {
   name: "",
   description: "",
- category_ids: {},
+ category_ids: [],
  user_id: "",
- user_ids: {},
- comment_ids: {},
- image_ids: {}
+ user_ids: [],
+ comment_ids: [],
+ image_url: "",
+ text_content: ""
 }
 
 

@@ -36,9 +36,10 @@ export const CreateStoryText = (storyTextData) =>  {
 return dispatch => {
     const sendData = {
       category_ids: storyTextData.categoryIds,
-      image_ids: storyTextData.imageIds,
+      image_id: storyTextData.imageId,
       description: storyTextData.description,
       name: storyTextData.name,
+      text_content:  storyTextData.text_content,      
       user_id: storyTextData.userId,
       user_ids: storyTextData.userIds
     }
