@@ -51,7 +51,7 @@ export const setImage = (image_file) => {
   
     return  dispatch => {
    // const imageR = reader.readAsDataURL(file);
-  return dispatch(setImage(image_file))
+  dispatch(setImage(image_file))
    
   }
   
