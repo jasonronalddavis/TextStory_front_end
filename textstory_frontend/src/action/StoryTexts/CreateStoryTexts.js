@@ -1,3 +1,5 @@
+import React from 'react'
+import { useEffect, useState } from "react";
 
 
 
@@ -30,10 +32,37 @@ export const resetStoryText = () => {
 
 
 
+
+export const setImage = (image_file) => {
+
+  return {
+   type: "UPLOAD_IMAGE",
+   payload: image_file
+      }
+   
+  }
+  
+  
+  
+  
+  
+  
+  export const uploadImage = (image_file) => { 
+  
+    return  dispatch => {
+   // const imageR = reader.readAsDataURL(file);
+  return dispatch(setImage(image_file))
+   
+  }
+  
+  }//
+//
   //ASYNC
 
-export const CreateStoryText = (storyTextData) =>  {
+export const CreateStoryText = (storyTextData, image_file) =>  {
+
 return dispatch => {
+  
     const sendData = {
       category_ids: storyTextData.categoryIds,
       image_id: storyTextData.imageId,
@@ -43,6 +72,8 @@ return dispatch => {
       user_id: storyTextData.userId,
       user_ids: storyTextData.userIds
     }
+  
+
     return fetch("http://localhost:3001/api/v1/story_texts", {
       credentials: "include",
       method: "POST",

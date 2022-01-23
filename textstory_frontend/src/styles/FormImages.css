@@ -4,3 +4,11 @@
 
 
 }
+
+
+
+.imagePreview {
+
+    position:relative; top: 0px;  left: 10px;
+    width: 90px;
+}

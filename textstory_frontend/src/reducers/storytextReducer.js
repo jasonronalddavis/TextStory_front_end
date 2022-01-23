@@ -7,10 +7,10 @@ const initialState = {
  user_id: "",
  user_ids: [],
  comment_ids: [],
- image_url: "",
- text_content: ""
+file: [],
+ text_content: "",
+ image_file: "",
 }
-
 
 
 
@@ -19,9 +19,11 @@ const initialState = {
 export const storytextReducer = (state = initialState, action) => {
 switch(action.type){
 case "SET_STORY_TEXT":
-return state.concat(action.storytext)
+return state.concat(action.storytext) 
 case "RESET_STORY_TEXT_FORM":
 return initialState
+case "UPLOAD_IMAGE":
+ return action.payload 
 case "UPDATE_STORY_TEXT_FORM":
 const returnVal = {
         ...state,

@@ -9,7 +9,6 @@ import {categoriesReducer} from './CategoriesReducer'
 
 
 
-
 export const rootReducer = combineReducers({
 users: usersReducer,
 categories: categoriesReducer,

@@ -6,14 +6,18 @@ import ListCategories from '../../../components/Category/categories';
 import  {fetchCategories}  from '../../../action/Category/fetchCategories';
 import {updateForm } from '../../../action/StoryTexts/CreateStoryTexts';
 import '../../../styles/FormImages.css';
+import { useEffect, useState } from "react";
+import {uploadImage} from '../../../action/StoryTexts/CreateStoryTexts';
 
 
 
-const StoryTextForm = ({formData, updateForm, user_id, image, imageInput, createStoryText, categories, props}) => {
+const StoryTextForm = ({formData, updateForm,uploadImage,image_file, createStoryText, categories, props}) => {
 
 
- 
-const CheckBox = ({label, value, onChange}) => {
+   const [newImage, setNewImage] = useState('');
+
+
+const CheckBox = ({ value, onChange}) => {
 return(
 categories.map(category =>
 <label>
@@ -28,40 +32,39 @@ onChange={onChange}
 )
 )
 }
-  const preview = document.querySelector("StDefimg");
 
-
-
-
-const ImgageSelect = ({label,imageInput, value, onChange}) => {
-return (
-<label htmlFor={imageInput} className="image-upload"> </label>
-)
-}
-
-
-
-
-
-const imageHandler = (e) => {
-  const reader = new FileReader();
-  reader.onload = () => {
- if(reader.readyState === 2){
- debugger;
- formData.image_url = (reader.result)
-  }
-  }
-  reader.readAsDataURL(e.target.files[0])
-}
 
 
 
 const DefaultImage = () => {
   return (
-    
-<img  src={SrC} alt="" id="StDefimg" className="img" onChange={imageHandler}/>
+<img  src={require('../../../public/DefaultImage.png')} alt="" id="StDefimg" className="img" onChange={imageHandler}/>
   )
 }
+
+
+
+const imageHandler = (e, state) => {
+ //debugger;
+  const  image_file = e.target.files[0];
+  const reader = new FileReader();
+  reader.readAsDataURL(e.target.files[0])
+  const updateImage = {
+    ...state,
+    [image_file]: image_file
+   } 
+  e.persist(e.target.files[0])
+  reader.onloadend = () => {
+    setNewImage(reader.result)
+    
+  uploadImage(image_file)
+  //e.persist(newImage)
+//debugger;
+   console.log(formData.image_file)
+    //debugger;
+  }
+}
+
 
 
 
@@ -79,15 +82,15 @@ const DefaultImage = () => {
     
     
   
-
-
+   console.log(newImage)
     return ( 
        
       <div className="createStoryText"> 
+      
       <h3> Create Script</h3>
         <form onSubmit={handleSubmit}><br></br>
-
-<DefaultImage/>
+<DefaultImage/><br></br>
+<img className="imagePreview" src={newImage}></img>
 <input  type="file" name="image-upload" id="imageInput" accept="image/*" onChange={imageHandler}/> <br></br>
 <div> <CheckBox/></div><br/>
           <label>Name</label>
@@ -126,35 +129,30 @@ const DefaultImage = () => {
   }
   
 
-const Event = e => {
-return (
-  e.target.files[0]
-)
-} 
 
-const file = () => { return (document.querySelector("imageInput").files[0])
-  
-  } 
 
-const mapStateToProps = state => {
-  //debugger;
+const mapStateToProps = (state,newImage) => {
+//debugger;
   return {
     formData: state.storytext,
     categories: state.categories,
-    image: state.storytext.image_url
-     
+    image_upload: newImage
+  
   }  
-}
  
-
-const mapDispatchToprops = dispatch =>  {
-return 
-(null)
 }
-const SrC = () => {require('../../../public/DefaultImage.png')}
 
 
-export default connect(mapStateToProps, { updateForm,SrC, mapDispatchToprops,CreateStoryText, ListCategories} )(StoryTextForm)
+
+const mapDispatchToProps = dispatch => {
+
+return {
+  uploadImage: () => dispatch(uploadImage())
+}
+}
+
+
+export default connect(mapStateToProps,  { updateForm,mapDispatchToProps, uploadImage, CreateStoryText, ListCategories} )(StoryTextForm)
 
 //we can connect functions to thunk createStoryText^^
 
