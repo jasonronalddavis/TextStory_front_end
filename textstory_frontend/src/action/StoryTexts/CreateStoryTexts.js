@@ -16,7 +16,7 @@ return {
 
 export const updateForm =  (formData, input) => {
 
-  debugger;
+//  debugger;
  const name = input.name
 
  const value = input.value
@@ -24,7 +24,7 @@ export const updateForm =  (formData, input) => {
           ...formData,
           [input.name]: input.value
         }
-        debugger;
+      //  debugger;
   return {
     type: "UPDATE_STORY_TEXT_FORM",
     updatedFormInfo
