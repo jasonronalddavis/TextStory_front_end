@@ -21,7 +21,7 @@ switch(action.type){
 case "SET_STORY_TEXT":
   return action.formData && console.log(action.formData)
   case "UPDATE_STORY_TEXT_FORM":
-  return action.formData
+  return action.updatedFormInfo
 case "RESET_STORY_TEXT_FORM":
 return initialState
 case "UPLOAD_IMAGE":

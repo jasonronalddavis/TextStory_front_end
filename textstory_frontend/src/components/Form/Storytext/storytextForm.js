@@ -16,6 +16,8 @@ const StoryTextForm = ({formData, updateForm,uploadImage, CreateStoryText, categ
 
    const [newImage, setNewImage] = useState('');
 
+  const initialValues = {name: "", description: "", text_content: "", image_file: ""}; 
+const [formValues, setFormValues] = useState(initialValues);
 
 const CheckBox = ({ value, onChange}) => {
 return(
@@ -68,17 +70,17 @@ const imageHandler = (e, state) => {
 
 
 
-    const  handleChange = (event, formData) => {
-    
-    const value = event.target.value 
+    const  handleChange = (e) => {
+     
+    const {name,value} = e.target.value 
         const updatedFormInfo = {
           ...formData,
-          [event.target.name]: event.target.value
+          [e.name]: e.value
         }
-
-        //debugger;
-        event.persist(value)
-      updateForm(updatedFormInfo)
+    const input = e.target
+        e.persist(e.target)
+        
+      updateForm(updatedFormInfo,input)
       
       }
   

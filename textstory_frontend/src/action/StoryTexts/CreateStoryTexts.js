@@ -14,11 +14,22 @@ return {
 
 
 
-export const updateForm =  (input) => {
+export const updateForm =  (formData, input) => {
+
+  debugger;
+ const name = input.name
+
+ const value = input.value
+        const updatedFormInfo = {
+          ...formData,
+          [input.name]: input.value
+        }
+        debugger;
   return {
     type: "UPDATE_STORY_TEXT_FORM",
-    formData: input
+    updatedFormInfo
   }
+  
 }
 
 
