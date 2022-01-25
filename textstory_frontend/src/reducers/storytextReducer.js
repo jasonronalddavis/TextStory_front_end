@@ -19,17 +19,13 @@ file: [],
 export const storytextReducer = (state = initialState, action) => {
 switch(action.type){
 case "SET_STORY_TEXT":
-return state.concat(action.storytext) 
+  return action.formData && console.log(action.formData)
+  case "UPDATE_STORY_TEXT_FORM":
+  return action.formData
 case "RESET_STORY_TEXT_FORM":
 return initialState
 case "UPLOAD_IMAGE":
- return action.payload 
-case "UPDATE_STORY_TEXT_FORM":
-const returnVal = {
-        ...state,
-        [action.formData.name]: action.formData.value
-      }
-       return returnVal
+ return  action.payload
 default:
 return state
 }

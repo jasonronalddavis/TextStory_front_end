@@ -11,7 +11,7 @@ import {uploadImage} from '../../../action/StoryTexts/CreateStoryTexts';
 
 
 
-const StoryTextForm = ({formData, updateForm,uploadImage,image_file, createStoryText, categories, props}) => {
+const StoryTextForm = ({formData, updateForm,uploadImage,state, image_file, CreateStoryText, categories, props}) => {
 
 
    const [newImage, setNewImage] = useState('');
@@ -50,7 +50,7 @@ const imageHandler = (e, state) => {
   const reader = new FileReader();
   reader.readAsDataURL(e.target.files[0])
   const updateImage = {
-    ...state,
+    ...formData,
     [image_file]: image_file
    } 
   e.persist(e.target.files[0])
@@ -68,15 +68,25 @@ const imageHandler = (e, state) => {
 
 
 
-    const  handleChange = event => {
-      event.preventDefault();
-        const {name, value} = event.target
-      updateForm(name, value)
-      }
+    const  handleChange = (event, formData) => {
     
+    const value = event.target.value 
+        const updatedFormInfo = {
+          ...formData,
+          [event.target.name]: event.target.value
+        }
+
+        //debugger;
+        event.persist(value)
+      updateForm(updatedFormInfo)
+      
+      }
+  
 
     const handleSubmit = event => {
+     
     event.preventDefault()
+ 
     CreateStoryText(formData)
    }
     
@@ -87,11 +97,11 @@ const imageHandler = (e, state) => {
        
       <div className="createStoryText"> 
       
-      <h3> Create Script</h3>
+      <h3> Create Story</h3>
         <form onSubmit={handleSubmit}><br></br>
 <DefaultImage/><br></br>
 <img className="imagePreview" src={newImage}></img>
-<input  type="file" name="image-upload" id="imageInput" accept="image/*" onChange={imageHandler}/> <br></br>
+<input  type="file" name="image_file" id="imageInput" accept="image/*" onChange={imageHandler}/> <br></br>
 <div> <CheckBox/></div><br/>
           <label>Name</label>
           <input
@@ -99,7 +109,7 @@ const imageHandler = (e, state) => {
             type="text"
             name="name"
           //  onChange={(event) => this.props.handleChange(event)}
-            value={formData.name} 
+         value={formData.name} 
             onChange={handleChange}
           /><br/>
           <textarea
@@ -113,7 +123,7 @@ const imageHandler = (e, state) => {
           <textarea
           placeholder="Type your script!"
           type="textarea"
-            name="description"
+            name="text_content"
          //   onChange={(event) => this.props.handleChange(event)}
             value={formData.text_content} onChange={handleChange}
           /><label>Text Content</label><br/><br/>
@@ -131,12 +141,11 @@ const imageHandler = (e, state) => {
 
 
 
-const mapStateToProps = (state,newImage) => {
+const mapStateToProps = (state) => {
 //debugger;
   return {
     formData: state.storytext,
     categories: state.categories,
-    image_upload: newImage
   
   }  
  
@@ -153,8 +162,3 @@ return {
 
 
 export default connect(mapStateToProps,  { updateForm,mapDispatchToProps, uploadImage, CreateStoryText, ListCategories} )(StoryTextForm)
-
-//we can connect functions to thunk createStoryText^^
-
-
-

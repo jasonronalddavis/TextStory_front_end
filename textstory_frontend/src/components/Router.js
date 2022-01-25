@@ -4,7 +4,7 @@ import Home from './Home'
 import ListUsers from "../components/User/users";
 import UsersContainer from "../containers/UsersContainer";
 import StoryTextContainer from "../containers/StoryTextContainer";
-import StoryTextForm from "../components/Form/Storytext/storytextForm";
+import StoryTextForm from "./Form/Storytext/storyTextForm";
 
 
 

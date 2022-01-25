@@ -3,22 +3,24 @@ import { useEffect, useState } from "react";
 
 
 
-export const setStoryText = storytext => {
-    
+export const setStoryText = (name,state, value) => {
+ 
+  const formData = { name, value }
+  // storyFormData = { name: formdata.name}
 return {
  type: "SET_STORY_TEXT",
-  storytext
+ formData
     }
 }
 
 
 
-export const updateForm =  (name, value) => {
-   const formData = { name, value }
-  //debugger;
+export const updateForm =  (input,state, formData,value) => {
+
+
   return {
     type: "UPDATE_STORY_TEXT_FORM",
-    formData
+    formData: input
   }
 }
 
@@ -37,7 +39,7 @@ export const setImage = (image_file) => {
 
   return {
    type: "UPLOAD_IMAGE",
-   payload: image_file
+    payload: image_file
       }
    
   }
@@ -48,7 +50,7 @@ export const setImage = (image_file) => {
   
   
   export const uploadImage = (image_file) => { 
-  
+  //debugger;
     return  dispatch => {
    // const imageR = reader.readAsDataURL(file);
   dispatch(setImage(image_file))
@@ -59,22 +61,21 @@ export const setImage = (image_file) => {
 //
   //ASYNC
 
-export const CreateStoryText = (storyTextData, image_file) =>  {
-
-return dispatch => {
-  
+export const CreateStoryText = (storyTextData) =>  {
+debugger;
+return async dispatch => {
     const sendData = {
-      category_ids: storyTextData.categoryIds,
-      image_id: storyTextData.imageId,
+      categories: storyTextData.categoryIds,
+      image_id: storyTextData.image_file,
       description: storyTextData.description,
       name: storyTextData.name,
-      text_content:  storyTextData.text_content,      
+      text_content: storyTextData.text_content,      
       user_id: storyTextData.userId,
       user_ids: storyTextData.userIds
     }
   
 
-    return fetch("http://localhost:3001/api/v1/story_texts", {
+    return fetch("http://localhost:3001/api/v1/story_texts/create", {
       credentials: "include",
       method: "POST",
       headers: {
@@ -88,7 +89,7 @@ return dispatch => {
           alert(resp.error)
         } else {
           dispatch(setStoryText(resp.data))
-          dispatch(resetStoryText())
+          //dispatch(resetStoryText())
           // go somewhere else --> trip show?
           // add the new trip to the store
         }
