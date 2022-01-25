@@ -100,9 +100,11 @@ const imageHandler = (e, state) => {
       <h3> Create Story</h3>
         <form onSubmit={handleSubmit}><br></br>
 <DefaultImage/><br></br>
+
 <img className="imagePreview" src={newImage}></img>
 <input  type="file" name="image_file" id="imageInput" accept="image/*" onChange={imageHandler}/> <br></br>
 <div> <CheckBox/></div><br/>
+
           <label>Name</label>
           <input
           placeholder="Create a Name"
@@ -112,6 +114,7 @@ const imageHandler = (e, state) => {
          value={formData.name} 
             onChange={handleChange}
           /><br/>
+
           <textarea
           placeholder="Create a descrpition"
           type="textarea"
