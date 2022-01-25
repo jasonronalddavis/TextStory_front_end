@@ -11,7 +11,7 @@ import {uploadImage} from '../../../action/StoryTexts/CreateStoryTexts';
 
 
 
-const StoryTextForm = ({formData, updateForm,uploadImage,state, image_file, CreateStoryText, categories, props}) => {
+const StoryTextForm = ({formData, updateForm,uploadImage, CreateStoryText, categories}) => {
 
 
    const [newImage, setNewImage] = useState('');
@@ -153,12 +153,4 @@ const mapStateToProps = (state) => {
 
 
 
-const mapDispatchToProps = dispatch => {
-
-return {
-  uploadImage: () => dispatch(uploadImage())
-}
-}
-
-
-export default connect(mapStateToProps,  { updateForm,mapDispatchToProps, uploadImage, CreateStoryText, ListCategories} )(StoryTextForm)
+export default connect(mapStateToProps,  { updateForm, uploadImage, CreateStoryText, ListCategories} )(StoryTextForm)

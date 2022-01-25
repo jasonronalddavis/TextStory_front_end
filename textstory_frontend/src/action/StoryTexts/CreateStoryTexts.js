@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 
 
-export const setStoryText = (name,state, value) => {
+export const setStoryText = (name, value) => {
  
   const formData = { name, value }
   // storyFormData = { name: formdata.name}
@@ -15,9 +15,7 @@ return {
 
 
 
-export const updateForm =  (input,state, formData,value) => {
-
-
+export const updateForm =  (input) => {
   return {
     type: "UPDATE_STORY_TEXT_FORM",
     formData: input
@@ -62,7 +60,6 @@ export const setImage = (image_file) => {
   //ASYNC
 
 export const CreateStoryText = (storyTextData) =>  {
-debugger;
 return async dispatch => {
     const sendData = {
       categories: storyTextData.categoryIds,
