@@ -131,7 +131,7 @@ const imageHandler = (e, state) => {
 
 
 const mapStateToProps = (state) => {
-//debugger;
+  //debugger;
   return {
     formData: state.storytext,
     categories: state.categories,

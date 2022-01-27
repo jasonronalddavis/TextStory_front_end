@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import  {fetchCategories}  from '../action/Category/fetchCategories';
 import ListCategories from '../components/Category/categories';
 
-class CategoriesContainer extends Component {
+ class CategoriesContainer extends Component {
 
 
 

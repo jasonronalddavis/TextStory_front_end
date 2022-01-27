@@ -1,7 +1,9 @@
-export const setCategories = categories => {
+export const setCategories = (categories) => {
+
 return {
  type: "FETCH_CATEGORIES",
- categories
+
+ payload: categories
     }
 }
 

@@ -5,12 +5,10 @@ import {updateCat} from '../../../action/StoryTexts/CreateStoryTexts';
 import  {fetchCategories}  from '../../../action/Category/fetchCategories';
 
 
-const CatCheckBox = ({formData, updateCat,fetchCategories,categories}) => {
+export const CatCheckBox = ({formData, updateCat,fetchCategories,categories}) => {
 
  // const formState = (event,value) => {  const formAttributes = {...formData, [categories]: event.target.value }}
- console.log(categories)
-
-   const [newImage, setNewImage] = useState('');
+const cat = categories
 
   //const initialValues = {name: "", description: "", text_content: "", image_file: "", categories: []}; 
 const [isChecked, setIsChecked] = useState(new Array([].length).fill(false)
@@ -33,29 +31,23 @@ updateCat(formData,cat)
 
 
 
-
 return (
- categories.map((category,idx) => {
-//debugger;
 
-  <label>
+categories.map(c => {
+<div>
+  <label   className="CheckBox">
   <input
-  className="CheckBox"
-  id={category.id}
   type="checkbox"
-  value={category.name}
+  value={c.name}
   onChange={handleCat}
   checked={isChecked}
-  name={category.name}
+  name={c.name}
   //onClick={handleChecked}
   />
-  </label>
-  }
-  )
+  </label> 
+  </div>
+})
 )
-   
-
- 
 
 
 
@@ -69,7 +61,7 @@ return (
 
 
 const mapStateToProps = (state) => {
-//debugger;
+  console.log(state.categories)
   return {
     formData: state.storytext,
     categories: state.categories,
