@@ -3,7 +3,7 @@
 const initialState = {
   name: "",
   description: "",
- category_ids: [],
+ categories: [],
  user_id: "",
  user_ids: [],
  comment_ids: [],
@@ -20,12 +20,14 @@ export const storytextReducer = (state = initialState, action) => {
 switch(action.type){
 case "SET_STORY_TEXT":
   return action.formData && console.log(action.formData)
+  case "UPDATE_CAT":
+    return action.catFormInfo
   case "UPDATE_STORY_TEXT_FORM":
   return action.updatedFormInfo
 case "RESET_STORY_TEXT_FORM":
 return initialState
 case "UPLOAD_IMAGE":
- return  action.payload
+ return action.updatedImg
 default:
 return state
 }

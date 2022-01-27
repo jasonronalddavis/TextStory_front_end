@@ -31,7 +31,7 @@ render(){
     <div className="App">
       <Router/>
       <Stylesheet/>   
-     {this.props.user ? <CategoriesContainer/> : null }
+     <CategoriesContainer/> 
   {this.props.user ? <Logout/> : <Form/> }
  {this.props.user ? <User/> : null}
  {this.props.user ? null : <Signup/>}

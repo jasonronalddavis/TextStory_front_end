@@ -1,8 +1,18 @@
 
-export const categoriesReducer = (state = [], action) => {
+const initial_state = [
+
+
+
+]
+
+
+
+
+export const categoriesReducer = (state =[], action) => {
 switch(action.type){
-case "FETCH_CATEGORIES":
-return action.payload
+case "FETCH_CATEGORIES": 
+console.log(action.categories) 
+return action.categories
 default:
 return state
 }

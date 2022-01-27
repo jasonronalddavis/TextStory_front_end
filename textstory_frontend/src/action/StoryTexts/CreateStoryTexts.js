@@ -33,6 +33,26 @@ export const updateForm =  (formData, input) => {
 }
 
 
+
+export const updateCat = (formData, input) => {
+
+const cat =  input
+const catFormInfo = {
+  ...formData,
+categories: [input]
+}
+//debugger;
+return {
+  type: "UPDATE_CAT",
+  catFormInfo
+}
+
+}
+
+
+
+
+
 export const resetStoryText = () => {
   return {
     type: "RESET_NEW_TRIP_FORM",
@@ -54,26 +74,32 @@ export const setImage = (image_file) => {
   
   
   
+
+
+
   
   
   
-  export const uploadImage = (image_file) => { 
-  //debugger;
-    return  dispatch => {
-   // const imageR = reader.readAsDataURL(file);
-  dispatch(setImage(image_file))
-   
-  }
-  
+  export const uploadImage = (image_file,newImg,formData) => { 
+    const updatedImg = {...formData,
+    image_file: newImg
+      }
+    return {
+      type: "UPLOAD_IMAGE",
+      updatedImg
+      }
   }//
 //
   //ASYNC
 
-export const CreateStoryText = (storyTextData) =>  {
+export const CreateStoryText = (storyTextData, newImage) =>  {
+
+//debugger;
+
 return async dispatch => {
     const sendData = {
-      categories: storyTextData.categoryIds,
-      image_id: storyTextData.image_file,
+      categories: storyTextData.categories,
+      image_file: newImage,
       description: storyTextData.description,
       name: storyTextData.name,
       text_content: storyTextData.text_content,      

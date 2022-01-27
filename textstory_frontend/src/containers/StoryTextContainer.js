@@ -23,4 +23,5 @@ class StoryTextContainer extends Component {
 
 
 
+
   export default connect(null, {fetchStoryTexts})(StoryTextContainer)

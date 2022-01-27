@@ -49,3 +49,8 @@ export const fetchCategories = () =>  {
     console.log(categories)
 }
 }
+
+
+
+this.props.fetchCategories().then(r => r.json())
+.then(resp => { console.log(resp)})

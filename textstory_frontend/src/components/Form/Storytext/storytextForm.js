@@ -8,32 +8,16 @@ import {updateForm } from '../../../action/StoryTexts/CreateStoryTexts';
 import '../../../styles/FormImages.css';
 import { useEffect, useState } from "react";
 import {uploadImage} from '../../../action/StoryTexts/CreateStoryTexts';
+import {updateCat} from '../../../action/StoryTexts/CreateStoryTexts';
+import CatCheckBox from './catCheckBox';
 
+const StoryTextForm = ({formData, updateForm,uploadImage,updateCat, CreateStoryText,categories}) => {
 
-
-const StoryTextForm = ({formData, updateForm,uploadImage, CreateStoryText, categories}) => {
-
+ // const formState = (event,value) => {  const formAttributes = {...formData, [categories]: event.target.value }}
 
    const [newImage, setNewImage] = useState('');
 
-  const initialValues = {name: "", description: "", text_content: "", image_file: ""}; 
-const [formValues, setFormValues] = useState(initialValues);
 
-const CheckBox = ({ value, onChange}) => {
-return(
-categories.map(category =>
-<label>
-<input
-id={category.id}
-type="checkbox"
-checked={value}
-onChange={onChange}
-/>
-{category.name}
-</label>
-)
-)
-}
 
 
 
@@ -43,6 +27,11 @@ const DefaultImage = () => {
 <img  src={require('../../../public/DefaultImage.png')} alt="" id="StDefimg" className="img" onChange={imageHandler}/>
   )
 }
+
+
+
+
+
 
 
 
@@ -57,9 +46,9 @@ const imageHandler = (e, state) => {
    } 
   e.persist(e.target.files[0])
   reader.onloadend = () => {
-    setNewImage(reader.result)
-    
-  uploadImage(image_file)
+   setNewImage(reader.result)
+  const newImg = reader.result
+  uploadImage(image_file,newImg,newImage)
   //e.persist(newImage)
 //debugger;
    console.log(formData.image_file)
@@ -70,42 +59,41 @@ const imageHandler = (e, state) => {
 
 
 
-    const  handleChange = (e) => {
-     
-    const {name,value} = e.target.value 
+
+    const  handleChange = (e) => { 
+    const {name,value} = e.target 
         const updatedFormInfo = {
           ...formData,
           [e.name]: e.value
         }
-    const input = e.target
-        e.persist(e.target)
-        
-      updateForm(updatedFormInfo,input)
-      
+    //const input = e.target
+     //   e.persist(e.target)
+     // updateForm(updatedFormInfo,input)
       }
   
 
+
+
     const handleSubmit = event => {
-     
     event.preventDefault()
- 
-    CreateStoryText(formData)
+    //debugger;
+    CreateStoryText(formData, newImage)
    }
     
     
   
-   console.log(newImage)
+ 
     return ( 
        
       <div className="createStoryText"> 
-      
       <h3> Create Story</h3>
         <form onSubmit={handleSubmit}><br></br>
+        <div> <CatCheckBox/></div><br/>
 <DefaultImage/><br></br>
 
 <img className="imagePreview" src={newImage}></img>
 <input  type="file" name="image_file" id="imageInput" accept="image/*" onChange={imageHandler}/> <br></br>
-<div> <CheckBox/></div><br/>
+
 
           <label>Name</label>
           <input
@@ -132,15 +120,11 @@ const imageHandler = (e, state) => {
          //   onChange={(event) => this.props.handleChange(event)}
             value={formData.text_content} onChange={handleChange}
           /><label>Text Content</label><br/><br/>
- 
-<br></br>
-          
+<br></br>          
 <input type="submit" value="Submit"/>
-
         </form> 
         </div>  
     );
-
   }
   
 
@@ -151,11 +135,13 @@ const mapStateToProps = (state) => {
   return {
     formData: state.storytext,
     categories: state.categories,
-  
-  }  
- 
+    
+  }   
 }
 
 
 
-export default connect(mapStateToProps,  { updateForm, uploadImage, CreateStoryText, ListCategories} )(StoryTextForm)
+
+
+
+export default connect(mapStateToProps,  { updateForm,updateCat, uploadImage, CreateStoryText, ListCategories} )(StoryTextForm)
