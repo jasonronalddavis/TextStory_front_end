@@ -5,13 +5,13 @@ import {updateCat} from '../../../action/StoryTexts/CreateStoryTexts';
 import  {fetchCategories}  from '../../../action/Category/fetchCategories';
 
 
-export const CatCheckBox = ({formData, updateCat,fetchCategories,categories}) => {
+ const CatCheckBox = ({formData, updateCat,fetchCategories,categories}) => {
 
  // const formState = (event,value) => {  const formAttributes = {...formData, [categories]: event.target.value }}
 const cat = categories
 
   //const initialValues = {name: "", description: "", text_content: "", image_file: "", categories: []}; 
-const [isChecked, setIsChecked] = useState(new Array([].length).fill(false)
+const [isChecked, setIsChecked] = useState(new Array([].length).fill(true)
 );
 
 
@@ -21,35 +21,39 @@ const [isChecked, setIsChecked] = useState(new Array([].length).fill(false)
 
 
   const handleCat = (e, idx) => {
-  const cat = e.target.checked
+     // debugger;
+  const catName = e.target.value
   const checked = {isChecked: [e.target.value]}
-//debugger;
-  setIsChecked(checked ); 
-updateCat(formData,cat)
+  checked.isChecked.map(c => {c})
+debugger;
+  setIsChecked(checked); 
+updateCat(formData,catName)
   }
 
 
 
 
-return (
 
-categories.map(c => {
+
+const cMap = categories.map((c,index) => {
+    return (
 <div>
   <label   className="CheckBox">
   <input
+  id={c.id}
   type="checkbox"
   value={c.name}
   onChange={handleCat}
-  checked={isChecked}
+  checked={!isChecked}
   name={c.name}
-  //onClick={handleChecked}
-  />
+  /> {c.name}
   </label> 
   </div>
+  )
 })
-)
 
 
+return cMap
 
 
 
