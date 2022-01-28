@@ -101,7 +101,10 @@ const DefaultImage = () => {  //FOR PRESENTAIION MOUNTED ON FORM
       <h3> Create Story</h3>
         <form onSubmit={handleSubmit}><br></br>
           
-     <div> <CatCheckBox handleCheckboxChange={handleCheckboxChange} isChecked={isChecked} setIsChecked={setIsChecked}/></div><br/>
+     <div> <CatCheckBox //CHECKBOX
+     handleCheckboxChange={handleCheckboxChange} 
+     isChecked={isChecked} 
+     setIsChecked={setIsChecked}/></div><br/>
 
      <DefaultImage/><br></br>
         <img className="imagePreview" // JUST FOR PRESENTATION FOR NOW WILL INSERT UPLOADED IMAGE LATER
