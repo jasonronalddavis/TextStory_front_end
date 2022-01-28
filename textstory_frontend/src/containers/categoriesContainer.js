@@ -5,13 +5,14 @@ import ListCategories from '../components/Category/categories';
 
  class CategoriesContainer extends Component {
 
-
+//MOUNTED ON APP
 //MOUNTING FETCHED CATEGORIES 
   
   componentDidMount(){
       // console.log(this.props)
       this.props.fetchCategories();
     }
+
 
 
     render() {
