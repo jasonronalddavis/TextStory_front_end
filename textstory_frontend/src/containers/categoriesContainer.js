@@ -16,9 +16,7 @@ import ListCategories from '../components/Category/categories';
 
     render() {
       return (
-        <div className="CategoriesContainer">  
-         <h1 id="CategoriesHeader"></h1>
-        
+        <div className="CategoriesContainer">          
         </div>
       );
     }
