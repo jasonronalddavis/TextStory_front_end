@@ -56,12 +56,11 @@ const imageHandler = (e, state) => {
     checks[idxToFind] = !checks[idxToFind] // update the value to opposite of what it was
     setIsChecked(checks) // update the state based on the function passed down
     // TODO update formData when state updates via useEffect 
-  const catObj =  categories.filter((cat,index, checks) => (cat, index + 1 === idxToFind + 1) )
+  const catObjects =  categories.filter((cat,index, checks) => (cat, index + 1 === idxToFind + 1) )
 //RETRIEVED CATEGORY OBJECTS
-
 const updateForm = {
 ...,formData,
-[categories]: catObj 
+[categories]: catObjects 
 }
 
 debugger;
