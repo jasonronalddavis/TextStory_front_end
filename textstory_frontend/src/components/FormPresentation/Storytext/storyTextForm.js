@@ -26,14 +26,18 @@ const StoryTextForm = ({formData, updateForm,uploadImage,updateCat, CreateStoryT
    const [newImage, setNewImage] = useState('');
    //CATEGORY CHECKBOX HOOK
    const [isChecked, setIsChecked] = useState(new Array(categories.length).fill(true)); 
-//USEEFFECT HOOK
 
-//  useEffect(() => {
-// let updateCat = {
-//     ...formData,
-//     [categories]: isChecked
-//    }
-// },[isChecked])
+const [checkedCategories, setCategories] = useState(formData.categories)
+
+//USEEFFECT HOOK
+  useEffect(() => {
+ let updateCategory = {
+     ...formData,
+     [categories]: isChecked
+   }
+
+ }, [isChecked]
+)
 
 
 //ONCHANGE HANDLERS
@@ -54,21 +58,21 @@ const imageHandler = (e, state) => {
 
 //CATERGORY CHECKBOX
   const handleCheckboxChange = (e) => {
+    e.preventDefault()
     const checks = [...isChecked] // Make a copy of setIsChecked
     const idxToFind = parseInt(e.target.parentElement.parentElement.dataset.idx, 10) // grt the dataset idx off the parent element
     checks[idxToFind] = !checks[idxToFind] // update the value to opposite of what it was
     setIsChecked(checks) // update the state based on the function passed down
     // TODO update formData when state updates via useEffect 
-  
- 
- //debugger;
+  const catObj =  categories.filter((cat,index, checks) => (cat, index + 1 === idxToFind + 1) )
+//RETRIEVED CATEGORY OBJECT
+debugger;
   }
 
 
 
 //LESS DYNAMIC FORM INPUT CHANGES
     const  handleChange = (e) => {
-
         const updatedFormInfo = {
           ...formData,
           [e.name]: e.value
