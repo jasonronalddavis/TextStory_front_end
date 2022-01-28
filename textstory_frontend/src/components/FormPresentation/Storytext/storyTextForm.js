@@ -59,9 +59,10 @@ const imageHandler = (e, state) => {
   const catObjects =  categories.filter((cat,index, checks) => (cat, index + 1 === idxToFind + 1) )
 //RETRIEVED CATEGORY OBJECTS
 const updateForm = {
-...,formData,
+...formData,
 [categories]: catObjects 
 }
+setCategories(updateForm)
 //------> STUCK HERE <-----
 debugger;
   }
