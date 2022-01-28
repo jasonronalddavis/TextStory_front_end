@@ -58,7 +58,9 @@ const imageHandler = (e, state) => {
     // TODO update formData when state updates via useEffect 
   const catObjects =  categories.filter((cat,index, checks) => (cat, index + 1 === idxToFind + 1) )
 //RETRIEVED CATEGORY OBJECTS
-debugger;
+if(!formData.categories.includes(catObjects)) {
+ formData.categories.push(catObjects)
+}
 //------> STUCK HERE <-----
   }
 
