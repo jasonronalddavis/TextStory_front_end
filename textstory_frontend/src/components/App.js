@@ -2,8 +2,6 @@ import '../App.css';
 import React from 'react';
 import loginForm from "../components/FormPresentation/Login";
 import  {connect}  from 'react-redux';
-import StoryTextContainer from '../containers/StoryTextContainer';
-import UsersContainer from '../containers/UsersContainer';
 import CategoriesContainer from '../containers/categoriesContainer';
 import {getCurrentUser} from '../action/User/user';
 import Logout from "./FormPresentation/logout";

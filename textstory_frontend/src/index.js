@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from "react-redux";
 import './index.css';
 import App from './components/App';
-import { BrowserRouter as Router, Route} from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 import store from "./store"; 
 import BckGrnd from "./public/BckGrnd.png";
 import './BckGrnd.css'
@@ -15,8 +15,11 @@ ReactDOM.render(
   <Provider store={store}>
   <Router>  
     <div>
-  {<img className="BckGrnd" style={{ alignSelf: 'center' }} src={require('./public/BckGrnd.png') }
-/>}
+    
+  {<img className="BckGrnd" style={{ alignSelf: 'center' }}  alt="default" src={require('./public/BckGrnd.png') }
+/>
+//BACKGROUND IMAGE
+}
     <App/>
     </div>
   </Router>

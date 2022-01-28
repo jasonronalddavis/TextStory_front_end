@@ -1,7 +1,6 @@
 import React from 'react';
 import  {connect}  from 'react-redux';
 import {getCurrentUser} from '../../action/User/user';
-import {userAttr} from '../../action/User/user';
 import './User.css'
 
 
@@ -41,13 +40,7 @@ class User extends React.Component  {
            }
               
 
-              //DISPATCHES USER ATTRIBUTES
-  const mapdispatchToProps = dispatch => ({
-    userAttr: user => dispatch({type: "USER_ATTR", user})
-  })
-
-
 
 
 //EXPORT
-           export default connect(mapStateToProps,{getCurrentUser, mapdispatchToProps})(User);
+           export default connect(mapStateToProps,{getCurrentUser})(User);

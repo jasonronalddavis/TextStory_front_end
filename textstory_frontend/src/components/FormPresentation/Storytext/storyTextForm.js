@@ -1,9 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import   {updateStoryTextForm}  from '../../../action/StoryTexts/CreateStoryTexts';
 import {CreateStoryText} from '../../../action/StoryTexts/CreateStoryTexts';
 import ListCategories from '../../../components/Category/categories';
-import  {fetchCategories}  from '../../../action/Category/fetchCategories';
 import {updateForm } from '../../../action/StoryTexts/CreateStoryTexts';
 import '../../../styles/FormImages.css';
 import { useEffect, useState } from "react";
@@ -30,7 +28,12 @@ const StoryTextForm = ({formData, updateForm,uploadImage,updateCat, CreateStoryT
    const [isChecked, setIsChecked] = useState(new Array(categories.length).fill(true)); 
 //USEEFFECT
 
-
+//  useEffect(() => {
+// let updateCat = {
+//     ...formData,
+//     [categories]: isChecked
+//    }
+// },[isChecked])
 
 
 //ONCHANGE HANDLERS
@@ -38,10 +41,6 @@ const imageHandler = (e, state) => {
   const  image_file = e.target.files[0];
   const reader = new FileReader();
   reader.readAsDataURL(image_file)
-  const updateImage = {
-    ...formData,
-    [image_file]: image_file
-   }
   e.persist(image_file)
   reader.onloadend = () => {
       const newImg = reader.result
@@ -60,18 +59,25 @@ const imageHandler = (e, state) => {
     checks[idxToFind] = !checks[idxToFind] // update the value to opposite of what it was
     setIsChecked(checks) // update the state based on the function passed down
     // TODO update formData when state updates via useEffect 
+  
+ 
+ //debugger;
   }
 
 
 
 //LESS DYNAMIC FORM INPUT CHANGES
     const  handleChange = (e) => {
-    const {name,value} = e.target
+
         const updatedFormInfo = {
           ...formData,
           [e.name]: e.value
         }
+   const input = e.target
+      e.persist(e.target)
+      updateForm(updatedFormInfo,input)
       }
+
 
 //SUBMIT FORM
     const handleSubmit = event => {
@@ -99,6 +105,7 @@ const DefaultImage = () => {  //FOR PRESENTAIION MOUNTED ON FORM
 
      <DefaultImage/><br></br>
         <img className="imagePreview" //FOR PRESENTATION
+          alt="default"
           src={newImage}></img>
 
 

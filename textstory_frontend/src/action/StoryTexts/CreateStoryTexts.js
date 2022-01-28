@@ -15,8 +15,6 @@ return {
 
 export const updateForm =  (formData, input) => {
 
- const name = input.name
- const value = input.value
         const updatedFormInfo = {
           ...formData,
           [input.name]: input.value
@@ -31,7 +29,6 @@ export const updateForm =  (formData, input) => {
 
 export const updateCat = (formData, input) => {
 
-const cat =  input
 const catFormInfo = {
   ...formData,
 categories: [input]

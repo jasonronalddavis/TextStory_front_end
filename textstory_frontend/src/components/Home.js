@@ -1,7 +1,5 @@
 import React from 'react';
-import {Switch,Route} from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
-import users from './User/users';
 import '../containers/users.css';
 import {getCurrentUser} from '../action/User/user';
 import  {connect}  from 'react-redux';
