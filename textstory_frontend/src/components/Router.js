@@ -4,8 +4,12 @@ import Home from './Home'
 import ListUsers from "../components/User/users";
 import UsersContainer from "../containers/UsersContainer";
 import StoryTextContainer from "../containers/StoryTextContainer";
-import StoryTextForm from "./Form/Storytext/storyTextForm";
+import StoryTextForm from "./FormPresentation/Storytext/storyTextForm";
 
+// ROUTING LINKS TO STORYTEXT CONTAINER(PREFIXED AS '/storyTexts') 
+// ROUTED STORYTEXT FORM PREFIXED AS '/storyTextForm'
+// ROUTED TO USERSCONTAINER(PREFIXED AS /users')
+//ROUTED TO '/' AS HOME PATH
 
 
 const Router = () => {

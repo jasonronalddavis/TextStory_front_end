@@ -9,7 +9,7 @@ import BckGrnd from "./public/BckGrnd.png";
 import './BckGrnd.css'
 
 
-
+//ACQUIRING STOR FROM SEPARATE MODULE
 
 ReactDOM.render(
   <Provider store={store}>

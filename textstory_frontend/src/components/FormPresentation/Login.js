@@ -2,13 +2,15 @@ import React from 'react'
 import {connect} from 'react-redux'
 import   {updateLoginForm }  from '../../action/loginForm';
 import {login} from '../../action/User/user';
-import '../Form/css/login.css'
+import '../FormPresentation/css/login.css';
 
-const Form = ({loginData, updateLoginForm, login}) => {
+const loginForm = ({loginData, updateLoginForm, login}) => {
+
+//ROOT LEVEL OF COMPONENT DIR
+//MOUNTED ON APP COMPONENT
 
 
-
-
+//EVENT HANDLERS
     const  handleChange = event => {
       event.preventDefault();
         const {name, value} = event.target
@@ -20,12 +22,14 @@ const Form = ({loginData, updateLoginForm, login}) => {
       }
     
 
+
     const handleSubmit = event => {
     event.preventDefault()
     login(loginData)
    }
     
 
+//RENDERED FORM 
 
     return (  
       <div className="login"> 
@@ -36,14 +40,12 @@ const Form = ({loginData, updateLoginForm, login}) => {
           placeholder="Create a Username"
             type="text"
             name="name"
-          //  onChange={(event) => this.props.handleChange(event)}
             value={loginData.name} onChange={handleChange}
           /><br/>
           <input
           placeholder="Create a Password"
           type="text"
             name="password"
-         //   onChange={(event) => this.props.handleChange(event)}
             value={loginData.password} onChange={handleChange}
           /><label>Password</label><br/>
 <input type="submit" value="Login"/>
@@ -54,7 +56,7 @@ const Form = ({loginData, updateLoginForm, login}) => {
   }
   
 
-
+//MAP TO PROPS
 
 
 const mapStateToProps = state => {
@@ -66,7 +68,7 @@ const mapStateToProps = state => {
 
 
 
-export default connect(mapStateToProps, { updateLoginForm, login } )(Form)
+export default connect(mapStateToProps, { updateLoginForm, login } )(loginForm)
 
 //we can connect functions to thunk login^^
 

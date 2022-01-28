@@ -5,7 +5,6 @@
 export const setStoryText = (name, value) => {
  
   const formData = { name, value }
-  // storyFormData = { name: formdata.name}
 return {
  type: "SET_STORY_TEXT",
  formData
@@ -16,20 +15,16 @@ return {
 
 export const updateForm =  (formData, input) => {
 
-//  debugger;
  const name = input.name
-
  const value = input.value
         const updatedFormInfo = {
           ...formData,
           [input.name]: input.value
         }
-      //  debugger;
   return {
     type: "UPDATE_STORY_TEXT_FORM",
     updatedFormInfo
   }
-  
 }
 
 
@@ -41,14 +36,12 @@ const catFormInfo = {
   ...formData,
 categories: [input]
 }
-//debugger;
 return {
   type: "UPDATE_CAT",
   catFormInfo
 }
 
 }
-
 
 
 
@@ -62,24 +55,15 @@ export const resetStoryText = () => {
 
 
 
-
 export const setImage = (image_file) => {
-
   return {
    type: "UPLOAD_IMAGE",
     payload: image_file
       }
-   
   }
   
   
-  
-
-
-
-  
-  
-  
+  //IMAGE_FILE VARIABLE NOT PERSISTING TO STATE 
   export const uploadImage = (image_file,newImg,formData) => { 
     const updatedImg = {...formData,
     image_file: newImg
@@ -88,13 +72,12 @@ export const setImage = (image_file) => {
       type: "UPLOAD_IMAGE",
       updatedImg
       }
-  }//
-//
+  }
+
   //ASYNC
 
 export const CreateStoryText = (storyTextData, newImage) =>  {
 
-//debugger;
 
 return async dispatch => {
     const sendData = {
@@ -122,12 +105,8 @@ return async dispatch => {
           alert(resp.error)
         } else {
           dispatch(setStoryText(resp.data))
-          //dispatch(resetStoryText())
-          // go somewhere else --> trip show?
-          // add the new trip to the store
         }
       })
       .catch(console.log)
-
   }
 }

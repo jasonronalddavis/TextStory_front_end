@@ -7,7 +7,7 @@ import {LoginFormReducer} from './LoginFormReducer'
 import {signupReducer} from './signupReducer'
 import {categoriesReducer} from './CategoriesReducer'
 
-
+//ACQUIRED BY REDUX STORE
 
 export const rootReducer = combineReducers({
 users: usersReducer,

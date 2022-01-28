@@ -3,19 +3,23 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {signup } from "../../action/User/signup.js"
 import {updateSignupForm} from "../../action/User/signup.js"
-import '../Form/css/signup.css'
+import '../FormPresentation/css/signup.css'
 
 
+//ROOT LEVEL OF COMPONENT DIR
+//MOUNTED ON APP COMPONENT
 
 
 const Signup = ({signupFormData, updateSignupForm, signup}) => {
 
+
+//EVENT HANDLERS
 const handleSubmit = event => {
- 
     event.preventDefault()
-    signup(signupFormData)
-       
+    signup(signupFormData)  
   }
+
+
 
 
   const  handleChange = event => {
@@ -25,17 +29,11 @@ const handleSubmit = event => {
         ...signupFormData,
         [name]: value
        }
-       updateSignupForm(updatedFormInfo)
-       
-     
+       updateSignupForm(updatedFormInfo) 
   }
 
 
-
-
-
-
-
+//RENDERED FORM 
 
 return (
 <div className= "signup">
@@ -60,17 +58,16 @@ return (
 <input type="submit" value="signup"/>
         </form>  
         </div>      
-)
-  
+)  
 }
+
+//MAP TO PROPS
 
 
 const mapStateToProps = state => {
-
   return {
   signupFormData: state.signup
   } 
-
 }
 
 

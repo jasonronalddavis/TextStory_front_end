@@ -1,15 +1,13 @@
 export const setStoryTexts = storytexts => {
-
 return {
  type: "FETCH_STORY_TEXTS",
   payload: storytexts.data
-
     }
 }
 
 
 
-
+//ASYNC
 
 
 export const fetchStoryTexts = () =>  {

@@ -6,7 +6,7 @@ import ListCategories from '../components/Category/categories';
  class CategoriesContainer extends Component {
 
 
-
+//MOUNTING FETCHED CATEGORIES 
   
   componentDidMount(){
       // console.log(this.props)

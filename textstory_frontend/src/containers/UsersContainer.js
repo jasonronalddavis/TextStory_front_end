@@ -6,10 +6,11 @@ import { NavLink } from 'react-router-dom'
 import '../components/Home.css'
 
 
+//DEALS WITH USERS ON GLOBAL SCOPE
+
+
+
 class UsersContainer extends React.Component  {
-
-
-
 
 
     render() {

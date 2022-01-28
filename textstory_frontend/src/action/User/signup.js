@@ -4,12 +4,13 @@ import {setUser} from "./user.js"
 
 
 export const updateSignupForm = userData => {
-
   return {
     type: "UPDATE_SIGNUP_FORM",
  userData
   }
 }
+
+
 
 export const resetSignupForm = () => {
   return {

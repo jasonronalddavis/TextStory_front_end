@@ -1,11 +1,11 @@
 .homeLink{
-    position:relative; top: 100px;  left: 0px; z-index: 50 ;
-
+    position:relative; top: 780px;  right: 100px; z-index: 50 ;
+width: 50px;
 }
 
 
 
-.StoryTextFormLink{
+.StoryTextLink{
 
     position:relative; top: 350px;  left: 0px; z-index: 50 ;
 
