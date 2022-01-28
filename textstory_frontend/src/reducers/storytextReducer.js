@@ -4,10 +4,9 @@ const initialState = {
   name: "",
   description: "",
  categories: [],
- user_id: "",
- user_ids: [],
- comment_ids: [],
-file: [],
+ user: "",
+ users: [],
+ comments: [],
  text_content: "",
  image_file: "",
 }
