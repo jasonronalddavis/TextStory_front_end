@@ -5,7 +5,6 @@ import './index.css';
 import App from './components/App';
 import { BrowserRouter as Router} from "react-router-dom";
 import store from "./store"; 
-import BckGrnd from "./public/BckGrnd.png";
 import './BckGrnd.css'
 
 
