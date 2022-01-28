@@ -65,7 +65,7 @@ const imageHandler = (e, state) => {
     setIsChecked(checks) // update the state based on the function passed down
     // TODO update formData when state updates via useEffect 
   const catObj =  categories.filter((cat,index, checks) => (cat, index + 1 === idxToFind + 1) )
-//RETRIEVED CATEGORY OBJECT
+//RETRIEVED CATEGORY OBJECTS
 debugger;
   }
 
