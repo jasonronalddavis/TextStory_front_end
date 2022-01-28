@@ -26,18 +26,10 @@ const StoryTextForm = ({formData, updateForm,uploadImage,updateCat, CreateStoryT
    const [newImage, setNewImage] = useState('');
    //CATEGORY CHECKBOX HOOK
    const [isChecked, setIsChecked] = useState(new Array(categories.length).fill(true)); 
-
+//formData.categories UPDATE FROM CHECKBOX HOOK
 const [checkedCategories, setCategories] = useState(formData.categories)
 
-//USEEFFECT HOOK
-  useEffect(() => {
- let updateCategory = {
-     ...formData,
-     [categories]: isChecked
-   }
 
- }, [isChecked]
-)
 
 
 //ONCHANGE HANDLERS
@@ -66,6 +58,12 @@ const imageHandler = (e, state) => {
     // TODO update formData when state updates via useEffect 
   const catObj =  categories.filter((cat,index, checks) => (cat, index + 1 === idxToFind + 1) )
 //RETRIEVED CATEGORY OBJECTS
+
+const updateForm = {
+...,formData,
+[categories]: catObj 
+}
+
 debugger;
   }
 
