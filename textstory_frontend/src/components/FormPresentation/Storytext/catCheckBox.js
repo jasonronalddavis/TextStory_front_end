@@ -43,7 +43,6 @@ const CatCheckBox = ({isChecked, setIsChecked, handleCheckboxChange, formData, u
 //MAP TO PROPS
 
 const mapStateToProps = (state) => {
-  console.log(state.categories)
   return {
     formData: state.storytext,
     categories: state.categories

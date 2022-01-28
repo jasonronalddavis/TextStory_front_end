@@ -4,7 +4,7 @@ import {CreateStoryText} from '../../../action/StoryTexts/CreateStoryTexts';
 import ListCategories from '../../../components/Category/categories';
 import {updateForm } from '../../../action/StoryTexts/CreateStoryTexts';
 import '../../../styles/FormImages.css';
-import { useEffect, useState } from "react";
+import { useEffect, useDispatch,useState } from "react";
 import {uploadImage} from '../../../action/StoryTexts/CreateStoryTexts';
 import {updateCat} from '../../../action/StoryTexts/CreateStoryTexts';
 import CatCheckBox from './catCheckBox';
@@ -29,7 +29,9 @@ const StoryTextForm = ({formData, updateForm,uploadImage,updateCat, CreateStoryT
 //formData.categories UPDATE FROM setIsChecked HOOK
 const [checkedCategories, setCategories] = useState(formData.categories)
 
-
+useEffect(() => {
+  console.log("checkedItems: ", isChecked);
+}, [isChecked]);  
 
 
 //ONCHANGE HANDLERS
@@ -60,7 +62,9 @@ const imageHandler = (e, state) => {
 //RETRIEVED CATEGORY OBJECTS
 if(!formData.categories.includes(catObjects)) {
  formData.categories.push(catObjects)
+ console.log("checkedItems: ", isChecked)
 }
+//debugger;
 //------> STUCK HERE <-----
   }
 
@@ -154,6 +158,7 @@ const DefaultImage = () => {  //FOR PRESENTAIION MOUNTED ON FORM
 
 //MAPSTATE
 const mapStateToProps = (state) => {
+  //debugger;
   return {
     formData: state.storytext,
     categories: state.categories,

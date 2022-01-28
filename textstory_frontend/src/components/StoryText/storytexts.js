@@ -16,7 +16,6 @@ componentDidMount(){
 
 
 //RENDERS A LIST OF STORIES lOGS
-
   render() {
     return(
       <div className="StoryTextList">
@@ -37,7 +36,7 @@ const mapStateToProps = state => {
       return {storytexts: state.storytexts}
       }
   
-  
+
     const mapDispatchToProps = dispatch => {
           return {
      fetchStoryTexts: () => dispatch(fetchStoryTexts())
