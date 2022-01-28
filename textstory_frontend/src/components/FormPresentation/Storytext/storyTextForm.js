@@ -26,7 +26,7 @@ const StoryTextForm = ({formData, updateForm,uploadImage,updateCat, CreateStoryT
    const [newImage, setNewImage] = useState('');
    //CATEGORY CHECKBOX HOOK
    const [isChecked, setIsChecked] = useState(new Array(categories.length).fill(true)); 
-//USEEFFECT
+//USEEFFECT HOOK
 
 //  useEffect(() => {
 // let updateCat = {
