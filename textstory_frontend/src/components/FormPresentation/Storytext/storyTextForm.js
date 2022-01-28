@@ -62,7 +62,7 @@ const updateForm = {
 ...,formData,
 [categories]: catObjects 
 }
-
+//------> STUCK HERE <-----
 debugger;
   }
 
