@@ -28,12 +28,21 @@ const StoryTextForm = ({formData, updateForm,uploadImage,updateCat, CreateStoryT
    const [newImage, setNewImage] = useState('');
    //CATEGORY CHECKBOX HOOK
    const [isChecked, setIsChecked] = useState(new Array(categories.length).fill(true)); 
+//USEEFFECT
+useEffect(() => {
+const insertChecked = {
+...formData,
+[categories]: isChecked
+}
+return(insertChecked)
+},[isChecked])
+//debugger;
+  }
+
 
 
 
 //ONCHANGE HANDLERS
-
-
 const imageHandler = (e, state) => {
   const  image_file = e.target.files[0];
   const reader = new FileReader();
@@ -54,15 +63,14 @@ const imageHandler = (e, state) => {
 
 
 //CATERGORY CHECKBOX
-
   const handleCheckboxChange = (e) => {
     const checks = [...isChecked] // Make a copy of setIsChecked
     const idxToFind = parseInt(e.target.parentElement.parentElement.dataset.idx, 10) // grt the dataset idx off the parent element
     checks[idxToFind] = !checks[idxToFind] // update the value to opposite of what it was
     setIsChecked(checks) // update the state based on the function passed down
     // TODO update formData when state updates via useEffect 
-    
   }
+
 
 
 //LESS DYNAMIC FORM INPUT CHANGES
@@ -84,7 +92,6 @@ const imageHandler = (e, state) => {
 
 
 //RENDER FORM
-
 const DefaultImage = () => {  //FOR PRESENTAIION MOUNTED ON FORM
   return (
 <img  src={require('../../../public/DefaultImage.png')} alt="" id="StDefimg" className="img" onChange={imageHandler}/>
@@ -146,7 +153,6 @@ const DefaultImage = () => {  //FOR PRESENTAIION MOUNTED ON FORM
 
 
 //MAPSTATE
-
 const mapStateToProps = (state) => {
   return {
     formData: state.storytext,
