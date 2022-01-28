@@ -104,8 +104,8 @@ const DefaultImage = () => {  //FOR PRESENTAIION MOUNTED ON FORM
      <div> <CatCheckBox handleCheckboxChange={handleCheckboxChange} isChecked={isChecked} setIsChecked={setIsChecked}/></div><br/>
 
      <DefaultImage/><br></br>
-        <img className="imagePreview" //FOR PRESENTATION
-          alt="default"
+        <img className="imagePreview" // JUST FOR PRESENTATION FOR NOW WILL INSERT UPLOADED IMAGE LATER
+          alt={""}
           src={newImage}></img>
 
 

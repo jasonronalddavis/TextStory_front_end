@@ -7,7 +7,7 @@
 
 
  .homeLink{
-      position:absolute; top: 780px;  right: 100px; z-index: 50 ;
+      position:absolute; top: 740px;  right: 300px; z-index: 50 ;
     width: 100px;
     }
     
@@ -15,7 +15,7 @@
 
 
 .StoryTextList {
-    position:relative; top: 290px;  left: 370px;
+    position:relative; top: 340px;  left: 370px;
     color: teal;
     -webkit-box-reflect: below 120px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
     overflow-x: scroll; height: 120px; width: 200px;
