@@ -29,15 +29,6 @@ const StoryTextForm = ({formData, updateForm,uploadImage,updateCat, CreateStoryT
    //CATEGORY CHECKBOX HOOK
    const [isChecked, setIsChecked] = useState(new Array(categories.length).fill(true)); 
 //USEEFFECT
-useEffect(() => {
-const insertChecked = {
-...formData,
-[categories]: isChecked
-}
-return(insertChecked)
-},[isChecked])
-//debugger;
-  }
 
 
 
