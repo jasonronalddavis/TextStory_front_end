@@ -14,7 +14,7 @@ import ListCategories from '../components/Category/categories';
     }
 
 
-
+//MIGHT RENDER CATEGORY ATTRIBUTES ON APP COMPONENT FOR EXTENDED FUNCTIONALITY
     render() {
       return (
         <div className="CategoriesContainer">          
