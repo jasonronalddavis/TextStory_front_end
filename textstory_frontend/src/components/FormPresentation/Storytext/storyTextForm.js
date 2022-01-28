@@ -28,10 +28,10 @@ const StoryTextForm = ({formData, updateForm,uploadImage,updateCat, CreateStoryT
    const [isChecked, setIsChecked] = useState(new Array(categories.length).fill(true)); 
 //formData.categories UPDATE FROM setIsChecked HOOK
 const [checkedCategories, setCategories] = useState(formData.categories)
-
+//USEEFFECT HOOK
 useEffect(() => {
-  console.log("checkedItems: ", isChecked);
-}, [isChecked]);  
+  setCategories(isChecked);
+}, [isChecked && console.log(formData.categories)]);  
 
 
 //ONCHANGE HANDLERS
