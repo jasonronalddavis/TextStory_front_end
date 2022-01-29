@@ -30,8 +30,12 @@ const StoryTextForm = ({formData, updateForm,uploadImage,updateCat, CreateStoryT
 const [checkedCategories, setCategories] = useState(formData.categories)
 //USEEFFECT HOOK
 useEffect(() => {
-  setCategories(isChecked);
-}, [isChecked && console.log(formData.categories)]);  
+  setCategories(isChecked)
+  ;
+  //------> STUCK HERE REFER TO handleCheckboxChange <-----
+}, [isChecked && console.log(formData.categories)]); 
+
+
 
 
 //ONCHANGE HANDLERS
@@ -58,8 +62,10 @@ const imageHandler = (e, state) => {
     checks[idxToFind] = !checks[idxToFind] // update the value to opposite of what it was
     setIsChecked(checks) // update the state based on the function passed down
     // TODO update formData when state updates via useEffect 
-  const catObjects =  categories.filter((cat,index, checks) => (cat, index + 1 === idxToFind + 1) )
-//RETRIEVED CATEGORY OBJECTS
+  //FILTER MATCHING CATEGORY OBJECTS
+  const catObjects =  categories.filter((cat,index) => (cat, index + 1 === idxToFind + 1) )
+//CONDITIONAL STATEMENT TO FIND MATCHING CATEGORY OBJECTS
+// AND PUSH TO STATE. MAY NOT BE NECESSARY
 if(!formData.categories.includes(catObjects)) {
  formData.categories.push(catObjects)
  console.log("checkedItems: ", isChecked)
@@ -85,7 +91,8 @@ if(!formData.categories.includes(catObjects)) {
 //SUBMIT FORM
     const handleSubmit = event => {
     event.preventDefault()
-    CreateStoryText(formData, newImage)
+    updateCat(formData,isChecked,categories)
+    CreateStoryText(formData,isChecked, newImage)
    }
 
 

@@ -27,12 +27,18 @@ export const updateForm =  (formData, input) => {
 
 
 
-export const updateCat = (formData, input) => {
+export const updateCat = (formData, input, categories) => {
+
+const collect =  categories.map((c,index) => console.log(index,c,) )
+const inPut = input.map(i => i)
+
+
 
 const catFormInfo = {
   ...formData,
-categories: [input]
+categories: input
 }
+debugger;
 return {
   type: "UPDATE_CAT",
   catFormInfo
@@ -73,12 +79,12 @@ export const setImage = (image_file) => {
 
   //ASYNC
 
-export const CreateStoryText = (storyTextData, newImage) =>  {
-
+export const CreateStoryText = (storyTextData,isChecked, newImage) =>  {
+debugger;
 
 return async dispatch => {
     const sendData = {
-      categories: storyTextData.categories,
+      categories: isChecked,
       image_file: newImage,
       description: storyTextData.description,
       name: storyTextData.name,
