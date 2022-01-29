@@ -1,9 +1,8 @@
 
 
 
-
+//BACKEND POST DATA
 export const setStoryText = (name, value) => {
- 
   const formData = { name, value }
 return {
  type: "SET_STORY_TEXT",
@@ -14,7 +13,6 @@ return {
 
 
 export const updateForm =  (formData, input) => {
-
         const updatedFormInfo = {
           ...formData,
           [input.name]: input.value
@@ -26,9 +24,8 @@ export const updateForm =  (formData, input) => {
 }
 
 
-
+//UPDATE CATEGORY
 export const updateCat = (formData, input, categories) => {
-
 
 const catFormInfo = {
   ...formData,
@@ -44,7 +41,6 @@ return {
 
 
 
-
 export const resetStoryText = () => {
   return {
     type: "RESET_NEW_TRIP_FORM",
@@ -52,15 +48,6 @@ export const resetStoryText = () => {
 }
 
 
-
-
-export const setImage = (image_file) => {
-  return {
-   type: "UPLOAD_IMAGE",
-    payload: image_file
-      }
-  }
-  
   
   //IMAGE_FILE VARIABLE NOT PERSISTING TO STATE 
   export const uploadImage = (image_file,newImg,formData) => { 

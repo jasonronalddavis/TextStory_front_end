@@ -65,10 +65,11 @@ const imageHandler = (e, state) => {
   //FILTER MATCHING CATEGORY OBJECTS
   const catObjects =  categories.filter((cat,index) => (cat, index + 1 === idxToFind + 1) )
 //CONDITIONAL STATEMENT TO FIND MATCHING CATEGORY OBJECTS
-// AND PUSH TO STATE. MAY NOT BE NECESSARY
+// AND PERSIST TO STATE. NEEDS ALTERING
 if(!formData.categories.includes(catObjects)) {
- formData.categories.push(catObjects)
- console.log("checkedItems: ", isChecked)
+ const catCollection = {...formData,  
+categories: catObjects }
+ console.log("checkedItems: ", catCollection)
 }
 //debugger;
 //------> STUCK HERE <-----
