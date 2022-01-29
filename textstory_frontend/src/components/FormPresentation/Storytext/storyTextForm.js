@@ -72,7 +72,7 @@ categories: catObjects }
  console.log("checkedItems: ", catCollection)
 }
 //debugger;
-//------> STUCK HERE <-----
+//------> STUCK HERE REFER TO USEEFFECT HOOK <-----
   }
 
 
