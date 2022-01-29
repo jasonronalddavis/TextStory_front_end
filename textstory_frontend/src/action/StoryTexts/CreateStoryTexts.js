@@ -29,10 +29,6 @@ export const updateForm =  (formData, input) => {
 
 export const updateCat = (formData, input, categories) => {
 
-const collect =  categories.map((c,index) => console.log(index,c,) )
-const inPut = input.map(i => i)
-
-
 
 const catFormInfo = {
   ...formData,
