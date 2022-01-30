@@ -4,5 +4,13 @@ color: cornsilk
 
 
 .logout { 
-    position:relative; top: 430px;  left: 20px;  
+    position:absolute; top: 650px;  left: 360px; z-index: 20;
+ 
 }
+
+
+#StDefimg{
+    position:absolute; top: 215px;  right: 70px; z-index: 50 ;
+    width: 75px;
+} 
+

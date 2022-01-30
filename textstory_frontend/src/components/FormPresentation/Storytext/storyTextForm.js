@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import {CreateStoryText} from '../../../action/StoryTexts/CreateStoryTexts';
 import ListCategories from '../../../components/Category/categories';
 import {updateForm } from '../../../action/StoryTexts/CreateStoryTexts';
-import '../../../styles/FormImages.css';
 import { useEffect, useDispatch,useState } from "react";
 import {uploadImage} from '../../../action/StoryTexts/CreateStoryTexts';
 import {updateCat} from '../../../action/StoryTexts/CreateStoryTexts';
@@ -109,13 +108,13 @@ const DefaultImage = () => {  //FOR PRESENTAIION MOUNTED ON FORM
 
   return (
       <div className="createStoryText">
-      <h3> Create Story</h3>
-        <form onSubmit={handleSubmit}><br></br>
-          
+      <h3> Create Story</h3><br></br>
+        <form onSubmit={handleSubmit}>
+        Choose Category<br></br><br></br>
      <div> <CatCheckBox //CHECKBOX
      handleCheckboxChange={handleCheckboxChange} 
      isChecked={isChecked} 
-     setIsChecked={setIsChecked}/></div><br/>
+     setIsChecked={setIsChecked}/></div><br></br>
 
      <DefaultImage/><br></br>
         <img className="imagePreview" // JUST FOR PRESENTATION FOR NOW WILL INSERT UPLOADED IMAGE LATER

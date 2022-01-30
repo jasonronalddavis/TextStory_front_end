@@ -1,4 +1,13 @@
 
 .User {
-    position:absolute; top: -20px;  left: 260px; z-index: 40;
-color: teal}
+    position:absolute; top: 30px;  left: 280px; z-index: 40;
+color: rgb(255, 255, 255)}
+
+#user_stories_header{
+    position:absolute; top: 270px;  left: 60px; z-index: 50;
+    font-size: 1em;
+    perspective: 150px;
+    transform: rotateX(15deg) rotateY(34deg);
+    transform-style: preserve-3d;
+color: rgb(0, 0, 0)
+}

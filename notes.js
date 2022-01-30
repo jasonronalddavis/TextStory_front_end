@@ -66,3 +66,23 @@ function (arr1, arr2) {
     console.log(arr2[numbers]);
   }
 }
+
+//BUTTONS
+
+import Button from '@material-ui/core/Button';
+
+
+
+
+import { Link } from 'react-router-dom'
+
+
+<Link to="/dashboard">
+    <img src={minLogo} alt='Logo' />
+</Link>
+
+
+
+<img className="story_texts_cover"   alt="default" src={require('./public/storytexts_list.png') }
+/>
+
