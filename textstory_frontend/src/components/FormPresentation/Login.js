@@ -4,7 +4,7 @@ import   {updateLoginForm }  from '../../action/loginForm';
 import {login} from '../../action/User/user';
 import '../FormPresentation/css/login.css';
 
-const loginForm = ({loginData, updateLoginForm, login}) => {
+const LoginForm = ({loginData, updateLoginForm, login}) => {
 
 //ROOT LEVEL OF COMPONENT DIR
 //MOUNTED ON APP COMPONENT
@@ -68,7 +68,7 @@ const mapStateToProps = state => {
 
 
 
-export default connect(mapStateToProps, { updateLoginForm, login } )(loginForm)
+export default connect(mapStateToProps, { updateLoginForm,login })(LoginForm)
 
 //we can connect functions to thunk login^^
 

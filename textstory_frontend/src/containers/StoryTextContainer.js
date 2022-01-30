@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import  {fetchStoryTexts}  from '../action/StoryTexts/FetchStoryTexts';
 import { Link } from 'react-router-dom'
-import StoryTextForm from '../components/FormPresentation/Storytext/storyTextForm';
+import CreateStory from '../components/FormPresentation/Storytext/createStory';
 import ListStoryTexts from '../components/StoryText/storytexts';
 import UserStoryTexts from '../components/User/user_storytexts';
 import './storytexts.css'
@@ -41,7 +41,7 @@ class StoryTextContainer extends Component {
 </Link> 
         <UserStoryTexts/>
         <ListStoryTexts/>
-        <StoryTextForm/>
+        <CreateStory/>
         </div>
       );
     }

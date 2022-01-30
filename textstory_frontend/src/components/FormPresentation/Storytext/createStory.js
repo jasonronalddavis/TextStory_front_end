@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {CreateStoryText} from '../../../action/StoryTexts/CreateStoryTexts';
-import ListCategories from '../../../components/Category/categories';
+import ListCategories from '../../Category/categories';
 import {updateForm } from '../../../action/StoryTexts/CreateStoryTexts';
 import { useEffect, useDispatch,useState } from "react";
 import {uploadImage} from '../../../action/StoryTexts/CreateStoryTexts';
@@ -14,7 +14,7 @@ import CatCheckBox from './catCheckBox';
 // TODO: Look into using a useEffect hook so when there is a change isChecked you
 // can update the formData obj.
 
-const StoryTextForm = ({formData, updateForm,uploadImage,updateCat, CreateStoryText,categories}) => {
+const CreateStory = ({formData, updateForm,uploadImage,updateCat, CreateStoryText,categories}) => {
 
 
 
@@ -174,4 +174,4 @@ const mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps,  { updateForm,updateCat, uploadImage, CreateStoryText, ListCategories} )(StoryTextForm) 
+export default connect(mapStateToProps,  { updateForm,updateCat, uploadImage, CreateStoryText, ListCategories} )(CreateStory) 

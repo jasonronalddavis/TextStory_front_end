@@ -1,0 +1,15 @@
+2022-01-30 15:08:33.187 CST [2958] LOG:  starting PostgreSQL 13.5 on x86_64-apple-darwin19.6.0, compiled by Apple clang version 12.0.0 (clang-1200.0.32.29), 64-bit
+2022-01-30 15:08:33.278 CST [2958] LOG:  listening on IPv6 address "::1", port 5432
+2022-01-30 15:08:33.279 CST [2958] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-01-30 15:08:33.310 CST [2958] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-01-30 15:08:34.453 CST [2962] LOG:  database system was interrupted; last known up at 2022-01-29 23:52:50 CST
+2022-01-30 15:08:38.379 CST [2962] LOG:  database system was not properly shut down; automatic recovery in progress
+2022-01-30 15:08:38.465 CST [2962] LOG:  redo starts at 0/19ECE10
+2022-01-30 15:08:38.465 CST [2962] LOG:  invalid record length at 0/19ECE48: wanted 24, got 0
+2022-01-30 15:08:38.465 CST [2962] LOG:  redo done at 0/19ECE10
+2022-01-30 15:08:38.521 CST [2958] LOG:  database system is ready to accept connections
+2022-01-30 15:11:14.822 CST [2958] LOG:  received fast shutdown request
+2022-01-30 15:11:14.907 CST [2958] LOG:  aborting any active transactions
+2022-01-30 15:11:14.983 CST [2958] LOG:  background worker "logical replication launcher" (PID 2969) exited with exit code 1
+2022-01-30 15:11:14.983 CST [2964] LOG:  shutting down
+2022-01-30 15:11:15.018 CST [2958] LOG:  database system is shut down

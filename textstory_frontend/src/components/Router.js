@@ -4,7 +4,7 @@ import Home from './Home'
 //import ListUsers from "../components/User/users";
 import UsersContainer from "../containers/UsersContainer";
 import StoryTextContainer from "../containers/StoryTextContainer";
-import StoryTextForm from "./FormPresentation/Storytext/storyTextForm";
+import CreateStory from "./FormPresentation/Storytext/createStory";
 
 // ROUTING LINKS TO STORYTEXT CONTAINER(PREFIXED AS '/storyTexts') 
 // ROUTED STORYTEXT FORM PREFIXED AS '/storyTextForm'
@@ -18,7 +18,7 @@ return (
     <Route exact path='/' component={Home} />
     <Route   path='/users' component={UsersContainer}/>
      <Route   path='/storyTexts' component={StoryTextContainer}/>
-     <Route path='/storyTextForm' component={StoryTextForm}/>
+     <Route path='/createStory' component={CreateStory}/>
 </Switch>
 
 );

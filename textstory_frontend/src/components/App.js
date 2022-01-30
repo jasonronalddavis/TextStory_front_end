@@ -1,6 +1,6 @@
 import '../App.css';
 import React from 'react';
-import loginForm from "../components/FormPresentation/Login";
+import LoginForm from "../components/FormPresentation/Login";
 import  {connect}  from 'react-redux';
 import CategoriesContainer from '../containers/categoriesContainer';
 import {getCurrentUser} from '../action/User/user';
@@ -28,7 +28,7 @@ render(){
     <div className="App">
       <Router/>
      <CategoriesContainer/> 
-  {this.props.user ? <Logout/> : <loginForm/> }
+  {this.props.user ? <Logout/> : <LoginForm/>}
  {this.props.user ? <User/> : null}
  {this.props.user ? null : <Signup/>}
     </div>
