@@ -8,12 +8,30 @@ import ListStoryTexts from '../components/StoryText/storytexts';
 import UserStoryTexts from '../components/User/user_storytexts';
 import './storytexts.css'
 import '../components/Home.css'
+import EditStory from '../components/FormPresentation/Storytext/editStory';
 
 
 //IMPORTING FORM AND LIST OF STORY TEXTS
 // NAVLINK MOUNTED FROM ROUTER TO RETURN HOME
 //CONTAINS EDIT CREATE AND DELETE BUTTONS WHICH WILL EVENTUALLY ROUTE TO CRUD MODULES
 class StoryTextContainer extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      edit: false,
+      create: true,
+      delete: false,
+      view: false
+    };
+    debugger;
+  }
+
+
+
+//<NavLink exact activeClassName="active" to='../components/FormPresentation/Storytext/createStory' className="createLink">
+//<img className="Create" src={require('../public/CREATE.png')} alt='view' />
+//</NavLink>       
 
     render() {
     
@@ -28,17 +46,18 @@ class StoryTextContainer extends Component {
 
         <img className="story_texts_cover"  alt="default" src={require('../public/storytexts_list.png') }/>
 
-<Link to="/storytexts/edit">
-    <img className="Edit" src={require('../public/EDIT.png')} alt='edit' />
-</Link>
+
+    <NavLink exact activeClassName="active" to='../components/FormPresentation/Storytext/editStory' className="editLink">
+      <img className="Edit" src={require('../public/EDIT.png')} alt='edit' />
+        </NavLink> 
 
 <Link to="/storytexts/delete"> 
     <img className="Delete" src={require('../public/DELETE.png')} alt='delete' />
 </Link> 
 
-<Link to="/storytexts/view"> 
-    <img className="Create" src={require('../public/CREATE.png')} alt='view' />
-</Link> 
+<NavLink exact activeClassName="active" to='../components/FormPresentation/Storytext/createStory' className="createLink">
+<img className="Create" src={require('../public/CREATE.png')} alt='create' />
+</NavLink> 
         <UserStoryTexts/>
         <ListStoryTexts/>
         <CreateStory/>
