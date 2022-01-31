@@ -14,6 +14,8 @@ import EditStory from '../components/FormPresentation/Storytext/editStory';
 //IMPORTING FORM AND LIST OF STORY TEXTS
 // NAVLINK MOUNTED FROM ROUTER TO RETURN HOME
 //CONTAINS EDIT CREATE AND DELETE BUTTONS WHICH WILL EVENTUALLY ROUTE TO CRUD MODULES
+
+//ATTEMPTING TO MAP BOOLEAN VALUES TO CRUD COMPONENTS. IF CLICKED, RENDER ATTRIBUTES
 class StoryTextContainer extends Component {
 
   constructor() {
@@ -47,7 +49,7 @@ class StoryTextContainer extends Component {
         <img className="story_texts_cover"  alt="default" src={require('../public/storytexts_list.png') }/>
 
 
-    <NavLink exact activeClassName="active" to='../components/FormPresentation/Storytext/editStory' className="editLink">
+    <NavLink exact activeClassName="active" to="/Storytexts/"  className="editLink">
       <img className="Edit" src={require('../public/EDIT.png')} alt='edit' />
         </NavLink> 
 
@@ -55,7 +57,7 @@ class StoryTextContainer extends Component {
     <img className="Delete" src={require('../public/DELETE.png')} alt='delete' />
 </Link> 
 
-<NavLink exact activeClassName="active" to='../components/FormPresentation/Storytext/createStory' className="createLink">
+<NavLink exact activeClassName="active" to="/Storytexts" className="createLink">
 <img className="Create" src={require('../public/CREATE.png')} alt='create' />
 </NavLink> 
         <UserStoryTexts/>

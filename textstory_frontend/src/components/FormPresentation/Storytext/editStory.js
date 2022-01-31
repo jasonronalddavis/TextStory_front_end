@@ -111,8 +111,8 @@ const DefaultImage = () => {  //FOR PRESENTAIION MOUNTED ON FORM
 
 
   return (
-      <div className="createStoryText">
-      <h3> Create Story</h3><br></br>
+      <div className="editStoryText">
+      <h3> Edit Story</h3><br></br>
         <form onSubmit={handleSubmit}>
         Choose Category<br></br><br></br>
      <div> <CatCheckBox //CHECKBOX
