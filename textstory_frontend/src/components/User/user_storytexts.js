@@ -16,7 +16,7 @@ class UserStoryTexts extends React.Component  {
 
     componentDidMount(){
         this.props.getCurrentUser()  
-      this.props.userAttr()
+      
         }
 
 
@@ -27,22 +27,23 @@ class UserStoryTexts extends React.Component  {
 //        {this.props.user.story_texts.map(storytext => <ul><li key={storytext.attributes.id}>  {storytext.attributes.name} </li> </ul>)} </li> </ul>)}
 
         render(){
-     
+  
             return ( 
                 <div className="User_Stories"> 
                 <h1 id="user_stories_header">Your Stories</h1>
                 <ul> {this.props.user}</ul>
                   </div> 
             )
-          }
+          }   
           }
           
 
 
 
+
           //MAPTOPROPS  
            const mapStateToProps = ({user},state) => {
-         
+       
              return {
               state,
             }
@@ -52,4 +53,4 @@ class UserStoryTexts extends React.Component  {
 
 
 //EXPORT
-           export default connect(mapStateToProps,{getCurrentUser, userAttr})(UserStoryTexts);
+           export default connect(mapStateToProps,{getCurrentUser})(UserStoryTexts);

@@ -32,7 +32,7 @@ useEffect(() => {
   setCategories(isChecked)
   ;
   //------> STUCK HERE REFER TO handleCheckboxChange <-----
-}, [isChecked && console.log(formData.categories)]); 
+}, [isChecked && console.log(formData) ]); 
 
 
 
@@ -46,7 +46,7 @@ const imageHandler = (e, state) => {
   reader.onloadend = () => {
       const newImg = reader.result
    setNewImage(newImg)
-  uploadImage(image_file,newImg,newImage) //IMAGE FILE NOT PERSISTING TO STATE 
+  uploadImage(image_file,newImg,newImage) 
    console.log(formData.image_file)
     //debugger;
   }
@@ -78,9 +78,11 @@ categories: catObjects }
 
 //LESS DYNAMIC FORM INPUT CHANGES
     const  handleChange = (e) => {
+      //debugger
         const updatedFormInfo = {
           ...formData,
-          [e.name]: e.value
+          [e.target.name]: e.target.value,
+          [e.target.categories]: e.target.value,
         }
    const input = e.target
       e.persist(e.target)
@@ -169,6 +171,7 @@ const mapStateToProps = (state) => {
   return {
     formData: state.storytext,
     categories: state.categories,
+
   }
 }
 

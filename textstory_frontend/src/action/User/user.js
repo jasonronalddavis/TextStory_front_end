@@ -76,7 +76,7 @@ export const getCurrentUser = () => {
           alert(response.error)
         } else {
           dispatch(setUser(response.data)) 
-           dispatch(userAttr(response.data.attributes))
+           dispatch(userAttr(response.data))
         }
       })
       .catch(console.log())

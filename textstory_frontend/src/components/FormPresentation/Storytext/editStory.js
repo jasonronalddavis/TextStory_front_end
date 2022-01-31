@@ -1,6 +1,3 @@
-//IN  CONSTRUCTION
-
-
 
 import React from 'react'
 import {connect} from 'react-redux'
@@ -14,6 +11,7 @@ import CatCheckBox from './catCheckBox';
 
 
 //MOUNTED ON STORYTEXT CONTAINER
+//IN  CONSTRUCTION
 
 // TODO: Look into using a useEffect hook so when there is a change isChecked you
 // can update the formData obj.

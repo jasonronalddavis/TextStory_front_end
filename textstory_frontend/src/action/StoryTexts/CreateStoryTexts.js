@@ -31,7 +31,7 @@ const catFormInfo = {
   ...formData,
 categories: input
 }
-debugger;
+
 return {
   type: "UPDATE_CAT",
   catFormInfo
@@ -64,8 +64,8 @@ export const resetStoryText = () => {
 
 export const CreateStoryText = (storyTextData,isChecked, newImage) =>  {
 
-
 debugger;
+
 return async dispatch => {
     const sendData = {
       categories: isChecked,
