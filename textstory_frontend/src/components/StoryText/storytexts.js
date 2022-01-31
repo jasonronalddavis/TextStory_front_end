@@ -20,7 +20,7 @@ componentDidMount(){
     return(
       <div className="StoryTextList">
       <ul>
-        {this.props.storytexts.map(storytext => <ul key={storytext.attributes.id}> {storytext.attributes.name} </ul>)}
+        {this.props.storytexts.map(storytext => <ul><li key={storytext.attributes.id}>  {storytext.attributes.name} </li> </ul>)}
       </ul>
       </div>
     );
