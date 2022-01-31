@@ -1,6 +1,7 @@
 const initialState = {
 id: 0,
-name: ""
+name: "",
+storytexts: ""
 }
 
 
@@ -9,11 +10,12 @@ name: ""
 export const userReducer = (state = initialState, action) => {
 switch(action.type){
 case 'SET_USER':
-return action.user
+return action.payload 
+
 case "CLEAR_USER":
 return null
-case 'USER_ATTR':
-return action.payload
+// case "USER_ATTR":
+// return action.user
 default:
 return state
 }

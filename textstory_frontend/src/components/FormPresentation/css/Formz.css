@@ -14,3 +14,10 @@ color: cornsilk
     width: 75px;
 } 
 
+.imagePreview{
+
+
+    position:absolute; top: 300px;  right: 70px; z-index: 50 ;
+    width: 75px;
+
+}

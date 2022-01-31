@@ -1,15 +1,17 @@
 export const setUser = user => {
+
 return {
  type: "SET_USER",
-user
+payload: user.attributes
     }
 }
 
 
 export const userAttr = user => {
+
   return {
     type: "USER_ATTR",
-    payload: user.attributes
+   payload: user
        }
 }
 
@@ -74,7 +76,7 @@ export const getCurrentUser = () => {
           alert(response.error)
         } else {
           dispatch(setUser(response.data)) 
-           dispatch(userAttr(response.data))
+           dispatch(userAttr(response.data.attributes))
         }
       })
       .catch(console.log())

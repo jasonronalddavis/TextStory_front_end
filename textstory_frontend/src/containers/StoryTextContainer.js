@@ -8,6 +8,8 @@ import ListStoryTexts from '../components/StoryText/storytexts';
 import UserStoryTexts from '../components/User/user_storytexts';
 import './storytexts.css'
 import '../components/Home.css'
+import {getCurrentUser} from '../action/User/user';
+
 import EditStory from '../components/FormPresentation/Storytext/editStory';
 
 
@@ -18,29 +20,23 @@ import EditStory from '../components/FormPresentation/Storytext/editStory';
 //ATTEMPTING TO MAP BOOLEAN VALUES TO CRUD COMPONENTS. IF CLICKED, RENDER COMPONENT
 class StoryTextContainer extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      edit: false,
-      create: true,
-      delete: false,
-      view: false
-    };
-    debugger;
-  }
 
 
+  componentDidMount(){
+    this.props.getCurrentUser()  
+
+    }
 
 //<NavLink exact activeClassName="active" to='../components/FormPresentation/Storytext/createStory' className="createLink">
 //<img className="Create" src={require('../public/CREATE.png')} alt='view' />
 //</NavLink>       
 
     render() {
-    
+
       return (
   <div className="StoryTextContainer">  
 
-<h1 class="ScriptHeader"> Stories</h1> 
+<h1 className="ScriptHeader"> Stories</h1> 
   
         <NavLink exact activeClassName="active" to="/" className="homeLink">Home</NavLink>       
 
@@ -57,9 +53,10 @@ class StoryTextContainer extends Component {
     <img className="Delete" src={require('../public/DELETE.png')} alt='delete' />
 </Link> 
 
-<NavLink exact activeClassName="active" to="/Storytexts" className="createLink">
-<img className="Create" src={require('../public/CREATE.png')} alt='create' />
-</NavLink> 
+    <NavLink exact activeClassName="active" to="/Storytexts" className="createLink">
+        <img className="Create" src={require('../public/CREATE.png')} alt='create' />
+            </NavLink> 
+
         <UserStoryTexts/>
         <ListStoryTexts/>
         <CreateStory/>
@@ -69,7 +66,13 @@ class StoryTextContainer extends Component {
   }
   
 
+const mapStateToProps = (user,state) => {
+
+  return {
+user
+
+  }
+}
 
 
-
-  export default connect(null, {fetchStoryTexts})(StoryTextContainer)
+  export default connect(mapStateToProps, {fetchStoryTexts, getCurrentUser})(StoryTextContainer)

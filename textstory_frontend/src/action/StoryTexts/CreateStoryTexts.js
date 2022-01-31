@@ -63,8 +63,9 @@ export const resetStoryText = () => {
   //ASYNC
 
 export const CreateStoryText = (storyTextData,isChecked, newImage) =>  {
-debugger;
 
+
+debugger;
 return async dispatch => {
     const sendData = {
       categories: isChecked,

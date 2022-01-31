@@ -8,6 +8,8 @@ import Logout from "./FormPresentation/logout";
 import Router from "./Router";
 import User from "../components/User/user";
 import Signup from "../components/FormPresentation/Signup";
+import StoryTextContainer from '../containers/StoryTextContainer';
+
 //MAIN APP PAGE
 
 class App extends React.Component  {
@@ -37,6 +39,7 @@ render(){
 
 //MAPTOPROPS
  const mapStateToProps = ({user}) => {
+ 
    return {
     user
   }

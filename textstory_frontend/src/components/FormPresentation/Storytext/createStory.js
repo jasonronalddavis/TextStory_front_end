@@ -91,7 +91,7 @@ categories: catObjects }
 //SUBMIT FORM
     const handleSubmit = event => {
     event.preventDefault()
-    updateCat(formData,isChecked,categories)
+    updateCat(formData,isChecked,categories) //ATTEMPTING TO UPDATE formData.categories
     CreateStoryText(formData,isChecked, newImage)
    }
 
@@ -114,12 +114,12 @@ const DefaultImage = () => {  //FOR PRESENTAIION MOUNTED ON FORM
      <div> <CatCheckBox //CHECKBOX
      handleCheckboxChange={handleCheckboxChange} 
      isChecked={isChecked} 
-     setIsChecked={setIsChecked}/></div><br></br>
+     setIsChecked={setIsChecked}/></div><br></br><br></br>
 
-     <DefaultImage/><br></br>
+   <br></br>  <DefaultImage/><br></br>
         <img className="imagePreview" // JUST FOR PRESENTATION FOR NOW WILL INSERT UPLOADED IMAGE LATER
           alt={""}
-          src={newImage}></img>
+          src={newImage}></img><br></br><br></br>
 
 
       <input //IMAGE UPLOAD INPUT 
