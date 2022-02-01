@@ -11,7 +11,7 @@ export const userAttr = user => {
 
   return {
     type: "USER_ATTR",
-   payload: user
+   payload: user.attributes
        }
 }
 

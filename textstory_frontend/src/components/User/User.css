@@ -1,6 +1,6 @@
 
 .User {
-    position:absolute; top: 0px;  left: 0px; z-index: 40;
+    position:absolute; top: 40px;  left: 290px; z-index: 80;
 color: rgb(255, 255, 255)}
 
 #user_stories_header{

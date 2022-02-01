@@ -19,10 +19,13 @@ class User extends React.Component  {
         }
 
 
+//                const storytexts =  {...this.props.user, story_texts:  }
 
-
+//
+// const storyVar =  {...user,story_texts:}
 //RENDER USER ATTRIBUTES
         render(){
+          console.log(this.props.storytexts)
             return ( 
                 <div className="User"> 
                 <h1> {this.props.user.name} </h1>
@@ -32,11 +35,18 @@ class User extends React.Component  {
           }
           
 
+
+
+
+
+
           //MAPTOPROPS  
            const mapStateToProps = ({user},state) => {
-        // debugger;
+            const storytexts =  {...user,story_texts: user.story_texts }
+ //debugger;
              return {
-              user
+              user,
+              storytexts
             }
            }
               

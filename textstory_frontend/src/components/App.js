@@ -25,13 +25,14 @@ this.props.getCurrentUser()
 
 //RENDERED COMPONENTS WITH LOGIC DEPENDING ON IF USER IS LOGGED IN OR NOT
 render(){
+  console.log(this.props.user.name)
   return (
     <div className="App">
       <Router/>
-     <CategoriesContainer/> 
      {this.props.user ? <User/> : null}
   {this.props.user ? <Logout/> : <LoginForm/>}
  {this.props.user ? null : <Signup/>}
+ <CategoriesContainer/> 
     </div>
   );
 }
@@ -39,12 +40,12 @@ render(){
 
 //MAPTOPROPS
  const mapStateToProps = ({user}) => {
- 
-   return {
+  console.log(user)
+  return {
     user,
 
   }
-  console.log(user)
+ 
  }
  
 

@@ -168,7 +168,7 @@ const DefaultImage = () => {  //FOR PRESENTAIION MOUNTED ON FORM
 
 //MAPSTATE
 const mapStateToProps = (state) => {
-  //debugger;
+
   return {
     formData: state.storytext,
     categories: state.categories,
