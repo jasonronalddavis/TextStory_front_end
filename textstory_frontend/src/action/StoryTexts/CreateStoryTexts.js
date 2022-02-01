@@ -62,7 +62,7 @@ export const resetStoryText = () => {
 
   //ASYNC
 
-export const CreateStoryText = (storyTextData,isChecked, newImage) =>  {
+export const CreateStoryText = (storyTextData,isChecked,checkedCategories, newImage) =>  {
 
 debugger;
 

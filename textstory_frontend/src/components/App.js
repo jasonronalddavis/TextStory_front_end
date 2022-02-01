@@ -29,8 +29,8 @@ render(){
     <div className="App">
       <Router/>
      <CategoriesContainer/> 
+     {this.props.user ? <User/> : null}
   {this.props.user ? <Logout/> : <LoginForm/>}
- {this.props.user ? <User/> : null}
  {this.props.user ? null : <Signup/>}
     </div>
   );
@@ -41,8 +41,10 @@ render(){
  const mapStateToProps = ({user}) => {
  
    return {
-    user
+    user,
+
   }
+  console.log(user)
  }
  
 

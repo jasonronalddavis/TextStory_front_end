@@ -33,7 +33,8 @@ class User extends React.Component  {
           
 
           //MAPTOPROPS  
-           const mapStateToProps = ({user}) => {
+           const mapStateToProps = ({user},state) => {
+        // debugger;
              return {
               user
             }

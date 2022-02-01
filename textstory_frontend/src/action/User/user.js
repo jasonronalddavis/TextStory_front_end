@@ -1,5 +1,5 @@
 export const setUser = user => {
-
+//debugger;
 return {
  type: "SET_USER",
 payload: user.attributes
@@ -48,7 +48,8 @@ return dispatch => {
 if(resp.error){
   alert(resp.error)
 } else {
-dispatch(setUser(resp))
+ // debugger;
+dispatch(setUser(resp.data))
 }
  })
  .catch(console.log())
