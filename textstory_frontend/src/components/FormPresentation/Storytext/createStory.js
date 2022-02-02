@@ -29,13 +29,13 @@ const CreateStory = ({formData, updateForm,uploadImage,updateCat, CreateStoryTex
 const [checkedCategories, setCategories] = useState('')
 //USEEFFECT HOOK
 useEffect(() => {
-  setCategories(checkedCategories)
+  setCategories(isChecked)
   ;
   return () => {
     console.log(checkedCategories)
   }
   //------> STUCK HERE REFER TO handleCheckboxChange <-----
-}, [isChecked ]); 
+}, [checkedCategories]); 
 
 
 
