@@ -35,7 +35,7 @@ useEffect(() => {
     console.log(checkedCategories)
   }
   //------> STUCK HERE REFER TO handleCheckboxChange <-----
-}, [isChecked && console.log(formData) ]); 
+}, [isChecked ]); 
 
 
 
@@ -66,13 +66,14 @@ const imageHandler = (e, state) => {
     // TODO update formData when state updates via useEffect 
   //FILTER MATCHING CATEGORY OBJECTS
   const catObjects =  categories.filter((cat,index) => (cat, index + 1 === idxToFind + 1) )
+//debugger;
 //CONDITIONAL STATEMENT TO FIND MATCHING CATEGORY OBJECTS
 // AND PERSIST TO STATE. NEEDS ALTERING
 if(!formData.categories.includes(catObjects)) {
  const catCollection = {...formData,  
 categories: catObjects }
  console.log("checkedItems: ", catCollection)
- setCategories(catCollection)
+ setCategories(catObjects)
 }
 //debugger;
 //------> STUCK HERE REFER TO USEEFFECT HOOK <-----
