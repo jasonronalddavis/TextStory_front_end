@@ -26,16 +26,16 @@ const CreateStory = ({formData, updateForm,uploadImage,updateCat, CreateStoryTex
    //CATEGORY CHECKBOX HOOK
    const [isChecked, setIsChecked] = useState(new Array(categories.length).fill(true)); 
 //formData.categories UPDATE storytext.categories setIsChecked HOOK
-const [checkedCategories, setCategories] = useState('')
+const [matchedCategories, setCategories] = useState('')
 //USEEFFECT HOOK
 useEffect(() => {
   setCategories(isChecked)
   ;
   return () => {
-    console.log(checkedCategories)
+    console.log(matchedCategories)
   }
   //------> STUCK HERE REFER TO handleCheckboxChange <-----
-}, [checkedCategories]); 
+}, [matchedCategories]); 
 
 
 
@@ -99,7 +99,7 @@ categories: catObjects }
     const handleSubmit = event => {
     event.preventDefault()
     updateCat(formData,isChecked,categories) //ATTEMPTING TO UPDATE formData.categories
-    CreateStoryText(formData,isChecked,checkedCategories,newImage)
+    CreateStoryText(formData,isChecked,matchedCategories,newImage)
    }
 
 
