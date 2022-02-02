@@ -31,6 +31,9 @@ const [checkedCategories, setCategories] = useState('')
 useEffect(() => {
   setCategories(checkedCategories)
   ;
+  return () => {
+    console.log(checkedCategories)
+  }
   //------> STUCK HERE REFER TO handleCheckboxChange <-----
 }, [isChecked && console.log(formData) ]); 
 

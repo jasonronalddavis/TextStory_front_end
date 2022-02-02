@@ -86,3 +86,14 @@ import { Link } from 'react-router-dom'
 <img className="story_texts_cover"   alt="default" src={require('./public/storytexts_list.png') }
 />
 
+
+
+{storytexts.map((storytext, index) => (
+  <div key={index}>
+    {storytext.index.map((s, i) => (
+      <div key={i}>
+        <h3>{s.name}</h3>
+      </div>
+    ))}
+  </div>
+))}

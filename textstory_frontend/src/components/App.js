@@ -8,7 +8,7 @@ import Logout from "./FormPresentation/logout";
 import Router from "./Router";
 import User from "../components/User/user";
 import Signup from "../components/FormPresentation/Signup";
-import StoryTextContainer from '../containers/StoryTextContainer';
+//import StoryTextContainer from '../containers/StoryTextContainer';
 
 //MAIN APP PAGE
 
@@ -25,7 +25,7 @@ this.props.getCurrentUser()
 
 //RENDERED COMPONENTS WITH LOGIC DEPENDING ON IF USER IS LOGGED IN OR NOT
 render(){
-  console.log(this.props.user.name)
+  //console.log(this.props.user.name)
   return (
     <div className="App">
       <Router/>
@@ -40,7 +40,7 @@ render(){
 
 //MAPTOPROPS
  const mapStateToProps = ({user}) => {
-  console.log(user)
+ // console.log(user)
   return {
     user,
 
