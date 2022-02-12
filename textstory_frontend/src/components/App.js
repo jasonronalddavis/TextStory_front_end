@@ -8,6 +8,9 @@ import Logout from "./FormPresentation/logout";
 import Router from "./Router";
 import User from "../components/User/user";
 import Signup from "../components/FormPresentation/Signup";
+import Logo from "../components/logo";
+
+
 //import StoryTextContainer from '../containers/StoryTextContainer';
 
 //MAIN APP PAGE
@@ -33,6 +36,7 @@ render(){
   {this.props.user ? <Logout/> : <LoginForm/>}
  {this.props.user ? null : <Signup/>}
  <CategoriesContainer/> 
+ <Logo/>
     </div>
   );
 }

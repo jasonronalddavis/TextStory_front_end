@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom'
 import CreateStory from '../components/FormPresentation/Storytext/createStory';
 import ListStoryTexts from '../components/StoryText/storytexts';
 import UserStoryTexts from '../components/User/user_storytexts';
+import UserStoryCover from '../components/User/story_TextCover';
+
 import './storytexts.css'
 import '../components/Home.css'
 import {getCurrentUser} from '../action/User/user';
@@ -40,12 +42,13 @@ class StoryTextContainer extends Component {
   
         <NavLink exact activeClassName="active" to="/" className="homeLink">Home</NavLink>       
 
-        <img className="user_story_cover"  alt="default" src={require('../public/user_story_list.png') }/>
-
+        <UserStoryCover/>
+       
+       
         <img className="story_texts_cover"  alt="default" src={require('../public/storytexts_list.png') }/>
 
 
-    <NavLink exact activeClassName="active" to="/Storytexts/"  className="editLink">
+    <NavLink exact activeClassName="active" to="/Storytexts/edit"  className="editLink">
       <img className="Edit" src={require('../public/EDIT.png')} alt='edit' />
         </NavLink> 
 
@@ -53,9 +56,10 @@ class StoryTextContainer extends Component {
     <img className="Delete" src={require('../public/DELETE.png')} alt='delete' />
 </Link> 
 
-    <NavLink exact activeClassName="active" to="/Storytexts" className="createLink">
+    <NavLink exact activeClassName="active" to='/createStory' className="createLink">
         <img className="Create" src={require('../public/CREATE.png')} alt='create' />
             </NavLink> 
+            
 
         <UserStoryTexts/>
         <ListStoryTexts/>
@@ -66,7 +70,7 @@ class StoryTextContainer extends Component {
   }
   
 
-const mapStateToProps = (user,state) => {
+const mapStateToProps = (user) => {
 
   return {
 user

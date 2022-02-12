@@ -1,5 +1,5 @@
 .homeLink{
-    position:relative; top: 780px;  right: 100px; z-index: 50 ;
+    position:relative; top: 780px;  right: 100px; z-index: 50;
 width: 50px;
 }
 
@@ -7,4 +7,22 @@ width: 50px;
 
 .StoryTextLink{
     position:relative; top: 350px;  left: 0px; z-index: 50 ;
+}
+
+.homePageHeader{
+    position:relative; top: 180px;  left: 20px; z-index: 50 ;
+color: 	#ffffff;
+}
+
+.AboutLink{
+    position:relative; top: 380px;  left: 0px; z-index: 50 ;
+}
+
+
+
+.UserProfileLink{
+
+    position:relative; top: 80px;  left: 0px; z-index: 50 ;
+
+
 }

@@ -1,18 +1,29 @@
-export const setUser = user => {
-//debugger;
-return {
- type: "SET_USER",
-payload: user.attributes
-    }
-}
 
 
 export const userAttr = user => {
-
   return {
     type: "USER_ATTR",
-   payload: user.attributes
+   payload: user.attributes 
        }
+}
+
+export const setUser = user => {
+  //debugger;
+  return {
+   type: "SET_USER",
+  payload: user.attributes
+      }
+  }
+  
+
+
+export const userStories = user => {
+//debugger;
+  return {
+    type: "USER_STORIES",
+   payload: user.attributes.story_texts.map(s => s.name)
+  
+  }
 }
 
 
@@ -24,6 +35,12 @@ export const clearUser = () => {
 }
 
 
+export const deleteUser = userId => {
+return {
+type: "DELETE_USER",
+userId
+}
+}
 
 
 //asynchronpus action creators 
@@ -77,7 +94,8 @@ export const getCurrentUser = () => {
           alert(response.error)
         } else {
           dispatch(setUser(response.data)) 
-           dispatch(userAttr(response.data))
+           dispatch(userAttr(response.data))   
+      //     debugger;
         }
       })
       .catch(console.log())
@@ -97,3 +115,29 @@ export const logout = () => {
     }
   }
   
+
+
+
+export const destroyUser = (userId) => {
+ return  dispatch => {
+    return fetch("http://localhost:3001/api/v1/users/${userId}", {
+      credentials: "include",
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(r => r.json())
+      .then(resp => {
+        if (resp.error) {
+          alert(resp.error)
+        } else {
+          dispatch(deleteUser(userId))
+         // history.push(`/users`)
+          // go somewhere else --> user show?
+        }
+      })
+      .catch(console.log)
+  }
+
+}

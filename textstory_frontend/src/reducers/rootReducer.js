@@ -6,11 +6,12 @@ import {userReducer} from './UserReducer'
 import {LoginFormReducer} from './LoginFormReducer'
 import {signupReducer} from './signupReducer'
 import {categoriesReducer} from './CategoriesReducer'
-
+import {imageReducer} from './imageReducer'
 //ACQUIRED BY REDUX STORE
 
 export const rootReducer = combineReducers({
 users: usersReducer,
+images: imageReducer,
 categories: categoriesReducer,
 signup: signupReducer,
 storytext: storytextReducer,

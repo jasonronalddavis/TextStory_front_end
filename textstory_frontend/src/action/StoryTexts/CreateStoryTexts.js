@@ -26,17 +26,14 @@ export const updateForm =  (formData, input) => {
 
 //UPDATE CATEGORY
 export const updateCat = (formData, input, categories) => {
-
 const catFormInfo = {
   ...formData,
 categories: input
 }
-
 return {
   type: "UPDATE_CAT",
   catFormInfo
 }
-
 }
 
 
@@ -62,13 +59,11 @@ export const resetStoryText = () => {
 
   //ASYNC
 
-export const CreateStoryText = (storyTextData,isChecked,checkedCategories, newImage) =>  {
+export const CreateStoryText = (storyTextData,matchedCategories, newImage) =>  {
 
-
-
-return async dispatch => {
+  return async dispatch => {
     const sendData = {
-      categories: isChecked,
+      categories: matchedCategories,
       image_file: newImage,
       description: storyTextData.description,
       name: storyTextData.name,

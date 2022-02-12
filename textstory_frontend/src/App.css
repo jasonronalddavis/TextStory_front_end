@@ -2,6 +2,29 @@
   text-align: center;
 }
 
+
+.Logo {
+  position:relative; top: -550px;  left: 20px; z-index: 80 ;
+  width: 100px;;
+}
+
+.about {
+  position:absolute; top: 260px;  left: 250px; z-index: 50 ;
+  width: 120px; 
+  text-align: center;
+}
+
+.AppLogo {
+  position:absolute; top: 60px;  left: 345px; z-index: 90 ;
+  width: 100px;;
+}
+
+
+.about h1 {
+  position:relative; top: 0px;  left: 0px; z-index: 50 ;
+  text-align: center;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -23,6 +46,18 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 .App-link {
   color: #61dafb;

@@ -12,9 +12,12 @@ import  {connect}  from 'react-redux';
 const Home = ({user}) => {
 return (
 <div>
-Home Page<br></br>
+<h1 className="homePageHeader"> Home Page</h1><br></br>
  {user ? <NavLink exact activeClassName="active" to="/users"  className="usersLink">Users</NavLink> : null }
 {user ? <NavLink exact activeClassName="active" to="/storyTexts"  className="StoryTextLink"><br></br><br></br>Stories</NavLink> : null }
+{user ? <NavLink exact activeClassName="active" to="/about"  className="AboutLink"><br></br><br></br>About</NavLink> : null }
+{user ? <NavLink exact activeClassName="active" to="/userProfile"  className="UserProfileLink"><br></br><br></br>Your Profile</NavLink> : null }
+
 </div>
 );
 };

@@ -3,7 +3,7 @@
 const initialState = {
   name: "",
   description: "",
- categories: [],
+ categories: "",
  user: "",
  users: [],
  comments: [],

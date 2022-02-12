@@ -1,6 +1,4 @@
 
-import {setUser} from "./user.js"
-
 
 
 export const updateSignupForm = userData => {
@@ -20,17 +18,24 @@ export const resetSignupForm = () => {
 
 
 
+
+export const setUser = user => {
+ //debugger;
+  return {
+   type: "SET_USER",
+  payload: user
+      }
+  }
+  
+
 //ASYNC
 
 
 export const signup = (credentials) => {
   return dispatch => {
-
   const userInfo = {
       user: credentials
     }
-
-
     return fetch("http://localhost:3001/api/v1/signup", {
       credentials: "include",
       method: "POST",
@@ -44,7 +49,8 @@ export const signup = (credentials) => {
         if (response.error) {
           alert(response.error)
         } else {
-          dispatch(setUser(response.data))
+        //  debugger;
+          dispatch(setUser(response))
           dispatch(resetSignupForm())
         }
       })

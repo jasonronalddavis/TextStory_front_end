@@ -1,4 +1,5 @@
 export const setStoryTexts = storytexts => {
+ // debugger;
 return {
  type: "FETCH_STORY_TEXTS",
   payload: storytexts.data

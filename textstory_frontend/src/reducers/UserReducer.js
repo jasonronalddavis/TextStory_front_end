@@ -1,7 +1,7 @@
 const initialState = {
-id: 0,
+userId: 0,
 name: "",
-storytexts: ""
+story_texts: [],
 }
 
 
@@ -11,10 +11,14 @@ export const userReducer = (state = initialState, action) => {
 switch(action.type){
 case 'SET_USER':
 return action.payload 
+case "USER_STORIES":
+return {...state, userStories: action.payload }
 case "CLEAR_USER":
 return null
+case "DELETE_USER":
+  return   state.userId 
  case "USER_ATTR":
- return action.payload
+ return action.payload 
 default:
 return state
 }

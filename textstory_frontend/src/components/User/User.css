@@ -1,13 +1,39 @@
 
-.User {
-    position:absolute; top: 40px;  left: 290px; z-index: 80;
-color: rgb(255, 255, 255)}
+.User h1{
+    position:absolute; top: 90px; height: 20px; left: 120px; z-index: 80;
+    color: rgb(0, 0, 0);
+    font-size: 2em;
+
+}
 
 #user_stories_header{
-    position:absolute; top: 270px;  left: 60px; z-index: 50;
+    position:absolute; top: 270px;  left: 40px; z-index: 50;
     font-size: 1em;
     perspective: 150px;
     transform: rotateX(15deg) rotateY(34deg);
     transform-style: preserve-3d;
 color: rgb(0, 0, 0)
+}
+
+
+.aboutHomeLink{
+
+    position:absolute; top: 400px;  left: 280px; z-index: 20;
+  
+}
+
+
+.deleteAccount{
+    position:absolute; top: 500px;  left: 250px; z-index: 20;
+}
+
+.user_stories{
+    position:absolute; left:0px; top: 360px; z-index: 70;
+    width: 150px;
+    color: rgb(0, 0, 0);
+    font-size: .7em;
+    perspective: 50px;
+    transform: rotateX(0deg) rotateY(336deg);
+    overflow-y: scroll; height: 150px; width: 150px;
+
 }

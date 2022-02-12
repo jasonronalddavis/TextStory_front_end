@@ -5,6 +5,9 @@ import Home from './Home'
 import UsersContainer from "../containers/UsersContainer";
 import StoryTextContainer from "../containers/StoryTextContainer";
 import CreateStory from "./FormPresentation/Storytext/createStory";
+import About from "./about";
+import UserProfile from "./User/userProfile";
+
 
 // ROUTING LINKS TO STORYTEXT CONTAINER(PREFIXED AS '/storyTexts') 
 // ROUTED STORYTEXT FORM PREFIXED AS '/storyTextForm'
@@ -19,6 +22,8 @@ return (
     <Route   path='/users' component={UsersContainer}/>
      <Route   path='/storyTexts' component={StoryTextContainer}/>
      <Route path='/createStory' component={CreateStory}/>
+     <Route path='/about' component={About}/>
+<Route path='/userProfile' component={UserProfile}/>
 </Switch>
 
 );

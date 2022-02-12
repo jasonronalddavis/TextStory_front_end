@@ -1,7 +1,7 @@
 import  {connect}  from 'react-redux';
 import React, { Component } from 'react';
 import  {fetchStoryTexts}  from '../../action/StoryTexts/FetchStoryTexts';
-
+import {fetchImages} from '../../action/images/fetchimages'
 //MOUNTED ON STORYTEXT CONTAINER
 
 
@@ -12,15 +12,17 @@ class ListStoryTexts extends Component {
 componentDidMount(){
       // console.log(this.props)
       this.props.fetchStoryTexts();
+      this.props.fetchImages();
     }
 
 
 //RENDERS A LIST OF STORIES lOGS
   render() {
+//debugger;
     return(
       <div className="StoryTextList">
       <ul>
-        {this.props.storytexts.map(storytext => <ul><li key={storytext.attributes.id}>  {storytext.attributes.name} </li> </ul>)}
+        {this.props.images.map(i => <ul key={i.id}> <img className="imageLilst" src={i}/>  </ul>)}
       </ul>
       </div>
     );
@@ -33,13 +35,18 @@ componentDidMount(){
 
 
 const mapStateToProps = state => {
-      return {storytexts: state.storytexts}
+ // debugger;
+      return {
+        storytexts: state.storytexts,
+      images: state.images.url
+      }
       }
   
 
     const mapDispatchToProps = dispatch => {
           return {
-     fetchStoryTexts: () => dispatch(fetchStoryTexts())
+     fetchStoryTexts: () => dispatch(fetchStoryTexts()),
+     fetchImages: () => dispatch(fetchImages())
           }
       }
 
