@@ -1,5 +1,5 @@
 const initialState = {
-userId: 0,
+id: 0,
 name: "",
 story_texts: [],
 }
@@ -16,7 +16,7 @@ return {...state, userStories: action.payload }
 case "CLEAR_USER":
 return null
 case "DELETE_USER":
-  return   state.userId 
+  return   state.id 
  case "USER_ATTR":
  return action.payload 
 default:

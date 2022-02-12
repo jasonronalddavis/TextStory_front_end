@@ -25,7 +25,7 @@ class ListUsers  extends React.Component  {
     render() {
       return(   
   <div className="listUsers">
-  {this.props.users.map(user => <ul key={user.userId}> {user.attributes.name} </ul>)}
+  {this.props.users.map(user => <ul key={user.id}> {user.attributes.name} </ul>)}
   </div>
       );
     };

@@ -34,6 +34,6 @@ color: rgb(0, 0, 0)
     font-size: .7em;
     perspective: 50px;
     transform: rotateX(0deg) rotateY(336deg);
-    overflow-y: scroll; height: 150px; width: 150px;
+    overflow-y: scroll; height: 150px; width: 170px;
 
 }
