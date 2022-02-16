@@ -16,13 +16,13 @@ componentDidMount(){
     }
 
 
-//RENDERS A LIST OF STORIES lOGS
+//RENDERS A LIST OF STORIES lOGS IMAGES
   render() {
 //debugger;
     return(
       <div className="StoryTextList">
       <ul>
-        {this.props.images.map(i => <ul key={i.id}> <img className="imageLilst" src={i}/>  </ul>)}
+        {this.props.images.map((i, index) => <li key={`${index}-name`}> <img className="imageLilst" src={i}/>  </li>)}
       </ul>
       </div>
     );

@@ -15,6 +15,7 @@ export const fetchImages = () =>  {
   return async dispatch => {
     const r = await fetch("http://localhost:3001/api/v1/images")
     const images = await r.json()
+
     return dispatch(setImages(images))
 }
 }

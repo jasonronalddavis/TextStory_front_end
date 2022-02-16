@@ -15,7 +15,7 @@ const About = () => {
        <h1>About LoreShare</h1> 
         <p>
         LoreShare is an app for creating,
-        adding and sharing creative storries. 
+        adding and sharing creative stories. 
         </p>
 
         <NavLink exact activeClassName="active" to="/" className="home">Home</NavLink>       

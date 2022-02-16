@@ -48,7 +48,7 @@ class UserStoryTexts extends React.Component  {
 
           //MAPTOPROPS  
            const mapStateToProps = (state) => {
-
+//debugger;
              return {
              user: state.user,
            stories: state.user.story_texts

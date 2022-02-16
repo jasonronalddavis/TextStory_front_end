@@ -17,24 +17,40 @@ import Logo from "../components/logo";
 
 class App extends React.Component  {
 
-
+  constructor(props) {
+    super(props);
+    // initial state has count set at 0
+    this.state = {
+      button: 0
+    };
+  }
 
 //EVENTHANDLERS
 
 componentDidMount(){
 this.props.getCurrentUser()
 }
+ 
 
+inCrease = () => {
+  this.setState(previousState => {
+    let value = previousState.button + 1;
+    return {
+      button: value
+    }
+  })
+}
 
 //RENDERED COMPONENTS WITH LOGIC DEPENDING ON IF USER IS LOGGED IN OR NOT
 render(){
-  //console.log(this.props.user.name)
+
   return (
     <div className="App">
       <Router/>
      {this.props.user ? <User/> : null}
   {this.props.user ? <Logout/> : <LoginForm/>}
  {this.props.user ? null : <Signup/>}
+
  <CategoriesContainer/> 
  <Logo/>
     </div>
@@ -49,10 +65,13 @@ render(){
     user,
 
   }
- 
  }
  
-
+const mapDispatchToProps = (dispatch,{button}) => {
+return {
+ increaseButton: () => dispatch() 
+}
+}
 
 
 

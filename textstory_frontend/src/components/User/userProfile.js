@@ -29,8 +29,8 @@ class UserProfile extends React.Component  {
                 <h1> {this.props.user.name} </h1>
             <div>
                     <NavLink exact activeClassName="active" to="/" className="aboutHomeLink">Home</NavLink>       
-
-            <Delete/>
+                    {this.props.user ?  <Delete/> : <h1 id="lo"> Please Sign up </h1>}
+            
                 </div> 
 
 
