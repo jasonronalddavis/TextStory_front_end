@@ -7,15 +7,31 @@ return {
 }
 
 
-
+export const setImage = images => {
+  //debugger;
+const image = []
+images.data.map(d =>  image.push(d))
+console.log(image)
+return{
+type: "SET_IMAGE",
+payload: image
+}
+}
 //ASYNC
 
 
 export const fetchImages = () =>  {
   return async dispatch => {
-    const r = await fetch("http://localhost:3001/api/v1/images")
-    const images = await r.json()
+   return fetch("http://localhost:3001/api/v1/images",{
+credentials: "include",
+method: "GET",
+body:JSON.stringify()
+  })
+  .then(r => r.json())
+  .then(response => {
+     dispatch(setImages(response))
+     dispatch(setImage(response))
+    })
+  } 
+}
 
-    return dispatch(setImages(images))
-}
-}

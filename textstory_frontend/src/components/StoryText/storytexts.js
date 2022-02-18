@@ -1,7 +1,8 @@
 import  {connect}  from 'react-redux';
 import React, { Component } from 'react';
 import  {fetchStoryTexts}  from '../../action/StoryTexts/FetchStoryTexts';
-import {fetchImages} from '../../action/images/fetchimages'
+import {fetchImages} from '../../action/images/fetchimages';
+import {setImage} from '../../action/images/fetchimages';
 //MOUNTED ON STORYTEXT CONTAINER
 
 
@@ -17,13 +18,19 @@ componentDidMount(){
 
 
 //RENDERS A LIST OF STORIES lOGS IMAGES
+//      {this.props.image.map(i => <li key={i.id}> <img className="imageLilst" src={i.url}/>  </li>)}
+
   render() {
+    const image = this.props.image
+    console.log(image.map(i => i.id))
+
+
 //debugger;
     return(
       <div className="StoryTextList">
-      <ul>
-        {this.props.images.map((i, index) => <li key={`${index}-name`}> <img className="imageLilst" src={i}/>  </li>)}
-      </ul>
+
+        {this.props.image.map((i) =>  <ul key={i.id}> <img className="imageLilst" src={i.attributes.url}/>  </ul>)}
+     
       </div>
     );
   }
@@ -35,10 +42,11 @@ componentDidMount(){
 
 
 const mapStateToProps = state => {
- // debugger;
+//debugger;
       return {
         storytexts: state.storytexts,
-      images: state.images.url
+      images: state.images.url,
+      image: state.images.imageObj
       }
       }
   
@@ -46,7 +54,7 @@ const mapStateToProps = state => {
     const mapDispatchToProps = dispatch => {
           return {
      fetchStoryTexts: () => dispatch(fetchStoryTexts()),
-     fetchImages: () => dispatch(fetchImages())
+     fetchImages: () => dispatch(fetchImages()),
           }
       }
 

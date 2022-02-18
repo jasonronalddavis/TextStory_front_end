@@ -50,7 +50,6 @@ render(){
      {this.props.user ? <User/> : null}
   {this.props.user ? <Logout/> : <LoginForm/>}
  {this.props.user ? null : <Signup/>}
-
  <CategoriesContainer/> 
  <Logo/>
     </div>
