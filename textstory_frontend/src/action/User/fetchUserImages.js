@@ -1,8 +1,11 @@
 export const setImages = images => {
-    const url = images.data.map(d => d.attributes.url)
+ 
+  const image = []
+images.data.map(d =>  image.push(d))
+console.log(image)
     return {
-     type: "FETCH_IMAGES",
-      payload: url
+     type: "FETCH_USER_IMAGES",
+      payload: image
         }
     }
     

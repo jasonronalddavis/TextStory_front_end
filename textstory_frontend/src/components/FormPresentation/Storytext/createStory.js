@@ -10,6 +10,9 @@ import CatCheckBox from './catCheckBox';
 import Select from 'react-select'
 import axios from 'axios'
 
+
+
+
 //MOUNTED ON STORYTEXT CONTAINER
 
 // TODO: Look into using a useEffect hook so when there is a change isChecked you
@@ -37,7 +40,9 @@ const imageHandler = (e, state) => {
   const reader = new FileReader();
   reader.readAsDataURL(image_file)
   e.persist(image_file)
+ const value = ""
   reader.onloadend = () => {
+    
       const newImg = reader.result
    setNewImage(newImg)
   uploadImage(image_file,newImg,newImage) 
@@ -106,12 +111,12 @@ const DefaultImage = () => {  //FOR PRESENTAIION MOUNTED ON FORM
 
 
       <input //IMAGE UPLOAD INPUT 
+      
         type="file" 
           name="image_file" 
           id="imageInput" 
           accept="image/*" 
            onChange={imageHandler}/><br></br><br></br>
-          
 <Select
 className="CatSelect"   //CATEGORY
    onChange={handleCatchange}

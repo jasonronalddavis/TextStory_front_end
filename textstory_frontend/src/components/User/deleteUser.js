@@ -26,7 +26,6 @@ this.props.getCurrentUser();
 
 
 render(){
-    console.log(this.props)
     return(
         <div className="deleteAccount">
 <form onSubmit={this.handleSubmit()}> 

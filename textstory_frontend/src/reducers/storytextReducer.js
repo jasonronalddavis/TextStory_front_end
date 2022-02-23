@@ -18,7 +18,7 @@ const initialState = {
 export const storytextReducer = (state = initialState, action) => {
 switch(action.type){
 case "SET_STORY_TEXT":
-  return action.formData && console.log(action.formData)
+  return action.formData 
   case "UPDATE_CAT":
     return action.catFormInfo
   case "UPDATE_STORY_TEXT_FORM":

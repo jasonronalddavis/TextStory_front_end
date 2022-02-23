@@ -22,7 +22,6 @@ componentDidMount(){
 
   render() {
     const image = this.props.image
-    console.log(image.map(i => i.id))
 
 
 //debugger;
@@ -45,7 +44,6 @@ const mapStateToProps = state => {
 //debugger;
       return {
         storytexts: state.storytexts,
-      images: state.images.url,
       image: state.images.imageObj
       }
       }
@@ -55,6 +53,7 @@ const mapStateToProps = state => {
           return {
      fetchStoryTexts: () => dispatch(fetchStoryTexts()),
      fetchImages: () => dispatch(fetchImages()),
+
           }
       }
 

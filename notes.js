@@ -152,3 +152,23 @@ class Board extends React.Component {
     var player = {score: 1, name: 'Jeff'};
 
 var newPlayer = Object.assign({}, player, {score: 2});
+
+
+
+
+
+
+
+
+
+
+fetch("http://localhost:3001/api/v1/get_user_stories", {
+      credentials: "include",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+  
+    })
+    .then(r => r.json())
+    .then(response => {response})

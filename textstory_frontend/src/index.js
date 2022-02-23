@@ -6,8 +6,6 @@ import App from './components/App';
 import { BrowserRouter as Router} from "react-router-dom";
 import store from "./store"; 
 import './BckGrnd.css'
-
-
 //ACQUIRING STOR FROM SEPARATE MODULE
 
 ReactDOM.render(

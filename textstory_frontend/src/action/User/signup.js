@@ -49,7 +49,6 @@ export const signup = (credentials) => {
         if (response.error) {
           alert(response.error)
         } else {
-        //  debugger;
           dispatch(setUser(response))
           dispatch(resetSignupForm())
         }

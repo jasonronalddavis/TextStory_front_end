@@ -43,7 +43,6 @@ const imageHandler = (e, state) => {
       const newImg = reader.result
    setNewImage(newImg)
   uploadImage(image_file,newImg,newImage) 
-   console.log(formData.image_file)
     //debugger;
   }
 }
