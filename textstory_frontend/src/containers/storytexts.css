@@ -1,9 +1,10 @@
 .ScriptHeader{
-    position:absolute; top: 260px;  left: 465px; z-index: 80;
+    position:absolute; top: 150px;  left: 465px; z-index: 80;
+    height: 50px;
     color: rgb(0, 0, 0);
-    font-size: 1.5em;
+    font-size: 2.5em;
     perspective: 229px;
-    transform: rotateX(-20deg) rotateY(40deg);
+    transform: rotateX(-60deg) rotateY(40deg);
     
    
 }
@@ -26,7 +27,7 @@
 }
 
  .homeLink{
-      position:absolute; top: 660px;  right: 330px; z-index: 50 ;
+      position:absolute; top: 690px;  right: 330px; z-index: 50 ;
     width: 100px;
     color: rgb(0, 0, 0);
     }
@@ -59,7 +60,7 @@ box-shadow:5px 5px 5px rgba(0,0,0,0.3);
 
 
 .Edit {
-    position:absolute; top: 540px;  right: 290px; z-index: 30 ;
+    position:absolute; top: 593px;  right: 290px; z-index: 30 ;
     -webkit-box-reflect: below -5px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.1));  
     width: 150px;
 }
@@ -72,8 +73,8 @@ box-shadow:5px 5px 5px rgba(0,0,0,0.3);
 
 
 .Create {
-    position:absolute; top: 555px;  right: 217px; z-index: 40 ;
-    -webkit-box-reflect: below -63px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.3));  
+    position:absolute; top: 600px;  right: 217px; z-index: 40 ;
+    -webkit-box-reflect: below -63px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.2));  
     width: 140px;
 }
 
@@ -82,7 +83,7 @@ box-shadow:5px 5px 5px rgba(0,0,0,0.3);
 }
 
 .Delete {
-    position:absolute; top: 550px;  right: 145px; z-index: 30 ;
+    position:absolute; top: 600px;  right: 145px; z-index: 30 ;
     -webkit-box-reflect: below -10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.1));  
     width: 120px;
 }
@@ -93,9 +94,9 @@ box-shadow:5px 5px 5px rgba(0,0,0,0.3);
 
 
 .createStoryText {
-    position:absolute; top:280px;  left: 185px; z-index: 80; height: 350px;
+    position:absolute; top:280px;  left: 185px; z-index: 80; height: 380px;
     color: rgb(50, 53, 53);
     -webkit-box-reflect: below 120px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
-    overflow-y: scroll; height: 290px; width: 240px;
+    overflow-y: scroll; height: 325px; width: 240px;
     
 }

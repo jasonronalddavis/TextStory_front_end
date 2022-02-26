@@ -38,7 +38,7 @@ class StoryTextContainer extends Component {
       return (
   <div className="StoryTextContainer">  
 
-<h1 className="ScriptHeader"> Stories</h1> 
+<h1 className="ScriptHeader">All Stories</h1> 
   
         <NavLink exact activeClassName="active" to="/" className="homeLink">Home</NavLink>       
 

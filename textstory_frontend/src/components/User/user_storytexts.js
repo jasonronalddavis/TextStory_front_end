@@ -4,6 +4,7 @@ import  {connect}  from 'react-redux';
 import {getCurrentUser} from '../../action/User/user';
 import {userAttr} from "../../action/User/user";
 import {userStories} from "../../action/User/user";
+import {userStoryTexts} from "../../action/User/userStoryTexts";
 import './User.css'
 
 //MOUNTED ON STORYTEXTCONTAINER
@@ -11,31 +12,64 @@ import './User.css'
 
 class UserStoryTexts extends React.Component  { 
 
+  constructor(props) {
+    super(props);
+    
+//LOCAL STATE TO HOLD BACKEND STORY_TEXT_IMAGES 
+    this.state = {
+      user_stories: "",
+      setPromise: "",
+      setImages: ""
+    };
+  }
 
+//FETCHING CURRENT USER AND USER STORY ATTRIBUTES FROM IMPORTED ACTIONS.
+//MAPPING USER_STORY_TEXT FETCH FUNCTION TO LOCAL STATE
+//SETTING STORY_TEXT IMAGE ATTRIBUTE TO LOCAL STATE
 
-//FETCHING CURRENT USER 
-    componentDidMount(){
+componentDidMount(){
+  const user_stories = []
+  const story_images = []
         this.props.getCurrentUser()
-      //  debugger;
+     this.setState({user_stories: userStoryTexts()})
+     Promise.resolve(userStoryTexts()).then(value=>{
+       if (value[0] !== undefined ) {
+      this.setState({setPromise: value.attributes})
+     value.map(v =>  story_images.push(...v.attributes.images))
+      //PUSHING USER STORYTEXT STATE TO AN EMPTY ARRAY CALLED STORY_IMAGES
+      user_stories.push(this.state.setPromise)
+      this.setState({setImages: story_images })
+      //PUSHING STORYTEXT IMAGE STATE TO AN EMPTY ARRAY CALLED STORY_IMAGES
+      //this.setState({setImages: story_images})
+      console.log(story_images)
+    }
+      }) 
+
         }
 
+
+
+
 setImage = (image) => {
-
 const reader = new FileReader();
-
 //reader.readAsDataURL(image)
 }
 //https://webcode.tools/generators/css/perspective
-//const imageArray = this.props.user_stories.map(s => s.relationships.images.data)
-//console.log(imageArray.map(i => i.id,))
+
+
         render(){
-       //  {this.props.storyRelationships.map(s =>  s.images.data.map( s => <img src={setImage(s)} alt="default " /> ))}
+
+        const Istate = []
+        Istate.push(this.state.setImages)
+      console.log( this.state.setImages && this.state.setImages.map(i => i.id))
+        // <ul> {this.state.setImages && this.state.setImages.map(i => <img src={i.url} />)}  </ul>
+          //MAPPING OVER IMAGE ARRAY
             return ( 
+            
                 <div className="User_Stories"> 
-                <h1 id="user_stories_header">Your Stories</h1>
+                <h1 className="user_stories_header">Your Stories</h1>
                 <div className="user_stories"> 
-                {this.props.storyRelationships.map(s => <img src={this.setImage(s.images.data)} alt="default" />)}
-              <ul>  {this.props.stories.map(s =><li key={s.id}> {s.name}</li>)}</ul>
+      <ul className="Image_List"> {this.state.setImages && this.state.setImages.map(i =>  <img key={i.id} src={i.url}/>   )}  </ul>
               </div> 
                   </div> 
             )
@@ -46,10 +80,8 @@ const reader = new FileReader();
 
          const mapDispatchToProps = (dispatch) => {
            return {
-            userStories: () => dispatch(userStories()),
-        
-            }
-            
+            userStories: () => dispatch(userStories()), 
+            } 
               }
 
 
@@ -60,18 +92,20 @@ const reader = new FileReader();
 //{...state.user, story_texts:  }
 
 //--> STUCK HERE <-----
-const user_stories = state.user.story_texts.map(s => s.id)
-const userStories = state.storytexts.filter(element => user_stories.includes(element.id) );
-const story_Relationships = userStories.map(s => s.relationships)
-const imageArray = userStories.map(s => s.relationships.images.data.map(s => parseInt(s.id)))
-const user_images = state.user.images.map((s,index)=> s.id)
-imageArray.map(i => i.map(element => element ))
-            
+
+const users = state.storytexts.map( s => s.relationships.users)
+
+const  consLog = users.map( u => u.data.map(i => i.id === "5"))
+
+//const  consLog = users.map( u => u.map(i => i.id[0] === state.user.id))
+
+//const userStories = state.storytexts.filter(element => user_stories.includes(element.id) );
+//const story_Relationships = userStories.map(s => s.relationships)
+//const imageArray = userStories.map(s => s.relationships.images.data.map(s => parseInt(s.id)))
+//imageArray.map(i => i.map(element => element ))           
         return {
              user: state.user,
            stories: state.user.story_texts,
-           user_stories: userStories,
-           storyRelationships: story_Relationships
             }     
            }
               

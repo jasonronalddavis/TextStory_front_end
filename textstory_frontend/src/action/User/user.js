@@ -98,10 +98,11 @@ export const getCurrentUser = () => {
     })
       .then(r => r.json())
       .then(response => {
-        if (response.error) {
+        if (response.error){
           alert(response.error)
         } else {
-        
+        // debugger;
+
           const stories = response.data.relationships.story_texts.data
 
           dispatch(setUser(response.data)) 
