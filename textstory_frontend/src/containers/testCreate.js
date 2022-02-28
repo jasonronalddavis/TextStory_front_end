@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import './storytexts.css'
 
- class TestContainer extends Component {
+ class TestCreate extends Component {
 
 //MOUNTED ON APP
 //MOUNTING FETCHED CATEGORIES 
@@ -12,8 +12,8 @@ import './storytexts.css'
 //MIGHT RENDER CATEGORY ATTRIBUTES ON APP COMPONENT FOR EXTENDED FUNCTIONALITY
     render() {
       return (
-        <div className="TestContainer">  
-        <h1>"BARNES!"</h1>        
+        <div className="TestCreate">  
+        <h1>"CREATE"</h1>        
         </div>
       );
     }
@@ -22,4 +22,4 @@ import './storytexts.css'
 
 
 
-  export default connect(null,)(TestContainer)
+  export default connect(null,)(TestCreate)

@@ -9,13 +9,22 @@
    
 }
 
-.TestContainer{
-    position:relative; top: 150px;  right: 220px; z-index: 70 ;
+.TestEdit{
+    position:relative; top: 550px;  right: 220px; z-index: 30 ;
     height: 600px;
     font-size: 2.5em;
-
-
 }
+
+
+
+
+
+.TestCreate{
+    position:relative; top: 550px;  right: 220px; z-index: 30 ;
+    height: 600px;
+    font-size: 2.5em;
+}
+
 
 .story_texts_cover{
     position:relative; top: -440px;  left: 250px; z-index: 80 ;
@@ -102,7 +111,7 @@ box-shadow:5px 5px 5px rgba(0,0,0,0.3);
 
 .refresh {
 
-    position:absolute; top: 225px;  right: 230px; z-index: 50 ;
+    position:absolute; top: 225px;  right: 230px; z-index: 0 ;
     width: 100px;
     color: rgb(0, 0, 0);
 

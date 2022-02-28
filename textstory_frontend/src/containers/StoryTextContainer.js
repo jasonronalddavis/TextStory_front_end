@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom'
 import CreateStory from '../components/FormPresentation/Storytext/createStory';
 import ListStoryTexts from '../components/StoryText/storytexts';
 import UserStoryTexts from '../components/User/user_storytexts';
-import UserStoryCover from '../components/User/story_TextCover';
 import './storytexts.css'
 import '../components/Home.css'
 import {getCurrentUser} from '../action/User/user';
 import EditStory from '../components/FormPresentation/Storytext/editStory';
-import TestContainer from './testContainer';
+import TestEdit from './testEdit';
+import TestCreate from './testCreate';
 
 //IMPORTING FORM AND LIST OF STORY TEXTS
 // NAVLINK MOUNTED FROM ROUTER TO RETURN HOME
@@ -23,11 +23,12 @@ class StoryTextContainer extends Component {
 constructor(props){
 super(props);
 this.state = {
-create: true,
+create: false,
 edit: false,
 delete: false,
 view: false
 };
+this.setValue = this.setValue.bind(this)
 }
 
   componentDidMount(){
@@ -42,13 +43,22 @@ window.location.reload();
 }
 
 
-setValue = (e) => {
+
+
+
+setValue(e){
+
   
    const eVal = e.target
   const value = eVal.getAttribute("value")
 const name = eVal.getAttribute("name")
-console.log(eVal.getAttribute("value"))
+console.log(eVal.getAttribute("name"))
+this.setState({edit: false});
+this.setState({create: false});
+this.setState({view: false});
+this.setState({delete: false});
 this.setState({[name]: true});
+
 console.log({...this.state})
 
 
@@ -58,7 +68,7 @@ console.log({...this.state})
 //<NavLink exact activeClassName="active" to='../components/FormPresentation/Storytext/createStory' className="createLink">
 //<img className="Create" src={require('../public/CREATE.png')} alt='view' />
 //</NavLink>       
-// {this.state.edit == true : <TestContainer/> }
+// {this.state.edit == true : <TestEdit/> }
 
     render() {
 
@@ -69,28 +79,27 @@ console.log({...this.state})
   
   <NavLink exact activeClassName="active" to="/" className="homeLink">Home</NavLink>       
 
-   <UserStoryCover/>
-       
-    <img className="story_texts_cover"  alt="default" src={require('../public/storytexts_list.png') }/>
+   {this.state.edit === true ? <TestEdit/>  : null}   
+    {this.state.create === true ? <CreateStory/>  : null} 
 
     <button className="refresh" onClick={this.refresh} variant="text">refresh</button>
 
     
-      <img className="Edit" id="edit" name="edit" onClick={(event) =>  this.setValue(event)} value={this.state.edit}  src={require('../public/EDIT.png')} alt='edit' />
+      <img className="Edit" id="edit" name="edit" onClick={this.setValue} value={this.state.edit}  src={require('../public/EDIT.png')} alt='edit' />
    
 
   <button> 
     <img className="Delete" src={require('../public/DELETE.png')} alt='delete' />
       </button> 
 
-    <button className="createLink">
-        <img className="Create" src={require('../public/CREATE.png')} alt='create' />
-            </button> 
+   
+        <img className="Create" id="create" name="create" onClick={this.setValue} value={this.state.create} src={require('../public/CREATE.png')} alt='create' />
+          
             
 
         <UserStoryTexts/>
         <ListStoryTexts/>
-        <CreateStory/>
+        
         </div>
       );
     }
