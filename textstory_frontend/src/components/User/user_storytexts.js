@@ -41,7 +41,6 @@ componentDidMount(){
       this.setState({setImages: story_images })
       //PUSHING STORYTEXT IMAGE STATE TO AN EMPTY ARRAY CALLED STORY_IMAGES
       //this.setState({setImages: story_images})
-      console.log(story_images)
     }
       }) 
 
@@ -61,7 +60,7 @@ const reader = new FileReader();
 
         const Istate = []
         Istate.push(this.state.setImages)
-      console.log( this.state.setImages && this.state.setImages.map(i => i.id))
+    //  console.log( this.state.setImages && this.state.setImages.map(i => i.id))
         // <ul> {this.state.setImages && this.state.setImages.map(i => <img src={i.url} />)}  </ul>
           //MAPPING OVER IMAGE ARRAY
             return ( 

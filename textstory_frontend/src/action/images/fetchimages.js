@@ -11,7 +11,6 @@ export const setImage = images => {
   //debugger;
 const image = []
 images.data.map(d =>  image.push(d))
-console.log(image)
 return{
 type: "SET_IMAGE",
 payload: image

@@ -82,8 +82,8 @@ const handleCatchange = (e, state) =>  {
 
 //SUBMIT FORM
     const handleSubmit = event => {
-   
     CreateStoryText(formData,matchedCategories,newImage)
+    
    }
 
 
