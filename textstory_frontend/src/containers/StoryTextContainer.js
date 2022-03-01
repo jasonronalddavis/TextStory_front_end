@@ -4,12 +4,13 @@ import { NavLink } from 'react-router-dom'
 import  {fetchStoryTexts}  from '../action/StoryTexts/FetchStoryTexts';
 import { Link } from 'react-router-dom'
 import CreateStory from '../components/FormPresentation/Storytext/createStory';
+import EditStory from '../components/FormPresentation/Storytext/editStory';
+
 import ListStoryTexts from '../components/StoryText/storytexts';
 import UserStoryTexts from '../components/User/user_storytexts';
 import './storytexts.css'
 import '../components/Home.css'
 import {getCurrentUser} from '../action/User/user';
-import EditStory from '../components/FormPresentation/Storytext/editStory';
 import TestEdit from './testEdit';
 import TestCreate from './testCreate';
 
@@ -41,8 +42,6 @@ this.setValue = this.setValue.bind(this)
 refresh = () => {
 window.location.reload();
 }
-
-
 
 
 
@@ -79,7 +78,7 @@ console.log({...this.state})
   
   <NavLink exact activeClassName="active" to="/" className="homeLink">Home</NavLink>       
 
-   {this.state.edit === true ? <TestEdit/>  : null}   
+   {this.state.edit === true ? <EditStory/>  : null}   
     {this.state.create === true ? <CreateStory/>  : null} 
 
     <button className="refresh" onClick={this.refresh} variant="text">refresh</button>

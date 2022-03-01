@@ -4,13 +4,13 @@ import  {connect}  from 'react-redux';
 import {getCurrentUser} from '../../action/User/user';
 import {userAttr} from "../../action/User/user";
 import {userStories} from "../../action/User/user";
-import {userStoryTexts} from "../../action/User/userStoryTexts";
+import {fetchStoryText} from "../../action/User/viewStoryText";
 import './User.css'
 
 //MOUNTED ON STORYTEXTCONTAINER
 //LOGGED IN USERS STORIES
 
-class UserStoryTexts extends React.Component  { 
+class UserStoryText extends React.Component  { 
 
   constructor(props) {
     super(props);
@@ -58,16 +58,16 @@ const reader = new FileReader();
 
         render(){
 
+        const Istate = []
+        Istate.push(this.state.setImages)
     //  console.log( this.state.setImages && this.state.setImages.map(i => i.id))
         // <ul> {this.state.setImages && this.state.setImages.map(i => <img src={i.url} />)}  </ul>
           //MAPPING OVER IMAGE ARRAY
             return ( 
             
-                <div className="User_Stories"> 
-                <h1 className="user_stories_header">Your Stories</h1>
-                <div className="user_stories"> 
-      <ul className="Image_List"> {this.state.setImages && this.state.setImages.map(i =>  <img key={i.id} src={i.url}/>   )}  </ul>
-              </div> 
+                <div className="User_Story"> 
+                <h1 className="user_story_header">Your Story</h1>
+          
                   </div> 
             )
           }   
@@ -109,4 +109,4 @@ const  consLog = users.map( u => u.data.map(i => i.id === "5"))
 
 
 //EXPORT
-           export default connect(mapStateToProps,{getCurrentUser,mapDispatchToProps,userAttr, userStories})(UserStoryTexts);
+           export default connect(mapStateToProps,{getCurrentUser,mapDispatchToProps,userAttr, userStories})(UserStoryText);

@@ -1,7 +1,6 @@
-
 import React from 'react'
 import {connect} from 'react-redux'
-import {CreateStoryText} from '../../../action/StoryTexts/CreateStoryTexts';
+import {UpdateStoryText} from '../../../action/StoryTexts/EditStoryText';
 import ListCategories from '../../Category/categories';
 import {updateForm } from '../../../action/StoryTexts/CreateStoryTexts';
 import { useEffect, useDispatch,useState } from "react";
@@ -11,12 +10,14 @@ import CatCheckBox from './catCheckBox';
 import Select from 'react-select'
 import axios from 'axios'
 
+
+
+
 //MOUNTED ON STORYTEXT CONTAINER
 
 // TODO: Look into using a useEffect hook so when there is a change isChecked you
-// can update the formData obj.
 
-const EditStory = ({formData, updateForm,uploadImage,updateCat, CreateStoryText,categories}) => {
+const EditStory = ({formData, updateForm,uploadImage,updateCat, UpdateStoryText,categories}) => {
 
 
 
@@ -25,7 +26,7 @@ const EditStory = ({formData, updateForm,uploadImage,updateCat, CreateStoryText,
 
 //IMAGE UPLOAD HOOK
    const [newImage, setNewImage] = useState('');
-   //CATEGORY CHECKBOX HOOK
+   //CATEGORY CHECKBOX HOOK FOR EXTENDED FUNCTIONALITY
   // const [isChecked, setIsChecked] = useState(new Array(categories.length).fill(false)); 
 //formData.categories UPDATE storytext.categories setIsChecked HOOK
 const [matchedCategories, setCategories] = useState("")
@@ -39,10 +40,13 @@ const imageHandler = (e, state) => {
   const reader = new FileReader();
   reader.readAsDataURL(image_file)
   e.persist(image_file)
+ const value = ""
   reader.onloadend = () => {
+    
       const newImg = reader.result
    setNewImage(newImg)
   uploadImage(image_file,newImg,newImage) 
+   console.log(formData.image_file)
     //debugger;
   }
 }
@@ -78,8 +82,8 @@ const handleCatchange = (e, state) =>  {
 
 //SUBMIT FORM
     const handleSubmit = event => {
-    event.preventDefault()
-    CreateStoryText(formData,matchedCategories,newImage)
+    UpdateStoryText(formData,matchedCategories,newImage)
+    
    }
 
 
@@ -95,9 +99,9 @@ const DefaultImage = () => {  //FOR PRESENTAIION MOUNTED ON FORM
 
   return (
       <div className="editStoryText">
-      <h3> Create Story</h3><br></br>
+      <h3> Edit Story</h3><br></br>Choose a Category
         <form onSubmit={handleSubmit}>
-        Choose Category<br></br><br></br>
+        <br></br><br></br><br></br>
     
 
    <br></br>  <DefaultImage/><br></br>
@@ -107,13 +111,14 @@ const DefaultImage = () => {  //FOR PRESENTAIION MOUNTED ON FORM
 
 
       <input //IMAGE UPLOAD INPUT 
+      
         type="file" 
           name="image_file" 
           id="imageInput" 
           accept="image/*" 
-           onChange={imageHandler}/><br></br>
+           onChange={imageHandler}/><br></br><br></br>
 <Select
-className="CatSelect"
+className="CatSelect"   //CATEGORY
    onChange={handleCatchange}
    options={
       categories.map((c, index) => {
@@ -162,9 +167,12 @@ className="CatSelect"
   }
 
 
+
+
+
 //MAPSTATE
 const mapStateToProps = (state) => {
-
+//debugger;
   return {
     formData: state.storytext,
     categories: state.categories,
@@ -174,4 +182,4 @@ const mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps,  { updateForm,updateCat, uploadImage, CreateStoryText, ListCategories} )(EditStory) 
+export default connect(mapStateToProps,  { updateForm,updateCat, uploadImage, UpdateStoryText, ListCategories} )(EditStory) 
