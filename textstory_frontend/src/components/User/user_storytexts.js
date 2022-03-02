@@ -13,14 +13,14 @@ import './User.css'
 class UserStoryTexts extends React.Component  { 
 
   constructor(props) {
-    super(props);
-    
+    super(props);  
 //LOCAL STATE TO HOLD BACKEND STORY_TEXT_IMAGES 
     this.state = {
       user_stories: "",
       setPromise: "",
-      setImages: ""
+      setImages: "",
     };
+          this.getStoryText = this.getStoryText.bind(this)
   }
 
 //FETCHING CURRENT USER AND USER STORY ATTRIBUTES FROM IMPORTED ACTIONS.
@@ -34,19 +34,32 @@ componentDidMount(){
      this.setState({user_stories: userStoryTexts()})
      Promise.resolve(userStoryTexts()).then(value=>{
        if (value[0] !== undefined ) {
-      this.setState({setPromise: value.attributes})
+         
+      this.setState({setPromise: value})
      value.map(v =>  story_images.push(...v.attributes.images))
       //PUSHING USER STORYTEXT STATE TO AN EMPTY ARRAY CALLED STORY_IMAGES
       user_stories.push(this.state.setPromise)
       this.setState({setImages: story_images })
       //PUSHING STORYTEXT IMAGE STATE TO AN EMPTY ARRAY CALLED STORY_IMAGES
-      //this.setState({setImages: story_images})
     }
       }) 
-
         }
 
 
+
+getStoryText(e){
+const collectImage = []
+const collectStory = []
+const collectS = []
+const parseVal = parseInt(e.target.id)
+const matchImage = this.state.setImages.filter( i => i.id === parseVal)
+const filter = matchImage.filter( i => i)
+this.state.setPromise.map(s => collectStory.push(s.attributes))
+collectStory.map( s => collectS.push(s.images.filter( i => i.id === 6)))
+debugger;
+
+}
+//this.state.setPromise.map(s => s.attributes.images.map(i => i.id))
 
 
 setImage = (image) => {
@@ -57,16 +70,12 @@ const reader = new FileReader();
 
 
         render(){
-
-    //  console.log( this.state.setImages && this.state.setImages.map(i => i.id))
-        // <ul> {this.state.setImages && this.state.setImages.map(i => <img src={i.url} />)}  </ul>
           //MAPPING OVER IMAGE ARRAY
-            return ( 
-            
+            return (         
                 <div className="User_Stories"> 
                 <h1 className="user_stories_header">Your Stories</h1>
                 <div className="user_stories"> 
-      <ul className="Image_List"> {this.state.setImages && this.state.setImages.map(i =>  <img key={i.id} src={i.url}/>   )}  </ul>
+      <ul className="Image_List" onClick={this.getStoryText} > {this.state.setPromise && this.state.setPromise.map(s =>  s.attributes.images.map( i =>  <img id={s.id}   src={i.url}/>))}</ul>
               </div> 
                   </div> 
             )
@@ -84,22 +93,6 @@ const reader = new FileReader();
 
           //MAPTOPROPS  
            const mapStateToProps = (state) => {
-//debugger;
-//
-//{...state.user, story_texts:  }
-
-//--> STUCK HERE <-----
-
-const users = state.storytexts.map( s => s.relationships.users)
-
-const  consLog = users.map( u => u.data.map(i => i.id === "5"))
-
-//const  consLog = users.map( u => u.map(i => i.id[0] === state.user.id))
-
-//const userStories = state.storytexts.filter(element => user_stories.includes(element.id) );
-//const story_Relationships = userStories.map(s => s.relationships)
-//const imageArray = userStories.map(s => s.relationships.images.data.map(s => parseInt(s.id)))
-//imageArray.map(i => i.map(element => element ))           
         return {
              user: state.user,
             }     

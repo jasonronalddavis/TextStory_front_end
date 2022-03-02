@@ -1,3 +1,7 @@
+//REMOVING SOON LOCAL STATE TO HOLD BACKEND STORY_TEXT_IMAGES 
+
+
+
 export const setImages = images => {
     const url = images.data.map(d => d.attributes.url)
     return {

@@ -9,6 +9,10 @@ const initialState = {
  comments: [],
  text_content: "",
  image_file: "",
+  create: false,
+ edit: false,
+ delete: false,
+ view: false
 }
 
 
@@ -25,7 +29,11 @@ case "SET_STORY_TEXT":
   return action.updatedFormInfo
 case "RESET_STORY_TEXT_FORM":
 return initialState
-case "UPLOAD_IMAGE":
+case "SET_BOOLEAN_VALUES":
+return {...state, edit: false, view: false, delete: false, create: false}
+ case "SET_BOOLEAN_VALUE":
+ return   {...state, [action.booleanName]: true}
+ case "UPLOAD_IMAGE":
  return action.updatedImg
 default:
 return state

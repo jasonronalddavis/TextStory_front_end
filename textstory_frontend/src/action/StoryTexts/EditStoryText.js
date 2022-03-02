@@ -11,7 +11,6 @@ return {
 }
 
 
-
 export const updateForm =  (formData, input) => {
         const updatedFormInfo = {
           ...formData,
@@ -56,6 +55,30 @@ export const resetStoryText = () => {
       updatedImg
       }
   }
+
+
+    export const setValues = (values, name) => {
+   
+  return {
+      type: "SET_BOOLEAN_VALUES",
+      values
+      }
+    }
+
+
+export const setVal = (values,name) => {
+
+ const updateVal = {...values, [name]: true}
+const booleanName = name
+  //debugger;
+return {
+      type: "SET_BOOLEAN_VALUE",
+      booleanName
+}
+}
+
+
+
 
   //ASYNC
 

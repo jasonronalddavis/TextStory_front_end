@@ -63,11 +63,9 @@ const reader = new FileReader();
     //  console.log( this.state.setImages && this.state.setImages.map(i => i.id))
         // <ul> {this.state.setImages && this.state.setImages.map(i => <img src={i.url} />)}  </ul>
           //MAPPING OVER IMAGE ARRAY
-            return ( 
-            
+            return (    
                 <div className="User_Story"> 
-                <h1 className="user_story_header">Your Story</h1>
-          
+                <h1 className="user_story_header">Your Story</h1> 
                   </div> 
             )
           }   
@@ -84,22 +82,7 @@ const reader = new FileReader();
 
           //MAPTOPROPS  
            const mapStateToProps = (state) => {
-//debugger;
-//
-//{...state.user, story_texts:  }
 
-//--> STUCK HERE <-----
-
-const users = state.storytexts.map( s => s.relationships.users)
-
-const  consLog = users.map( u => u.data.map(i => i.id === "5"))
-
-//const  consLog = users.map( u => u.map(i => i.id[0] === state.user.id))
-
-//const userStories = state.storytexts.filter(element => user_stories.includes(element.id) );
-//const story_Relationships = userStories.map(s => s.relationships)
-//const imageArray = userStories.map(s => s.relationships.images.data.map(s => parseInt(s.id)))
-//imageArray.map(i => i.map(element => element ))           
         return {
              user: state.user,
             }     

@@ -23,6 +23,3 @@ export const fetchStoryTexts = () =>  {
 //https://github1s.com/howardbdev/globetrotter-frontend/tree/master/src/components
 
 
-
-// const users = storytexts.data.map( d => d.relationships.users.data)
-// users.map( u => u.id)

@@ -172,3 +172,18 @@ fetch("http://localhost:3001/api/v1/get_user_stories", {
     })
     .then(r => r.json())
     .then(response => {response})
+
+
+
+    <Link to="/somewhere"/>
+
+// but you can use a location instead
+const location = {
+  pathname: '/somewhere',
+  state: { fromDashboard: true }
+}
+
+<Link to={location}/>
+<Redirect to={location}/>
+history.push(location)
+history.replace(location)

@@ -2,7 +2,8 @@ const initialState = {
 id: 0,
 name: "",
 story_texts: [],
-images: []
+images: [],
+
 }
 
 
