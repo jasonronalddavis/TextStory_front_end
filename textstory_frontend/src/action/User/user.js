@@ -18,11 +18,9 @@ export const setUser = user => {
 
 
 export const userStories = stories => {
-
   return {
     type: "USER_STORIES",
    payload: stories
-  
   }
 }
 
@@ -48,12 +46,10 @@ return {
   type: "SET_USER_IMAGES",
   payload: images
 }
-
 }
 
+
 //asynchronpus action creators 
-
-
 
 export const login = credentials => {
   console.log("credentials are",credentials)
@@ -84,7 +80,6 @@ dispatch(setUser(resp.data))
 
 
 
-//--> STUCK HERE. USER KEEPS SIGNING OUT ON REFRESH <-----
 export const getCurrentUser = () => {
   return dispatch => {
    

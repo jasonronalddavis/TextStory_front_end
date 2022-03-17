@@ -58,7 +58,7 @@ export const resetStoryText = () => {
 
 
     export const setValues = (values, name) => {
-   
+
   return {
       type: "SET_BOOLEAN_VALUES",
       values
@@ -66,16 +66,13 @@ export const resetStoryText = () => {
     }
 
 
-export const setVal = (values,name) => {
-
- const updateVal = {...values, [name]: true}
-const booleanName = name
-  //debugger;
-return {
+    export const setVal = (values,name) => {
+      const booleanName = name
+    return {
       type: "SET_BOOLEAN_VALUE",
       booleanName
-}
-}
+      }
+    }
 
 
 

@@ -1,14 +1,19 @@
 
 
   
+
+
+export const setUserStory = (user_story) => {
+return{
+type: "SET_USER_STORY",
+user_story
+}
+}
+
+
+
   //asynchronpus action creators 
   
-  
-
-  
-  
-  
-  //--> STUCK HERE. USER KEEPS SIGNING OUT ON REFRESH <-----
   export const userStoryTexts = () => {
 
       return fetch("http://localhost:3001/api/v1/user_story_texts", {

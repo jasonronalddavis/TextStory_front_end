@@ -73,21 +73,22 @@ export const CreateStoryText = (storyTextData,matchedCategories, newImage) =>  {
     }
   
 
-    return fetch("http://localhost:3001/api/v1/story_texts/create", {
+
+    const configObj = {
+
       credentials: "include",
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(sendData)
-    })
+
+    }
+
+  fetch("http://localhost:3001/api/v1/story_texts/create", configObj)
       .then(r => r.json())
       .then(resp => {
-        if (resp.error) {
-          alert(resp.error)
-        } else {
-          dispatch(setStoryText(resp.data))
-        }
+          dispatch(setStoryText(resp.data))     
       })
       .catch(console.log)
   }

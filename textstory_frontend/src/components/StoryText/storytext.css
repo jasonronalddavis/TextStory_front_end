@@ -1,0 +1,57 @@
+.viewStoryImages{
+    position:absolute; right:60px; top: 40px; z-index: 70;
+    -moz-box-shadow:-10px 5px 5px rgba(0,0,0,0.3);
+    -webkit-box-shadow:-10px 5px 5px rgba(0,0,0,0.3);
+    box-shadow:-10px 5px 5px rgba(0,0,0,0.3);
+    width: 210px;
+    margin:0 0 15px 0;
+}
+
+.viewStory{
+    position:fixed; left:420px; top: 270px; z-index: 90;
+    width: 220px;
+}
+
+
+.ViewStoryImageList{
+    position:absolute; right:-50px; top: 120px; z-index: 70;
+    width: 210px;
+}
+
+
+.scrollStory{
+
+    position:absolute; left:-220px; top: 0px; z-index: 70;
+    overflow-y: scroll; height: 300px; width: 70px;
+    overflow-x: hidden; width: 220px;
+
+}
+
+.viewStoryHeader{
+    position:absolute; right:230px; top: -70px; z-index: 70;
+    width: 210px;
+}
+
+.viewStoryDescription{
+    position:absolute; right:0px; top: 50px; z-index: 90;
+    width: 210px;
+}
+
+.viewDesContent{
+    position:absolute; right:0px; top: 60px; z-index: 90;
+    width: 210px;
+}
+
+.viewStoryTextContent{
+    position:absolute; right:0px; top: 470px; z-index: 90;
+    overflow-y: scroll; height: 430px; width: 70px;
+    overflow-x: hidden; width: 200px; height: 150px;
+    width: 210px;    
+}
+
+
+.viewStoryName{
+    position:absolute; right:0px; top: 40px; z-index: 90;
+    width: 210px;
+
+}

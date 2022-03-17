@@ -1,11 +1,8 @@
 .ScriptHeader{
-    position:absolute; top: 150px;  left: 465px; z-index: 80;
+    position:absolute; top: 210px;  left: 465px; z-index: 80;
     height: 50px;
     color: rgb(0, 0, 0);
-    font-size: 2.5em;
-    perspective: 229px;
-    transform: rotateX(-60deg) rotateY(40deg);
-    
+    font-size: 2.0em;
    
 }
 
@@ -14,8 +11,6 @@
     height: 600px;
     font-size: 2.5em;
 }
-
-
 
 
 
@@ -34,11 +29,9 @@
 
 
 .user_story_cover{
-
     position:relative; top: 150px;  right: 220px; z-index: 70 ;
     padding: 0px 0px 0px 0px;
     height: 600px;
-
 }
 
  .homeLink{
@@ -46,30 +39,32 @@
     width: 100px;
     color: rgb(0, 0, 0);
     }
-    
-
 
 
 .StoryTextList {
     position:absolute; left:415px; top: 320px; z-index: 80;
-    width: 100px;
+    width: 50px;
     color: rgb(0, 0, 0);
     font-size: .7em;
-    transform: rotateX(0deg) rotateY(336deg);
     overflow-y: scroll; height: 300px; width: 130px;
     overflow-x: hidden;
     justify-content: center;
 }
 
 .imageLilst{
-    position:relative; left:0px; top: 200px; z-index: 80;
+    position:relative; left:20px; top: 50px; z-index: 80;
     width: 40px;
     margin:0 0 25px 0;
     justify-content: center;
     -moz-box-shadow:5px 5px 5px rgba(0,0,0,0.3);
--webkit-box-shadow:5px 5px 5px rgba(0,0,0,0.3);
-box-shadow:5px 5px 5px rgba(0,0,0,0.3);
-    
+    -webkit-box-shadow:5px 5px 5px rgba(0,0,0,0.3);
+    box-shadow:5px 5px 5px rgba(0,0,0,0.3);   
+}
+
+
+
+.imageLilst:hover{
+  transform: scale(1.2);
 }
 
 
@@ -127,9 +122,10 @@ box-shadow:5px 5px 5px rgba(0,0,0,0.3);
 
 
 .createStoryText {
-    position:absolute; top:280px;  left: 185px; z-index: 80; height: 380px;
+    position:absolute; top:280px;  left: 185px; z-index: 90; height: 380px;
     color: rgb(50, 53, 53);
     -webkit-box-reflect: below 120px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
     overflow-y: scroll; height: 325px; width: 240px;
     
 }
+

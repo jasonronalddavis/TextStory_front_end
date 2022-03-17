@@ -3,8 +3,10 @@ import { connect } from 'react-redux'
 import {destroyUser} from  '../../action/User/user';
 import {getCurrentUser} from '../../action/User/user';
 import user from './user';
-
 import "./User.css";
+
+
+//FUNCTIONALITY NOT YET IMPLEMENTED
 //MOUNTED ON USERPROFILE COMPONENT
 
 

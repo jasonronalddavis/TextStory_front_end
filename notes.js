@@ -187,3 +187,29 @@ const location = {
 <Redirect to={location}/>
 history.push(location)
 history.replace(location)
+
+
+
+
+
+
+
+
+fetch("http://localhost:3001/api/v1/story_texts/create", {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify()
+    })
+      .then(r => r.json())
+      .then(resp => {
+        if (resp.error) {
+          alert(resp.error)
+        } else {
+         console.log(resp.data)
+        }
+      })
+  
+  

@@ -35,18 +35,19 @@ const [matchedCategories, setCategories] = useState("")
 
 
 //ONCHANGE HANDLERS
-const imageHandler = (e, state) => {
+const imageHandler = (e,state) => {
+  e.preventDefault();
   const  image_file = e.target.files[0];
   const reader = new FileReader();
   reader.readAsDataURL(image_file)
   e.persist(image_file)
- const value = ""
   reader.onloadend = () => {
-    
       const newImg = reader.result
    setNewImage(newImg)
   uploadImage(image_file,newImg,newImage) 
    console.log(formData.image_file)
+   e.preventDefault();
+
     //debugger;
   }
 }
@@ -83,7 +84,7 @@ const handleCatchange = (e, state) =>  {
 //SUBMIT FORM
     const handleSubmit = event => {
     CreateStoryText(formData,matchedCategories,newImage)
-    
+    window.location.reload
    }
 
 
@@ -104,8 +105,8 @@ const DefaultImage = () => {  //FOR PRESENTAIION MOUNTED ON FORM
         <br></br><br></br><br></br>
     
 
-   <br></br>  <DefaultImage/><br></br>
-        <img className="imagePreview" // JUST FOR PRESENTATION FOR NOW WILL INSERT UPLOADED IMAGE LATER
+   <br></br>  <DefaultImage /><br></br>
+        <img className="imagePreview" 
           alt={""}
           src={newImage}></img><br></br><br></br>
 

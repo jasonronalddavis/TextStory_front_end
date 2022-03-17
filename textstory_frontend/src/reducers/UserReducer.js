@@ -2,8 +2,7 @@ const initialState = {
 id: 0,
 name: "",
 story_texts: [],
-images: [],
-
+images: []
 }
 
 
@@ -21,6 +20,7 @@ case "DELETE_USER":
   return   state.id 
  case "USER_ATTR":
  return action.payload 
+
  case "SET_USER_IMAGES":
  return {...state.story_texts, images: action.payload}
 default:

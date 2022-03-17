@@ -4,73 +4,36 @@ import  {connect}  from 'react-redux';
 import {getCurrentUser} from '../../action/User/user';
 import {userAttr} from "../../action/User/user";
 import {userStories} from "../../action/User/user";
-import {fetchStoryText} from "../../action/User/viewStoryText";
+import {userStoryTexts} from "../../action/User/userStoryTexts";
+import {setUserStory} from "../../action/User/userStoryTexts";
 import './User.css'
 
-//MOUNTED ON STORYTEXTCONTAINER
-//LOGGED IN USERS STORIES
+//MOUNTED ON USER_STORYTEXTS COMPONENT
+//PRESENTATIONAL COMPONENT
+//IN CONSTRUCTION
+const  ViewUserStory = ({userStory,props}) => { 
 
-class UserStoryText extends React.Component  { 
+          const storyImages = []
+          props.map( i => storyImages.push(i.attributes.images))
 
-  constructor(props) {
-    super(props);
-    
-//LOCAL STATE TO HOLD BACKEND STORY_TEXT_IMAGES 
-    this.state = {
-      user_stories: "",
-      setPromise: "",
-      setImages: ""
-    };
-  }
-
-//FETCHING CURRENT USER AND USER STORY ATTRIBUTES FROM IMPORTED ACTIONS.
-//MAPPING USER_STORY_TEXT FETCH FUNCTION TO LOCAL STATE
-//SETTING STORY_TEXT IMAGE ATTRIBUTE TO LOCAL STATE
-
-componentDidMount(){
-  const user_stories = []
-  const story_images = []
-        this.props.getCurrentUser()
-     this.setState({user_stories: userStoryTexts()})
-     Promise.resolve(userStoryTexts()).then(value=>{
-       if (value[0] !== undefined ) {
-      this.setState({setPromise: value.attributes})
-     value.map(v =>  story_images.push(...v.attributes.images))
-      //PUSHING USER STORYTEXT STATE TO AN EMPTY ARRAY CALLED STORY_IMAGES
-      user_stories.push(this.state.setPromise)
-      this.setState({setImages: story_images })
-      //PUSHING STORYTEXT IMAGE STATE TO AN EMPTY ARRAY CALLED STORY_IMAGES
-      //this.setState({setImages: story_images})
-    }
-      }) 
-
-        }
-
-
-
-
-setImage = (image) => {
-const reader = new FileReader();
-//reader.readAsDataURL(image)
-}
-//https://webcode.tools/generators/css/perspective
-
-
-        render(){
-
-        const Istate = []
-        Istate.push(this.state.setImages)
-    //  console.log( this.state.setImages && this.state.setImages.map(i => i.id))
-        // <ul> {this.state.setImages && this.state.setImages.map(i => <img src={i.url} />)}  </ul>
-          //MAPPING OVER IMAGE ARRAY
-            return (    
+            return (         
                 <div className="User_Story"> 
-                <h1 className="user_story_header">Your Story</h1> 
+                <h1 className="user_story_header">Your Story</h1>
+                <div className="user_story"> 
+                {userStory && userStory.map(s => <h2 className="story_name"> Story Name: <br></br>{s.attributes.name}</h2>
+                    )}
+              {userStory && userStory.map(s => <p className="story_description"> Story Description: <br></br>{s.attributes.description}</p>
+                    )}
+              {storyImages[0].map( i => <ul className="ListUserStoryImages"> <il key={i.id} ><img className="ViewUserStoryImages" src={i.url}/> </il></ul>)}
+             
+              {userStory && userStory.map(s => <div> <p className="story_text_content"> <h4 className="UserStoryContHeader">Story Text Content: </h4><br></br>{s.attributes.text_content}</p>
+              </div>)}
+
+              </div> 
                   </div> 
             )
           }   
-          }
-          
+      
 
 
          const mapDispatchToProps = (dispatch) => {
@@ -82,9 +45,10 @@ const reader = new FileReader();
 
           //MAPTOPROPS  
            const mapStateToProps = (state) => {
-
         return {
              user: state.user,
+             userStory: state.storytext.user_story
+             
             }     
            }
               
@@ -92,4 +56,4 @@ const reader = new FileReader();
 
 
 //EXPORT
-           export default connect(mapStateToProps,{getCurrentUser,mapDispatchToProps,userAttr, userStories})(UserStoryText);
+           export default connect(mapStateToProps,{getCurrentUser,mapDispatchToProps,userAttr, userStories})(ViewUserStory);

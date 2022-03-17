@@ -6,7 +6,12 @@ return {
     }
 }
 
-
+export const viewStory = (story) => {
+  return{
+  type: "SET_USER_STORY",
+  story
+  }
+  }
 
 //ASYNC
 
