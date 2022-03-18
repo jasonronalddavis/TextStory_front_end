@@ -23,7 +23,8 @@ class UserStoryTexts extends React.Component  {
       user_stories: "",
       setPromise: "",
       setImages: "",
-      user_story: ""
+      user_story: "",
+      view: false
     };
           this.getStoryText = this.getStoryText.bind(this)
   }
@@ -49,12 +50,25 @@ componentDidMount(){
       user_stories.push(this.state.setPromise)
       this.setState({setImages: story_images })
       //PUSHING STORYTEXT IMAGE STATE TO AN EMPTY ARRAY CALLED STORY_IMAGES
+      window.addEventListener('click', (e) => this.turnOffCreate(e));
+      //EVENT LISTENER FOR BOOLEAN STATE
+      window.addEventListener('click', (e) => this.turnOffSelf(e));
+
     }
       }) 
         }
 
+//HANDLERS
 
 
+turnOffSelf(e){
+  e.target.name == "view" ? this.setState({view: true }) : null
+
+}
+        turnOffCreate(e){
+          e.target.class == "homeLink" || e.target.name == "create" || e.target.name == "viewStory" || e.target.name == "edit"? this.setState({view: false }) : null
+        }
+       
       getStoryText(e){
 //FETCHING STORY OBJECT BY E.TARGET.ID TO DISPLAY IN VIEW COMPONENT
         const eVal = e.target
@@ -70,6 +84,7 @@ componentDidMount(){
         this.props.setValues(values,name)
         this.props.setVal(values,name)
          this.setState({user_story: user_story})
+    
         this.props.setUserStory(user_story)
      }
 
@@ -80,7 +95,7 @@ componentDidMount(){
             return (    
      
                 <div className="User_Stories"> 
-                {this.props.view === true ? <ViewUserStory props={this.state.user_story} /> : null}
+                {this.state.view == true ? <ViewUserStory props={this.state.user_story} /> : null}
                 <h1 className="user_stories_header">Your Stories</h1>
                 <div className="user_stories"> 
                 <ul className="Image_List" onClick={this.getStoryText} > {this.state.setPromise && this.state.setPromise.map(s =>  s.attributes.images.map( i =>  <img className="storyImages" key={i.id} name="view" id={s.id} src={i.url}/>))}</ul>

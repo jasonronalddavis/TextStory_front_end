@@ -16,7 +16,8 @@ constructor(props){
 super(props)
 this.state= {
 stortytext: "",
-viewStory: false
+viewStory: false,
+view: false
 
 
 }
@@ -36,7 +37,7 @@ componentDidMount(){
 
 
  turnOffCreate(e){
-   e.target.class == "homeLink" || e.target.name == "view" ? this.setState({viewStory: false }) : null
+   e.target.class == "homeLink" || e.target.name == "view" || e.target.name == "create" || e.target.name == "edit" ? this.setState({viewStory: false }) : null
  }
 
     

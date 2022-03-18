@@ -51,6 +51,9 @@ this.setState({edit:false, delete: false, create: false, viewStory: false, view:
 
       turnOffCreate(e){
         e.target.name == "viewStory" || e.target.name == "view" ? this.setState({create: false }) : null
+      // e.target.name == "create" || e.target.name == "edit" ? this.setState(prevState => ({view: [...prevState.view, false]})) : null
+     //  e.target.name == "create" || e.target.name == "edit" ? this.setState(prevState => ({viewStory: [...prevState.viewStory, false]})) : null
+
       }
 
 
