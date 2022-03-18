@@ -1,5 +1,6 @@
 
 import React from 'react';
+import {useEffect,useState} from 'react'
 import  {connect}  from 'react-redux';
 import {getCurrentUser} from '../../action/User/user';
 import {userAttr} from "../../action/User/user";
@@ -13,8 +14,11 @@ import './User.css'
 //IN CONSTRUCTION
 const  ViewUserStory = ({userStory,props}) => { 
 
+
+     
+
           const storyImages = []
-          props.map( i => storyImages.push(i.attributes.images))
+         props && props.map( i => storyImages.push(i.attributes.images))
 
             return (         
                 <div className="User_Story"> 
@@ -24,7 +28,7 @@ const  ViewUserStory = ({userStory,props}) => {
                     )}
               {userStory && userStory.map(s => <p className="story_description"> Story Description: <br></br>{s.attributes.description}</p>
                     )}
-              {storyImages[0].map( i => <ul className="ListUserStoryImages"> <il key={i.id} ><img className="ViewUserStoryImages" src={i.url}/> </il></ul>)}
+              {storyImages[0] && storyImages[0].map( i => <ul className="ListUserStoryImages"> <il key={i.id} ><img className="ViewUserStoryImages" src={i.url}/> </il></ul>)}
              
               {userStory && userStory.map(s => <div> <p className="story_text_content"> <h4 className="UserStoryContHeader">Story Text Content: </h4><br></br>{s.attributes.text_content}</p>
               </div>)}

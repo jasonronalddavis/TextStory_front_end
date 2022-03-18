@@ -31,11 +31,18 @@ class StoryTextContainer extends Component {
     }
 
   componentDidMount(){
-    this.props.getCurrentUser() 
+    this.props.getCurrentUser()
+    this.setState({edit:false, delete: false, create: false, viewStory: false, view: false })
     window.addEventListener('click', (e) => this.turnOffCreate(e));
  
- }
+    }
 
+componentDidUnMount(){
+
+this.setState({edit:false, delete: false, create: false, viewStory: false, view: false })
+
+
+ }
 
 
       refresh = () => {
@@ -43,12 +50,12 @@ class StoryTextContainer extends Component {
       }
 
       turnOffCreate(e){
-        e.target.name == "viewStory" ? this.setState({create: false }) : null
+        e.target.name == "viewStory" || e.target.name == "view" ? this.setState({create: false }) : null
       }
 
 
       setValue(e){
-        //MAY REMOVE LOCAL STATE BOOLEANS 
+        //SETTING BOOLEANS TO LOCAL STATE 
         const eVal = e.target
         const name = eVal.getAttribute("name")
         this.setState({edit: false});
@@ -72,7 +79,7 @@ class StoryTextContainer extends Component {
   
       <NavLink exact activeClassName="active" to="/" className="homeLink">Home</NavLink>       
       {this.props.edit === true ? <EditStory/>  : null}   
-      {this.props.create === true ? <CreateStory/>  : null} 
+      {this.state.create === true ? <CreateStory/>  : null} 
       <button className="refresh" onClick={this.refresh} variant="text">refresh</button>
   
       <img className="Edit" id="edit" name="edit" onClick={this.setValue} value={this.state.edit}  src={require('../public/EDIT.png')} alt='edit' />

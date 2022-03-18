@@ -14,8 +14,9 @@ class ListStoryTexts extends Component {
 
 constructor(props){
 super(props)
-this.stat= {
-stortytext: ""
+this.state= {
+stortytext: "",
+viewStory: false
 
 
 }
@@ -28,13 +29,16 @@ stortytext: ""
 componentDidMount(){
       // console.log(this.props)
       this.props.fetchStoryTexts();
+      window.addEventListener('click', (e) => this.turnOffCreate(e));
 
     }
 
-componentDidiUpdate(){
 
 
-}
+ turnOffCreate(e){
+   e.target.class == "homeLink" || e.target.name == "view" ? this.setState({viewStory: false }) : null
+ }
+
     
       setView = (e) => {
         const name = e.target.name
@@ -43,6 +47,7 @@ componentDidiUpdate(){
         const values = this.props.values
         this.props.setValues(values,name)
         this.props.setVal(values,name)
+        this.setState({viewStory: true})
         this.setState({storytext: story})
       }
 
@@ -53,7 +58,7 @@ componentDidiUpdate(){
     
     return(
       <div className="StoryTextList">
-       {this.props.viewStory === true ? <ViewStory {...this.state}/>  : null} 
+       {this.state.viewStory === true ? <ViewStory {...this.state}/>  : null} 
       {this.props.storytexts.map(s => s.attributes.images.map( i => <div key={s.attributes.id}> <img 
       onClick={(e) => this.setView(e)} id={s.attributes.id} name="viewStory" className="imageLilst" src={i.url}/> </div>))}
      

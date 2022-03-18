@@ -21,7 +21,9 @@ class App extends React.Component  {
     super(props);
     // initial state has count set at 0
     this.state = {
-      button: 0
+      button: 0,
+      getUser: "",
+      showContent: false
     };
   }
 
@@ -29,27 +31,31 @@ class App extends React.Component  {
 
 componentDidMount(){
 this.props.getCurrentUser()
+this.setState(prevState => ({getUser: [...prevState.getUser, ...this.props.user]}))
 }
  
 
-inCrease = () => {
-  this.setState(previousState => {
-    let value = previousState.button + 1;
-    return {
-      button: value
-    }
-  })
+
+componentWillUpdate(){
+
+
 }
+
+
 
 //RENDERED COMPONENTS WITH LOGIC DEPENDING ON IF USER IS LOGGED IN OR NOT
 render(){
 
   return (
     <div className="App">
-      <Router/>
-     {this.props.user ? <User/> : null}
-  {this.props.user ? <Logout/> : <LoginForm/>}
- {this.props.user ? null : <Signup/>}
+
+     {this.props.user  ? <User/> : null}
+    
+     {this.props.user == null ? <LoginForm/> : null}
+    {this.props.user == null ? <Signup/> : null}
+
+ { !this.props.user  ?  null : <Logout/>}
+ {this.props.user ? <Router/> : null }
  <CategoriesContainer/> 
  <Logo/>
     </div>
@@ -59,7 +65,6 @@ render(){
 
 //MAPTOPROPS
  const mapStateToProps = ({user}) => {
- // console.log(user)
   return {
     user,
 

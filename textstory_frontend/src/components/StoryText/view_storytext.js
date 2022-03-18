@@ -10,20 +10,22 @@ import "./storytext.css"
 //IN CONSTRUCTION
         const  ViewStory = (props) => { 
 
+const storytext = []
+
+if (props.storytext != "undefined"){
+props.storytext.map( s => storytext.push(s.attributes))
+//console.log(storytext.map( s => s.id))
+}
 
 
-
- console.log(props.storytext.map(s => s.attributes.name))
-
-       // <ul className="listStoryImgaes"> {props.storytext.map(s => s.attributes.images.map (i => <img key={i.id} className="storyImages" src={i.url}/>))} </ul>
             return (   
                 <div className="viewStory" > 
                 <h1 className="viewStoryHeader">View Story:</h1>
                 <div className="scrollStory">
-                 {props.storytext.map(s => <div><h3 className="storyNameHeader"> Story Name:</h3><h4 className="viewStoryName" key={s.attributes.id}> {s.attributes.name} </h4></div>)}   
-                 {props.storytext.map(s => <div className="viewDesContent"> <h3 className="storyDesHeader"> Description: </h3><p className="viewStoryDescription" key={s.attributes.id}> {s.attributes.description} </p></div>)}   
-                 <ul className="ViewStoryImageList"> {props.storytext.map(s => s.attributes.images.map (i => <img key={i.id} className="viewStoryImages" src={i.url}/>))} </ul>
-                 {props.storytext.map(s => <div className="viewStoryTextContent"> <h3 className="viewTextContHeader"> Text Content: </h3><p className="TextContent" key={s.attributes.id}> {s.attributes.text_content} </p></div>)}   
+                 { storytext && storytext.map(s => s ? <div><h3 className="storyNameHeader"> Story Name:</h3><h4 className="viewStoryName" key={s.id}> {s.name} </h4></div> : null )}  
+                 {  storytext && storytext.map(s => s ? <div className="viewDesContent"> <h3 className="storyDesHeader"> Description: </h3><p className="viewStoryDescription" key={s.id}> {s.description} </p></div> : null)}   
+                 <ul className="ViewStoryImageList"> {storytext && storytext.map(s => s ? s.images.map (i => <img key={i.id} className="viewStoryImages" src={i.url}/>) : null)} </ul>
+                 {  storytext && storytext.map(s => s ? <div className="viewStoryTextContent"> <h3 className="viewTextContHeader"> Text Content: </h3><p className="TextContent" key={s.id}> {s.text_content} </p></div> : null) }   
 
                  </div> 
                 </div> 
