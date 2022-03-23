@@ -43,7 +43,7 @@
 }
 
 .story_text_content{
-    position:absolute; left:40px; top: 600px; z-index: 90;
+    position:absolute; left:40px; top: 550px; z-index: 90;
     overflow-y: scroll; height: 430px; width: 70px;
     overflow-x: hidden; width: 200px; height: 150px;
 }
